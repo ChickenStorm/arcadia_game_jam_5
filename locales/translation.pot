@@ -1,0 +1,280 @@
+# Translations template for PROJECT.
+# Copyright (C) 2021 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2021-04-22 09:38+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: main.gd:71
+#, python-format
+msgid "Unknown requested scene : %s"
+msgstr ""
+
+#: config/config.gd:53
+#, python-format
+msgid "error while parsing configuration file %s : %s "
+msgstr ""
+
+#: config/config.gd:75
+#, python-format
+msgid "Error while saving configuration file %s : %s "
+msgstr ""
+
+#: global/error.gd:6 global/error.gd:19 global/error.gd:20
+msgid "error.network_error"
+msgstr ""
+
+#: global/error.gd:13 global/error.gd:15
+msgid "error.connexion_impossible"
+msgstr ""
+
+#: global/error.gd:13 global/error.gd:17
+msgid "error.server_not_avaliable"
+msgstr ""
+
+#: global/error.gd:15
+msgid "error.unkown_domain_name"
+msgstr ""
+
+#: global/error.gd:17
+msgid "error.http_not_connected"
+msgstr ""
+
+#: global/error.gd:19
+msgid "error.network_error_content"
+msgstr ""
+
+#: global/loading_screen.gd:39 global/loading_screen.tscn:166
+#, python-format
+msgid "global.loading.version %s"
+msgstr ""
+
+#: global/loading_screen.gd:59
+msgid "global.loading.ok"
+msgstr ""
+
+#: global/loading_screen.gd:62
+msgid "global.loading.waiting"
+msgstr ""
+
+#: global/loading_screen.gd:65
+msgid "global.loading.error"
+msgstr ""
+
+#: global/loading_screen.gd:121
+#, python-format
+msgid "global.loading.ressource.error %s %d"
+msgstr ""
+
+#: global/loading_screen.gd:121 global/loading_screen.gd:139
+msgid "global.loading.ressource."
+msgstr ""
+
+#: global/loading_screen.gd:132 global/loading_screen.gd:135
+#, python-format
+msgid "global.loading.progressbar_ressource %d %d"
+msgstr ""
+
+#: global/loading_screen.gd:139
+msgid "global.loading.none_loading"
+msgstr ""
+
+#: global/loading_screen.gd:142
+#, python-format
+msgid "global.loading.progressbar_global %d %d"
+msgstr ""
+
+#: global/loading_screen.tscn:78
+msgid "global.loading.loading"
+msgstr ""
+
+#: global/loading_screen.tscn:103 global/loading_screen.tscn:130
+msgid "0 / 0"
+msgstr ""
+
+#: global/loading_screen.tscn:185
+msgid "global.loading.quit"
+msgstr ""
+
+#: global/network.gd:104
+msgid "network.unable_connect"
+msgstr ""
+
+#: global/network.gd:111
+msgid "network.close_clean_ws"
+msgstr ""
+
+#: global/network.gd:118
+msgid "Connected with protocol: "
+msgstr ""
+
+#: global/network.gd:127
+msgid "WS event : "
+msgstr ""
+
+#: global/utils.gd:73
+msgid "action.key.mouse_key_"
+msgstr ""
+
+#: global/debug/debug_panel.tscn:91
+msgid "debug.title"
+msgstr ""
+
+#: global/debug/debug_panel.tscn:127
+msgid "debug.dump_game_data"
+msgstr ""
+
+#: gui/key_binding_label/key_binding_label.tscn:27
+msgid "not_translate.key"
+msgstr ""
+
+#: gui/menu/menu_header.tscn:45 gui/menu/menu_header.tscn:77
+msgid "no_translate.menu_title"
+msgstr ""
+
+#: gui/menu/menu_header.tscn:86
+msgid "gui.menu.minimize"
+msgstr ""
+
+#: gui/menu/menu_header.tscn:116
+msgid "gui.menu.close"
+msgstr ""
+
+#: menu/credits_scroll_container.gd:10 menu/menu_credits.tscn:110
+msgid "menu.credits.main"
+msgstr ""
+
+#: menu/menu_credits.tscn:131
+msgid "menu.credits.third_party_licenses"
+msgstr ""
+
+#: menu/menu_credits.tscn:138
+msgid "menu.credits.legal_notice_godot"
+msgstr ""
+
+#: menu/menu_credits.tscn:155
+msgid "menu.credits.back_main_menu"
+msgstr ""
+
+#: menu/menu_option.tscn:42
+msgid "menu.option.back_main_menu"
+msgstr ""
+
+#: menu/menu_screen.tscn:78
+msgid "menu.main.title"
+msgstr ""
+
+#: menu/menu_screen.tscn:113
+msgid "menu.main.play"
+msgstr ""
+
+#: menu/menu_screen.tscn:124
+msgid "menu.main.options"
+msgstr ""
+
+#: menu/menu_screen.tscn:135
+msgid "menu.main.credits"
+msgstr ""
+
+#: menu/menu_screen.tscn:146
+msgid "menu.main.quit"
+msgstr ""
+
+#: menu/option.gd:13
+msgid "menu.option.tab.shortcuts"
+msgstr ""
+
+#: menu/option.gd:14
+msgid "menu.option.tab.audio"
+msgstr ""
+
+#: menu/option.gd:15
+msgid "menu.option.tab.graphical"
+msgstr ""
+
+#: menu/option.gd:16
+msgid "menu.option.tab.lang"
+msgstr ""
+
+#: menu/option.tscn:81
+msgid "menu.option.shortcut.fleet_and_ships"
+msgstr ""
+
+#: menu/option.tscn:115
+msgid "menu.option.shortcut.map"
+msgstr ""
+
+#: menu/option.tscn:197
+msgid "menu.option.shortcut.hud"
+msgstr ""
+
+#: menu/option.tscn:223
+msgid "menu.option.shortcut.general"
+msgstr ""
+
+#: menu/options/audio_volume_control.gd:21
+msgid "audio.bus."
+msgstr ""
+
+#: menu/options/audio_volume_control.gd:28
+#, python-format
+msgid "menu.option.audio.volume_label %d %f"
+msgstr ""
+
+#: menu/options/audio_volume_control.tscn:34
+msgid "no_translate.bus_name"
+msgstr ""
+
+#: menu/options/audio_volume_control.tscn:78
+msgid "no_translate.Volume : 100 % (0 dB)"
+msgstr ""
+
+#: menu/options/graphical_option.tscn:22
+msgid "menu.option.graphical.fullscreen"
+msgstr ""
+
+#: menu/options/graphical_option.tscn:30
+msgid "menu.option.graphical.maximize"
+msgstr ""
+
+#: menu/options/graphical_option.tscn:38
+msgid "menu.option.graphical.resize"
+msgstr ""
+
+#: menu/options/graphical_option.tscn:46
+msgid "menu.option.graphical.display_id"
+msgstr ""
+
+#: menu/options/option_array.tscn:31
+msgid "no_translate.Option_Name"
+msgstr ""
+
+#: menu/options/option_array.tscn:48
+msgid "no_transalte.item_0"
+msgstr ""
+
+#: menu/options/option_boolean.tscn:36 menu/options/option_int.tscn:35
+msgid "no_translate.Option_Label"
+msgstr ""
+
+#: menu/options/option_key_binding.gd:22 menu/options/option_key_binding.gd:44
+#: menu/options/option_key_binding.tscn:35
+msgid "action."
+msgstr ""
+
+#: menu/options/option_lang.tscn:20
+msgid "menu.option.lang.language"
+msgstr ""
+
