@@ -7,7 +7,7 @@
 [ext_resource path="res://themes/font/credits_bold.tres" type="DynamicFont" id=7]
 [ext_resource path="res://gui/utils/button_click_sound_utils.gd" type="Script" id=8]
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=1]
 draw_center = false
 border_width_top = 40
 border_width_bottom = 40
@@ -42,28 +42,28 @@ __meta__ = {
 }
 
 [node name="space" type="Control" parent="Forground/CenterH"]
-margin_right = 199.0
-margin_bottom = 900.0
+margin_right = 136.0
+margin_bottom = 720.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="CenterV" type="VBoxContainer" parent="Forground/CenterH"]
-margin_left = 203.0
-margin_right = 1397.0
-margin_bottom = 900.0
+margin_left = 140.0
+margin_right = 1140.0
+margin_bottom = 720.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 6.0
 
 [node name="space3" type="Control" parent="Forground/CenterH/CenterV"]
-margin_right = 1194.0
-margin_bottom = 111.0
+margin_right = 1000.0
+margin_bottom = 89.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="CreditsContainer" type="VBoxContainer" parent="Forground/CenterH/CenterV"]
-margin_top = 115.0
-margin_right = 1194.0
-margin_bottom = 784.0
+margin_top = 93.0
+margin_right = 1000.0
+margin_bottom = 627.0
 rect_min_size = Vector2( 1000, 500 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -73,18 +73,18 @@ __meta__ = {
 }
 
 [node name="vSeparator1" type="Control" parent="Forground/CenterH/CenterV/CreditsContainer"]
-margin_right = 1194.0
+margin_right = 1000.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 0, 30 )
 
 [node name="CreditsScrollContainer" type="Panel" parent="Forground/CenterH/CenterV/CreditsContainer"]
 margin_top = 34.0
-margin_right = 1194.0
-margin_bottom = 601.0
+margin_right = 1000.0
+margin_bottom = 466.0
 rect_clip_content = true
 mouse_filter = 2
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = SubResource( 1 )
 script = ExtResource( 5 )
 __meta__ = {
 "_editor_description_": "the panel is used to add border up and down to do the fade in / out effect. It is also use to clip content"
@@ -101,7 +101,7 @@ __meta__ = {
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Forground/CenterH/CenterV/CreditsContainer/CreditsScrollContainer/VBoxContainer"]
-margin_right = 1194.0
+margin_right = 1000.0
 margin_bottom = 24.0
 custom_fonts/bold_font = ExtResource( 7 )
 custom_fonts/normal_font = ExtResource( 6 )
@@ -116,7 +116,7 @@ __meta__ = {
 
 [node name="Control" type="Control" parent="Forground/CenterH/CenterV/CreditsContainer/CreditsScrollContainer/VBoxContainer"]
 margin_top = 34.0
-margin_right = 1194.0
+margin_right = 1000.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 0, 30 )
 __meta__ = {
@@ -125,30 +125,30 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="Forground/CenterH/CenterV/CreditsContainer/CreditsScrollContainer/VBoxContainer"]
 margin_top = 74.0
-margin_right = 1194.0
+margin_right = 1000.0
 margin_bottom = 97.0
 custom_fonts/font = ExtResource( 6 )
 text = "menu.credits.third_party_licenses"
 
 [node name="LabelGodotLicence" type="Label" parent="Forground/CenterH/CenterV/CreditsContainer/CreditsScrollContainer/VBoxContainer"]
 margin_top = 107.0
-margin_right = 1194.0
+margin_right = 1000.0
 margin_bottom = 127.0
 custom_fonts/font = ExtResource( 4 )
 text = "menu.credits.legal_notice_godot"
 autowrap = true
 
 [node name="vSeparator2" type="Control" parent="Forground/CenterH/CenterV/CreditsContainer"]
-margin_top = 605.0
-margin_right = 1194.0
-margin_bottom = 635.0
+margin_top = 470.0
+margin_right = 1000.0
+margin_bottom = 500.0
 rect_min_size = Vector2( 0, 30 )
 
 [node name="BackMainMenu" type="Button" parent="Forground/CenterH/CenterV/CreditsContainer"]
-margin_left = 297.0
-margin_top = 639.0
-margin_right = 897.0
-margin_bottom = 669.0
+margin_left = 200.0
+margin_top = 504.0
+margin_right = 800.0
+margin_bottom = 534.0
 rect_min_size = Vector2( 600, 30 )
 size_flags_horizontal = 4
 size_flags_stretch_ratio = 0.5
@@ -159,15 +159,15 @@ __meta__ = {
 }
 
 [node name="space4" type="Control" parent="Forground/CenterH/CenterV"]
-margin_top = 788.0
-margin_right = 1194.0
-margin_bottom = 900.0
+margin_top = 631.0
+margin_right = 1000.0
+margin_bottom = 720.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="space2" type="Control" parent="Forground/CenterH"]
-margin_left = 1401.0
-margin_right = 1600.0
-margin_bottom = 900.0
+margin_left = 1144.0
+margin_right = 1280.0
+margin_bottom = 720.0
 size_flags_horizontal = 3
 size_flags_vertical = 3

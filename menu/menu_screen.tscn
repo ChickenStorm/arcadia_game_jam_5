@@ -34,7 +34,7 @@ __meta__ = {
 }
 
 [node name="Header" type="VBoxContainer" parent="GUI/Body"]
-margin_right = 1600.0
+margin_right = 1280.0
 margin_bottom = 79.0
 size_flags_stretch_ratio = 0.5
 alignment = 1
@@ -43,35 +43,35 @@ __meta__ = {
 }
 
 [node name="Control" type="Control" parent="GUI/Body/Header"]
-margin_right = 1600.0
+margin_right = 1280.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 0, 20 )
 
 [node name="TopHeader" type="HBoxContainer" parent="GUI/Body/Header"]
 margin_top = 24.0
-margin_right = 1600.0
+margin_right = 1280.0
 margin_bottom = 24.0
 alignment = 2
 
 [node name="Control" type="Control" parent="GUI/Body/Header/TopHeader"]
-margin_right = 1557.0
+margin_right = 1244.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.0
 
 [node name="Control2" type="Control" parent="GUI/Body/Header/TopHeader"]
-margin_left = 1561.0
-margin_right = 1600.0
+margin_left = 1248.0
+margin_right = 1280.0
 rect_min_size = Vector2( 10, 0 )
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 
 [node name="SubHeader" type="HBoxContainer" parent="GUI/Body/Header"]
 margin_top = 28.0
-margin_right = 1600.0
+margin_right = 1280.0
 margin_bottom = 79.0
 
 [node name="Title" type="Label" parent="GUI/Body/Header/SubHeader"]
-margin_right = 1600.0
+margin_right = 1280.0
 margin_bottom = 51.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 2 )
@@ -80,33 +80,33 @@ align = 1
 
 [node name="space" type="Control" parent="GUI/Body"]
 margin_top = 83.0
-margin_right = 1600.0
-margin_bottom = 119.0
+margin_right = 1280.0
+margin_bottom = 111.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.05
 
 [node name="MainSection" type="HBoxContainer" parent="GUI/Body"]
-margin_top = 123.0
-margin_right = 1600.0
-margin_bottom = 859.0
+margin_top = 115.0
+margin_right = 1280.0
+margin_bottom = 687.0
 size_flags_vertical = 3
 
 [node name="margin" type="Control" parent="GUI/Body/MainSection"]
-margin_right = 17.0
-margin_bottom = 736.0
+margin_right = 13.0
+margin_bottom = 572.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.05
 
 [node name="Menu" type="VBoxContainer" parent="GUI/Body/MainSection"]
-margin_left = 21.0
-margin_right = 361.0
-margin_bottom = 736.0
+margin_left = 17.0
+margin_right = 289.0
+margin_bottom = 572.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 40
 
 [node name="LobbyCreationButton" type="Button" parent="GUI/Body/MainSection/Menu"]
-margin_right = 340.0
+margin_right = 272.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 size_flags_vertical = 0
@@ -118,7 +118,7 @@ __meta__ = {
 
 [node name="OptionButton" type="Button" parent="GUI/Body/MainSection/Menu"]
 margin_top = 80.0
-margin_right = 340.0
+margin_right = 272.0
 margin_bottom = 120.0
 rect_min_size = Vector2( 0, 40 )
 text = "menu.main.options"
@@ -129,7 +129,7 @@ __meta__ = {
 
 [node name="CreditsButton" type="Button" parent="GUI/Body/MainSection/Menu"]
 margin_top = 160.0
-margin_right = 340.0
+margin_right = 272.0
 margin_bottom = 200.0
 rect_min_size = Vector2( 0, 40 )
 text = "menu.main.credits"
@@ -140,7 +140,7 @@ __meta__ = {
 
 [node name="Quit" type="Button" parent="GUI/Body/MainSection/Menu"]
 margin_top = 240.0
-margin_right = 340.0
+margin_right = 272.0
 margin_bottom = 280.0
 rect_min_size = Vector2( 0, 40 )
 text = "menu.main.quit"
@@ -151,43 +151,43 @@ __meta__ = {
 
 [node name="footer" type="Control" parent="GUI/Body/MainSection/Menu"]
 margin_top = 320.0
-margin_right = 340.0
-margin_bottom = 736.0
+margin_right = 272.0
+margin_bottom = 572.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 15.0
 
 [node name="space" type="Control" parent="GUI/Body/MainSection"]
-margin_left = 365.0
-margin_right = 467.0
-margin_bottom = 736.0
+margin_left = 293.0
+margin_right = 374.0
+margin_bottom = 572.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
 
 [node name="Section" type="ScrollContainer" parent="GUI/Body/MainSection"]
-margin_left = 471.0
-margin_right = 1493.0
-margin_bottom = 736.0
+margin_left = 378.0
+margin_right = 1194.0
+margin_bottom = 572.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 
 [node name="Lobbies" type="VBoxContainer" parent="GUI/Body/MainSection/Section"]
-margin_right = 1022.0
-margin_bottom = 736.0
+margin_right = 816.0
+margin_bottom = 572.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="space2" type="Control" parent="GUI/Body/MainSection"]
-margin_left = 1497.0
-margin_right = 1600.0
-margin_bottom = 736.0
+margin_left = 1198.0
+margin_right = 1280.0
+margin_bottom = 572.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
 
 [node name="Footer" type="Control" parent="GUI/Body"]
-margin_top = 863.0
-margin_right = 1600.0
-margin_bottom = 900.0
+margin_top = 691.0
+margin_right = 1280.0
+margin_bottom = 720.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.05
 

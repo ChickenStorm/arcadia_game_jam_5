@@ -34,12 +34,6 @@ const LOCALE_CONFIG_NAME = "local"
 const DEFAULT_LOCALE = "fr"
 const VERSION = preload("res://version.tres")
 
-var api = {
-	'dns': null,
-	'port': null,
-	'scheme': null,
-	'ws_scheme': null
-}
 var config_environment = preload(PATH_CONFIG_NETWORK)
 var config_user = ConfigFile.new()
 
@@ -105,15 +99,6 @@ func reload_locale():
 	_load_locale(config_user)
 	if previous_locale != TranslationServer.get_locale():
 		emit_signal("locale_reloaded")
-
-
-static func _get_api_config(config):
-	var api_r = {}
-	api_r.dns = config.api_dns
-	api_r.port = config.api_port
-	api_r.scheme = config.api_scheme
-	api_r.ws_scheme = config.ws_scheme
-	return api_r
 
 
 static func _load_config_user(config):
