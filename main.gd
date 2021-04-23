@@ -17,7 +17,11 @@ var scenes = {
 	"credits_menu" : {
 		"path" : "res://menu/menu_credits.tscn",
 		"scene" : null,
-	}
+	},
+	"game" : {
+		"path" : "res://game/game.tscn",
+		"scene" : null,
+	},
 }
 
 var _is_in_game = false setget _set_is_in_game
