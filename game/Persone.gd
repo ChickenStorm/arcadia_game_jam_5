@@ -4,6 +4,7 @@ extends KinematicBody2D
 signal touched()
 
 const SPEED_FACTOR = 100
+const SPEED_SEE_CAT = 300
 const ANGLE_SPEED = 2
 const DIST_SOUND_INSPECTED = 60
 
@@ -13,9 +14,13 @@ var see_cat = false setget set_see_cat
 var inspect_sound = false
 var path_sound = null
 
+
+var rng = RandomNumberGenerator.new()
+
+
 export(NodePath) var path_node = null
-var path_node_int = 0
 var path_p = PoolVector2Array([]);
+var path_node_int = 0
 
 onready var navigation = $".."
 onready var ray = $RayCast2D
@@ -39,7 +44,7 @@ func _process(delta):
 			ray.cast_to = vec_cat.rotated(-self.rotation)
 			self.see_cat = not ray.is_colliding()
 			if see_cat:
-				move_and_collide(vec_cat.normalized() * delta * SPEED_FACTOR)
+				move_and_collide(vec_cat.normalized() * delta * SPEED_SEE_CAT)
 				rotate_to_dir(delta, vec_cat)
 				return
 		if inspect_sound and path_sound != null:
@@ -50,15 +55,11 @@ func _process(delta):
 				color_rect.color = Color(0, 255, 0)
 			return
 		else:
-			if path_p == null or path_p.size() == 0:
-				var node = get_node(path_node)
-				if node != null:
-					var pts = node.points
-					path_node_int = (path_node_int + 1) % pts.size()
-					print(path_node_int)
-					path_p = _update_navigation_path(self.position, pts[path_node_int])
-			path_p = move_along_path(path_p, delta)
-			return
+			_move(delta)
+
+
+func _move(delta):
+ pass
 
 
 func move_along_path(path, delta):

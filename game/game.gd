@@ -11,11 +11,13 @@ onready var nav_ploy = $NavigationPolygonInstance
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	persone.cat = cat
+	$PersoneFix.cat = cat
 	#nav_ploy.navpoly.make_polygons_from_outlines()
 	cat.connect("interaction_entered", self, "_on_interaction_entered")
 	cat.connect("interaction_exited", self, "_on_interaction_exited")
 	#$Camera2D.make_current()
 	persone.connect("touched", self, "_on_touched")
+	$PersoneFix.connect("touched", self, "_on_touched")
 	$InteractibleText.connect("interaction_dialogue", self, "_on_interaction_dialogue")
 
 

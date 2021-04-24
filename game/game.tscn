@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://game/game.gd" type="Script" id=1]
 [ext_resource path="res://game/cat.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://game/interaction_label.tscn" type="PackedScene" id=10]
 [ext_resource path="res://resources/tile/tile_01.png" type="Texture" id=11]
 [ext_resource path="res://resources/tile/fake.png" type="Texture" id=12]
+[ext_resource path="res://game/persone_fix.tscn" type="PackedScene" id=13]
 
 [sub_resource type="NavigationPolygon" id=32]
 vertices = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -432,7 +433,7 @@ script = ExtResource( 2 )
 [node name="sprite" type="AnimatedSprite" parent="Cat"]
 frames = SubResource( 6 )
 animation = "walk"
-frame = 4
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cat"]
@@ -457,9 +458,19 @@ position = Vector2( 75, 90.37 )
 scale = Vector2( 2, 2 )
 path_node = NodePath("../Line2D")
 
+[node name="PersoneFix" parent="." instance=ExtResource( 13 )]
+position = Vector2( 675.138, 98.0711 )
+path_node = NodePath("../LineFix")
+
 [node name="Line2D" type="Line2D" parent="."]
 visible = false
 points = PoolVector2Array( 65.8845, 60.5728, 190.337, 68.9818, 765.519, 70.6232, 788.146, 418.52, 170.135, 408.62, 99.8047, 402.781, 70.8266, 202.453 )
+width = 1.0
+default_color = Color( 0.4, 0.501961, 1, 1 )
+
+[node name="LineFix" type="Line2D" parent="."]
+visible = false
+points = PoolVector2Array( 676.607, 128.244 )
 width = 1.0
 default_color = Color( 0.4, 0.501961, 1, 1 )
 
@@ -533,6 +544,7 @@ shape = SubResource( 10 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Hud" type="Control" parent="CanvasLayer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1.68176
@@ -541,6 +553,7 @@ margin_bottom = 1.0
 mouse_filter = 2
 script = ExtResource( 8 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
