@@ -22,6 +22,10 @@ var scenes = {
 		"path" : "res://game/game.tscn",
 		"scene" : null,
 	},
+	"game_over" : {
+		"path" : "res://game_over/game_over.tscn",
+		"scene" : null,
+	},
 }
 
 var _is_in_game = false setget _set_is_in_game

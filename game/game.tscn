@@ -59,7 +59,7 @@ radius = 80.0
 script = ExtResource( 1 )
 
 [node name="Cat" type="KinematicBody2D" parent="."]
-position = Vector2( 200, 200 )
+position = Vector2( 200, 400 )
 scale = Vector2( 2, 2 )
 collision_layer = 53
 collision_mask = 53
@@ -68,6 +68,7 @@ script = ExtResource( 2 )
 [node name="sprite" type="AnimatedSprite" parent="Cat"]
 frames = SubResource( 6 )
 animation = "walk"
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cat"]
@@ -125,6 +126,7 @@ __meta__ = {
 }
 
 [node name="Interact" type="Area2D" parent="Interactible"]
+monitorable = false
 collision_layer = 32
 collision_mask = 32
 
@@ -133,6 +135,8 @@ shape = SubResource( 10 )
 
 [node name="Noise" parent="Interactible" instance=ExtResource( 4 )]
 position = Vector2( -55, -174 )
+collision_layer = 8
+collision_mask = 8
 
 [node name="PanelContainer2" type="PanelContainer" parent="Interactible"]
 visible = false

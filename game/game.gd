@@ -14,6 +14,7 @@ func _ready():
 	cat.connect("interaction_entered", self, "_on_interaction_entered")
 	cat.connect("interaction_exited", self, "_on_interaction_exited")
 	#$Camera2D.make_current()
+	persone.connect("touched", self, "_on_touched")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -34,3 +35,6 @@ func _on_interaction_entered():
 func _on_interaction_exited():
 	pass
 	#$CanvasLayer/Hud/MarginContainer/VBoxContainer/PanelContainer.visible = false
+
+func _on_touched():
+	emit_signal("scene_requested", "game_over")

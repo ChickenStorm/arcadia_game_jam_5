@@ -1,6 +1,8 @@
 class_name Enemy
 extends KinematicBody2D
 
+signal touched()
+
 const SPEED_FACTOR = 100
 const ANGLE_SPEED = 2
 const DIST_SOUND_INSPECTED = 60
@@ -26,6 +28,7 @@ func _ready():
 	vision.connect("body_entered", self, "_on_body_entered")
 	vision_out.connect("body_exited", self, "_on_body_exited")
 	hearing.connect("area_entered", self, "_on_area_entered")
+	$Toutch.connect("body_entered", self, "_on_touch")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -135,3 +138,8 @@ func set_see_cat(new_bool):
 	else:
 		color_rect.color = Color(0, 255, 0)
 	see_cat = new_bool
+
+func _on_touch(area):
+
+	if area == cat:
+		emit_signal("touched")
