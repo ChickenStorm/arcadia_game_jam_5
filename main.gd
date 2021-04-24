@@ -23,8 +23,16 @@ var scenes = {
 		"path" : "res://game/game.tscn",
 		"scene" : null,
 	},
-	"game_over" : {
-		"path" : "res://game_over/game_over.tscn",
+	"game_over_children" : {
+		"path" : "res://game_over/game_over_children.tscn",
+		"scene" : null,
+	},
+	"game_over_father" : {
+		"path" : "res://game_over/game_over_father.tscn",
+		"scene" : null,
+	},
+	"game_over_mother" : {
+		"path" : "res://game_over/game_over_mother.tscn",
 		"scene" : null,
 	},
 }

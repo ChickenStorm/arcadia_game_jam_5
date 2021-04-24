@@ -21,6 +21,7 @@ tracks/0/keys = {
 margin_top = 548.0
 margin_right = 1024.0
 margin_bottom = 576.0
+mouse_filter = 2
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false

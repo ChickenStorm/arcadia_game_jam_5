@@ -1,11 +1,14 @@
-class_name EnemyPath
+class_name EnemyStand
 extends Enemy
 
 
-const WAIT_TIME = 0.5
+const WAIT_TIME = 2
 
 var waiting_time = 0
 var waiting = false
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
 
 
 # Called when the node enters the scene tree for the first time.
@@ -31,3 +34,5 @@ func _move(delta):
 		else:
 			waiting_time -= delta
 	path_p = move_along_path(path_p, delta)
+	
+
