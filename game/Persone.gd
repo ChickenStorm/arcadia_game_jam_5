@@ -1,15 +1,19 @@
+class_name Enemy
 extends KinematicBody2D
 
 const SPEED_FACTOR = 20
 const ANGLE_SPEED = 2
-const ANGLE_LIMITOR = ANGLE_SPEED * 2.0 / 30.0
+
 
 var cat = null setget set_cat
 var cat_in_area = false
 var see_cat = false setget set_see_cat
 var inspect_sound = false
-var path = null
+var path_sound = null
 
+export(NodePath) var path_node = null
+var path_node_int = 0
+var path_p = PoolVector2Array([]);
 
 onready var navigation = $".."
 onready var ray = $RayCast2D
@@ -33,26 +37,46 @@ func _process(delta):
 			if see_cat:
 				move_and_collide(vec_cat.normalized() * delta * SPEED_FACTOR)
 				rotate_to_dir(delta, vec_cat)
-		if inspect_sound and path != null:
-			var last_pt = self.position
-			var remaining_dist = delta * SPEED_FACTOR
-			while path.size() > 0:
-				var distance = last_pt.distance_to(path[0])
-				if remaining_dist < distance:
-					move_and_collide(last_pt.linear_interpolate(path[0], remaining_dist / distance) - self.position)
-					rotate_to_dir(delta, path[0] - last_pt)
-					return
-				else:
-					remaining_dist -= distance
-					last_pt = path[0]
-					path.remove(0)
+				return
+		if inspect_sound and path_sound != null:
+			path_sound = move_along_path(path_sound, delta)
+			return
+		else:
+			if path_p == null or path_p.size() == 0:
+				var node = get_node(path_node)
+				if node != null:
+					var pts = node.points
+					path_node_int = (path_node_int + 1) % pts.size()
+					path_p = _update_navigation_path(self.position, pts[path_node_int])
+			path_p = move_along_path(path_p, delta)
+			return
+
+
+func move_along_path(path, delta):
+	var last_pt = self.position
+	var remaining_dist = delta * SPEED_FACTOR
+	while path.size() > 0:
+		var distance = last_pt.distance_to(path[0])
+		if remaining_dist < distance:
+			move_and_collide(last_pt.linear_interpolate(path[0], remaining_dist / distance) - self.position)
+			rotate_to_dir(delta, path[0] - last_pt)
+			#self.position = last_pt.linear_interpolate(path[0], remaining_dist / distance)
+			return path
+		else:
+			remaining_dist -= distance
+			last_pt = path[0]
+			#self.position = last_pt
+			path.remove(0)
+	return path
 
 
 func rotate_to_dir(delta, dir: Vector2):
 	var v = Vector2.RIGHT.rotated(self.rotation)
 	var angle = v.angle_to(dir)
-	if abs(angle) > ANGLE_LIMITOR:
+	if abs(angle) > ANGLE_SPEED * delta:
 		self.rotate(sign(angle) * ANGLE_SPEED * delta)
+	else:
+		self.rotate(angle)
 
 
 
@@ -77,18 +101,20 @@ func _update_navigation_path(start_position, end_position):
 	# get_simple_path is part of the Navigation2D class.
 	# It returns a PoolVector2Array of points that lead you
 	# from the start_position to the end_position.
-	path = navigation.get_simple_path(start_position, end_position, true)
+	var path = navigation.get_simple_path(start_position, end_position, true)
 	# The first point is always the start_position.
 	# We don't need it in this example as it corresponds to the character's position.
 	path.remove(0)
 	set_process(true)
+	return path
 
 
 func _on_area_entered(area):
 	if not see_cat:
 		color_rect.color = Color(255, 255, 0)
 		inspect_sound = true
-		_update_navigation_path(self.position, area.get_parent().position)
+		path_p = PoolVector2Array([])
+		path_sound = _update_navigation_path(self.position, area.get_parent().position)
 
 
 
@@ -96,7 +122,8 @@ func set_see_cat(new_bool):
 	if new_bool == see_cat:
 		return # we do nothing, we want to register state chnage
 	if new_bool:
-		path = null
+		path_sound = null
+		path_p = PoolVector2Array([])
 		inspect_sound = false
 		color_rect.color = Color(255, 0, 0)
 	else:

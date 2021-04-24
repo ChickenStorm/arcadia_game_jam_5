@@ -9,17 +9,11 @@ const PATH_CONFIG_USER = CONFIG_DIR + "config.cfg"
 
 # set of key bindings that can be modified in the menu 
 const ENABLE_KEY_BINDING_CHANGE = [
-	"ui_zoom_out_map",
-	"ui_zoom_in_map",
-	"ui_drag_map",
-	"ui_move_map_up",
-	"ui_move_map_down",
-	"ui_move_map_left",
-	"ui_move_map_right",
-	"ui_add_fleet",
-	"ui_map_center_system",
-	"ui_hud_scores",
-	"ui_minimize",
+	"move_up",
+	"move_down",
+	"move_left",
+	"move_right",
+	"action_meow",
 ]
 const KEY_BINDING_SECTION_NAME = "Key binding"
 const SOUND_SECTION_NAME = "Audio"
