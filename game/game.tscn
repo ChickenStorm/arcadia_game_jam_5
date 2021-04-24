@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://game/game.gd" type="Script" id=1]
 [ext_resource path="res://game/cat.gd" type="Script" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://game/noise.tscn" type="PackedScene" id=4]
 [ext_resource path="res://resources/cat/walk.png" type="Texture" id=5]
 [ext_resource path="res://game/interact.gd" type="Script" id=6]
+[ext_resource path="res://game/dialogue.tscn" type="PackedScene" id=7]
+[ext_resource path="res://game/Hud.gd" type="Script" id=8]
+[ext_resource path="res://game/interactible_text.gd" type="Script" id=9]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -161,6 +164,58 @@ margin_right = 192.0
 margin_bottom = 21.0
 text = "Appuiez sur E pour intéragire"
 
+[node name="InteractibleText" type="Node2D" parent="."]
+position = Vector2( 300, 200 )
+script = ExtResource( 9 )
+
+[node name="Body" type="StaticBody2D" parent="InteractibleText"]
+collision_layer = 17
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractibleText/Body"]
+shape = SubResource( 9 )
+
+[node name="ColorRect" type="ColorRect" parent="InteractibleText"]
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+color = Color( 0.054902, 0, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Interact" type="Area2D" parent="InteractibleText"]
+monitorable = false
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractibleText/Interact"]
+shape = SubResource( 10 )
+
+[node name="PanelContainer2" type="PanelContainer" parent="InteractibleText"]
+visible = false
+modulate = Color( 1, 1, 1, 0.729412 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -99.5
+margin_top = -40.0
+margin_right = 99.5
+margin_bottom = -12.0
+rect_min_size = Vector2( 10, 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InteractibleText/PanelContainer2"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 192.0
+margin_bottom = 21.0
+text = "Appuiez sur E pour intéragire"
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 11 )
 show_collision = true
@@ -176,6 +231,7 @@ anchor_bottom = 1.0
 margin_right = 1.0
 margin_bottom = 1.0
 mouse_filter = 2
+script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -196,15 +252,6 @@ margin_bottom = 576.0
 mouse_filter = 2
 alignment = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Hud/MarginContainer/VBoxContainer"]
+[node name="PanelContainer" parent="CanvasLayer/Hud/MarginContainer/VBoxContainer" instance=ExtResource( 7 )]
 visible = false
-margin_top = 548.0
-margin_right = 1024.0
-margin_bottom = 576.0
-
-[node name="Label" type="Label" parent="CanvasLayer/Hud/MarginContainer/VBoxContainer/PanelContainer"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 1017.0
-margin_bottom = 21.0
-text = "Appuiez sur E pour intéragire"
+text = ""

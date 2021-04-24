@@ -1,6 +1,7 @@
 extends Node2D
 
 var can_interact = false
+signal interaction_dialogue(string)
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -20,7 +21,7 @@ func _ready():
 func _unhandled_input(event):
 	if event is InputEventKey or event is InputEventMouseButton:
 		if can_interact and event.is_action_pressed("interact"):
-			$Noise.action_noise()
+			emit_signal("interaction_dialogue", "ceci est un objet")
 		
 
 func _on_area_entered(area):

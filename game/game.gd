@@ -15,6 +15,7 @@ func _ready():
 	cat.connect("interaction_exited", self, "_on_interaction_exited")
 	#$Camera2D.make_current()
 	persone.connect("touched", self, "_on_touched")
+	$InteractibleText.connect("interaction_dialogue", self, "_on_interaction_dialogue")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -38,3 +39,7 @@ func _on_interaction_exited():
 
 func _on_touched():
 	emit_signal("scene_requested", "game_over")
+
+
+func _on_interaction_dialogue(string):
+	$CanvasLayer/Hud.add_dialogue(string)
