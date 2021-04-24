@@ -135,10 +135,10 @@ static func _load_windows_settings(config):
 	if config.has_section_key(GRAPHICS_SECTION_NAME, FULLSCREEN_CONFIG_NAME):
 		var full_screen = config.get_value(GRAPHICS_SECTION_NAME, FULLSCREEN_CONFIG_NAME)
 		OS.window_fullscreen = full_screen
-		if not full_screen:
-			OS.center_window()
 	else:
-		OS.window_fullscreen = true
+		pass
+	if not OS.window_fullscreen:
+		OS.center_window()
 
 
 static func _get_window_resolution(config):

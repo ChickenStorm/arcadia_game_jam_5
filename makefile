@@ -2,7 +2,7 @@
 godot-path =
 godot-name-executable-main = Godot_v3.3-stable
 
-project-name = #todo
+project-name = Felix
 itch-project = #todo
 
 

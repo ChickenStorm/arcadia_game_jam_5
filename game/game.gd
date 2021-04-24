@@ -4,10 +4,14 @@ signal scene_requested(scene)
 
 onready var cat = $Cat
 onready var persone = $Persone
+onready var nav_ploy = $NavigationPolygonInstance
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	persone.cat = cat
+	nav_ploy.navpoly.make_polygons_from_outlines()
+	print(nav_ploy.navpoly.get_polygon_count())
+	print(nav_ploy.navpoly.get_vertices())
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

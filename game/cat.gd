@@ -9,7 +9,7 @@ var _motion = {
 	Vector2.DOWN : false,
 }
 
-
+onready var noise = $Noise
 
 
 
@@ -55,4 +55,10 @@ func _unhandled_input(event):
 			_motion[Vector2.LEFT] = false
 		if event.is_action_released("move_right"):
 			_motion[Vector2.RIGHT] = false
+		if event.is_action_released("action_meow"):
+			action_meow()
 
+func action_meow():
+	noise.action_meow()
+	
+	
