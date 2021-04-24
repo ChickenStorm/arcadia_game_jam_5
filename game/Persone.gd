@@ -1,9 +1,9 @@
 class_name Enemy
 extends KinematicBody2D
 
-const SPEED_FACTOR = 20
+const SPEED_FACTOR = 100
 const ANGLE_SPEED = 2
-
+const DIST_SOUND_INSPECTED = 60
 
 var cat = null setget set_cat
 var cat_in_area = false
@@ -18,12 +18,13 @@ var path_p = PoolVector2Array([]);
 onready var navigation = $".."
 onready var ray = $RayCast2D
 onready var vision = $Vision
+onready var vision_out = $VisionOut
 onready var hearing = $Hearing
 onready var color_rect = $ColorRect
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	vision.connect("body_entered", self, "_on_body_entered")
-	vision.connect("body_exited", self, "_on_body_exited")
+	vision_out.connect("body_exited", self, "_on_body_exited")
 	hearing.connect("area_entered", self, "_on_area_entered")
 
 
@@ -40,6 +41,10 @@ func _process(delta):
 				return
 		if inspect_sound and path_sound != null:
 			path_sound = move_along_path(path_sound, delta)
+			inspect_sound = (path_sound.size() != 0)
+			if path_sound.size() == 1 and path_sound[0].distance_to(self.position) < DIST_SOUND_INSPECTED:
+				inspect_sound = false
+				color_rect.color = Color(0, 255, 0)
 			return
 		else:
 			if path_p == null or path_p.size() == 0:
@@ -47,6 +52,7 @@ func _process(delta):
 				if node != null:
 					var pts = node.points
 					path_node_int = (path_node_int + 1) % pts.size()
+					print(path_node_int)
 					path_p = _update_navigation_path(self.position, pts[path_node_int])
 			path_p = move_along_path(path_p, delta)
 			return

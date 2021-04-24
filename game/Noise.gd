@@ -16,7 +16,7 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func action_meow():
+func action_noise():
 	if timer != null:
 		self.monitorable = true
 		timer.start()

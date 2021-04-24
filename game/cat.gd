@@ -1,6 +1,9 @@
 extends KinematicBody2D
 
-const SPEED_FACTOR = 100
+signal interaction_entered()
+signal interaction_exited()
+
+const SPEED_FACTOR = 150
 
 var _motion = {
 	Vector2.LEFT : false,
@@ -20,7 +23,9 @@ onready var noise = $Noise
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self.connect("body_entered", self, "_on_area_entered")
+	$Interact.connect("body_entered", self, "_on_area_entered")
+	$Interact.connect("area_entered", self, "_on_interaction_entered")
+	$Interact.connect("area_exited", self, "_on_interaction_exit")
 
 func _on_area_entered(area):
 	if area.name == "Area_Persone":
@@ -33,6 +38,12 @@ func _process(delta):
 	for directions in _motion.keys():
 		if  _motion[directions]:
 			speed += directions * SPEED_FACTOR * delta
+	var vec_or = Vector2.UP.rotated(self.rotation)
+	if speed != Vector2.ZERO:
+		self.rotate(vec_or.angle_to(speed))
+		$sprite.playing = true
+	else:
+		$sprite.playing = false
 	move_and_collide(speed)
 
 
@@ -59,6 +70,12 @@ func _unhandled_input(event):
 			action_meow()
 
 func action_meow():
-	noise.action_meow()
+	noise.action_noise()
 	
-	
+
+
+func _on_interaction_entered(area):
+	emit_signal("interaction_entered")
+
+func _on_interaction_exit(area):
+	emit_signal("interaction_exited")

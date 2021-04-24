@@ -1,15 +1,18 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://game/Persone.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5, 5 )
 
+[sub_resource type="CircleShape2D" id=4]
+radius = 40.0
+
 [sub_resource type="CircleShape2D" id=2]
-radius = 15.0
+radius = 60.0
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 150.0
+radius = 300.0
 
 [node name="Persone" type="KinematicBody2D"]
 position = Vector2( 74, 91 )
@@ -41,10 +44,22 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Vision"]
-polygon = PoolVector2Array( 0, 0, 100, 100, 100, -100 )
+polygon = PoolVector2Array( 0, 0, 100, 80, 100, -80 )
 one_way_collision_margin = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vision"]
+self_modulate = Color( 0, 0.72, 0.36, 1 )
+shape = SubResource( 4 )
+
+[node name="VisionOut" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="VisionOut"]
+polygon = PoolVector2Array( 0, 0, 140, 160, 140, -160 )
+one_way_collision_margin = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisionOut"]
 self_modulate = Color( 0, 0.72, 0.36, 1 )
 shape = SubResource( 2 )
 
