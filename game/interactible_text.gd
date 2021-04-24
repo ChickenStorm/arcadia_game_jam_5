@@ -1,3 +1,4 @@
+class_name IteractionText
 extends Node2D
 
 # warning-ignore-all:return_value_discarded
