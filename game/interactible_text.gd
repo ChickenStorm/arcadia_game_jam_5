@@ -1,5 +1,7 @@
 extends Node2D
 
+# warning-ignore-all:return_value_discarded
+
 var can_interact = false
 signal interaction_dialogue(string)
 
@@ -24,10 +26,10 @@ func _unhandled_input(event):
 			emit_signal("interaction_dialogue", "ceci est un objet")
 		
 
-func _on_area_entered(area):
+func _on_area_entered(_area):
 	can_interact = true
-	$PanelContainer2.visible = true
+	$InteractionLabel.visible = true
 
-func _on_area_exited(area):
+func _on_area_exited(_area):
 	can_interact = false
-	$PanelContainer2.visible = false
+	$InteractionLabel.visible = false

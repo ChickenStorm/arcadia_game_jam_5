@@ -23,10 +23,10 @@ func _unhandled_input(event):
 			$Noise.action_noise()
 		
 
-func _on_area_entered(area):
+func _on_area_entered(_area):
 	can_interact = true
-	$PanelContainer2.visible = true
+	$InteractionLabel.visible = true
 
-func _on_area_exited(area):
+func _on_area_exited(_area):
 	can_interact = false
-	$PanelContainer2.visible = false
+	$InteractionLabel.visible = false

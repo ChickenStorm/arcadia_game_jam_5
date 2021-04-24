@@ -1,5 +1,6 @@
 extends Node
 
+# warning-ignore-all:return_value_discarded
 
 var scenes = {
 	"loading" : {

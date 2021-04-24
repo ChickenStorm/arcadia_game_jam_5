@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+# warning-ignore-all:return_value_discarded
+
 signal interaction_entered()
 signal interaction_exited()
 
@@ -74,8 +76,8 @@ func action_meow():
 	
 
 
-func _on_interaction_entered(area):
+func _on_interaction_entered(_area):
 	emit_signal("interaction_entered")
 
-func _on_interaction_exit(area):
+func _on_interaction_exit(_area):
 	emit_signal("interaction_exited")

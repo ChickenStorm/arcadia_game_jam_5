@@ -156,6 +156,10 @@ Store="*res://global/store.gd"
 Config="*res://config/config.gd"
 Audio="*res://audio/audio.gd"
 
+[debug]
+
+gdscript/warnings/return_value_discarded=false
+
 [display]
 
 window/size/width=1280

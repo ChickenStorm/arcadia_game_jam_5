@@ -81,7 +81,7 @@ custom_fonts/font = SubResource( 1 )
 text = "Générale"
 valign = 1
 
-[node name="ui_select_fleet" parent="TabContainer/Raccourcis/ScrollContainer/keyBindingContainer" instance=ExtResource( 2 )]
+[node name="move_up" parent="TabContainer/Raccourcis/ScrollContainer/keyBindingContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 45.0
@@ -89,7 +89,7 @@ margin_right = 1272.0
 margin_bottom = 99.0
 action = "move_up"
 
-[node name="ui_add_fleet" parent="TabContainer/Raccourcis/ScrollContainer/keyBindingContainer" instance=ExtResource( 2 )]
+[node name="move_down2" parent="TabContainer/Raccourcis/ScrollContainer/keyBindingContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 103.0
@@ -97,7 +97,7 @@ margin_right = 1272.0
 margin_bottom = 157.0
 action = "move_down"
 
-[node name="move_down" parent="TabContainer/Raccourcis/ScrollContainer/keyBindingContainer" instance=ExtResource( 2 )]
+[node name="move_left2" parent="TabContainer/Raccourcis/ScrollContainer/keyBindingContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 161.0
@@ -105,7 +105,7 @@ margin_right = 1272.0
 margin_bottom = 215.0
 action = "move_left"
 
-[node name="move_left" parent="TabContainer/Raccourcis/ScrollContainer/keyBindingContainer" instance=ExtResource( 2 )]
+[node name="move_right2" parent="TabContainer/Raccourcis/ScrollContainer/keyBindingContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 219.0
@@ -113,13 +113,13 @@ margin_right = 1272.0
 margin_bottom = 273.0
 action = "move_right"
 
-[node name="move_right" parent="TabContainer/Raccourcis/ScrollContainer/keyBindingContainer" instance=ExtResource( 2 )]
+[node name="action_meow" parent="TabContainer/Raccourcis/ScrollContainer/keyBindingContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 277.0
 margin_right = 1272.0
 margin_bottom = 331.0
-action = "action_meow"
+action = "interact"
 
 [node name="Audio" type="HBoxContainer" parent="TabContainer"]
 visible = false

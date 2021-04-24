@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://game/interaction_label.gd" type="Script" id=1]
+
+[node name="InteractionLabel" type="PanelContainer"]
+visible = false
+modulate = Color( 1, 1, 1, 0.729412 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -99.5
+margin_top = -40.0
+margin_right = 99.5
+margin_bottom = -12.0
+rect_min_size = Vector2( 10, 10 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 192.0
+margin_bottom = 21.0
+text = "Appuiez sur E pour intéragire"

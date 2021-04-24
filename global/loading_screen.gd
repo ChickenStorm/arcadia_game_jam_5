@@ -1,5 +1,7 @@
 extends Control
 
+# warning-ignore-all:return_value_discarded
+
 signal ressource_loaded(ressource_name, ressource)
 signal finished()
 # warning-ignore:unused_signal

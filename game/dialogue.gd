@@ -2,9 +2,7 @@ extends PanelContainer
 
 export(String) var text setget set_text
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+# warning-ignore-all:return_value_discarded
 
 
 # Called when the node enters the scene tree for the first time.

@@ -1,7 +1,12 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 25, 5 )
+
+[sub_resource type="NavigationPolygon" id=2]
+vertices = PoolVector2Array( 324.792, 181.806, 275.18, 183.067, 120.034, 176.761, 80.9325, 174.658, 0.5, -0.5, 746.584, -20.4936, 0.71048, 425.518, 75.0462, 220.487, 737.764, 422.999, 323.531, 221.328, 273.498, 227.635, 118.352, 220.067 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5 ), PoolIntArray( 6, 4, 3, 7 ), PoolIntArray( 0, 5, 8, 9 ), PoolIntArray( 9, 8, 6, 10 ), PoolIntArray( 10, 6, 7, 11 ), PoolIntArray( 1, 10, 11, 2 ) ]
+outlines = [ PoolVector2Array( 746.584, -20.4936, 0.5, -0.5, 0.71048, 425.518, 737.764, 422.999 ), PoolVector2Array( 80.9325, 174.658, 120.034, 176.761, 118.352, 220.067, 75.0462, 220.487 ), PoolVector2Array( 275.18, 183.067, 324.792, 181.806, 323.531, 221.328, 273.498, 227.635 ) ]
 
 [node name="old" type="Node2D"]
 
@@ -97,3 +102,8 @@ collision_mask = 19
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle4/Area2D"]
 shape = SubResource( 1 )
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
+visible = false
+position = Vector2( 0, 0.374573 )
+navpoly = SubResource( 2 )

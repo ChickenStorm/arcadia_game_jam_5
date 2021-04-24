@@ -89,12 +89,12 @@ func rotate_to_dir(delta, dir: Vector2):
 
 
 
-func _on_body_exited(area):
+func _on_body_exited(_area):
 	cat_in_area = false
 	self.see_cat = false
 
 
-func _on_body_entered(area):
+func _on_body_entered(_area):
 	cat_in_area = true
 	var vec_cat = cat.position - self.position
 	ray.cast_to = vec_cat.rotated(-self.rotation)
