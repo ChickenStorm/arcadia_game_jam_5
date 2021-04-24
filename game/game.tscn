@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://game/game.gd" type="Script" id=1]
 [ext_resource path="res://game/cat.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://resources/tile/tile_01.png" type="Texture" id=11]
 [ext_resource path="res://resources/tile/fake.png" type="Texture" id=12]
 [ext_resource path="res://game/persone_fix.tscn" type="PackedScene" id=13]
+[ext_resource path="res://game/zone.gd" type="Script" id=14]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -372,7 +373,7 @@ region = Rect2( 144, 0, 36, 36 )
 
 [sub_resource type="SpriteFrames" id=25]
 animations = [ {
-"frames": [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
+"frames": [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 23 ), SubResource( 22 ), SubResource( 21 ) ],
 "loop": true,
 "name": "walk",
 "speed": 5.0
@@ -380,6 +381,9 @@ animations = [ {
 
 [sub_resource type="RectangleShape2D" id=26]
 extents = Vector2( 7, 15 )
+
+[sub_resource type="RectangleShape2D" id=46]
+extents = Vector2( 311.538, 242.924 )
 
 [sub_resource type="RectangleShape2D" id=27]
 extents = Vector2( 100, 15 )
@@ -442,7 +446,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap3" type="TileMap" parent="."]
+[node name="TileMapNav" type="TileMap" parent="."]
 scale = Vector2( 2, 2 )
 tile_set = SubResource( 19 )
 cell_size = Vector2( 16, 16 )
@@ -462,8 +466,6 @@ __meta__ = {
 [node name="sprite" type="AnimatedSprite" parent="Cat"]
 frames = SubResource( 25 )
 animation = "walk"
-frame = 1
-playing = true
 __meta__ = {
 "_edit_lock_": true
 }
@@ -475,6 +477,9 @@ __meta__ = {
 }
 
 [node name="Noise" parent="Cat" instance=ExtResource( 4 )]
+collision_layer = 8
+collision_mask = 8
+time_distraction = 0.0
 
 [node name="Interact" type="Area2D" parent="Cat"]
 collision_layer = 32
@@ -486,6 +491,16 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cat/Interact"]
 shape = SubResource( 26 )
 
+[node name="InteractZone" type="Area2D" parent="Cat"]
+collision_layer = 128
+collision_mask = 128
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cat/InteractZone"]
+shape = SubResource( 26 )
+
 [node name="Camera2D" type="Camera2D" parent="Cat"]
 scale = Vector2( 0.5, 0.5 )
 current = true
@@ -494,6 +509,10 @@ smoothing_enabled = true
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="PissNoise" parent="Cat" instance=ExtResource( 4 )]
+collision_layer = 64
+collision_mask = 64
 
 [node name="Persone" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1056.54, -173.66 )
@@ -506,7 +525,7 @@ scale = Vector2( 2, 2 )
 path_node = NodePath("../LineStand")
 
 [node name="PersoneFix" parent="." instance=ExtResource( 13 )]
-position = Vector2( 240.116, 219.632 )
+position = Vector2( 240.865, 219.632 )
 path_node = NodePath("../LineFix")
 
 [node name="Line2D" type="Line2D" parent="."]
@@ -532,6 +551,18 @@ visible = false
 points = PoolVector2Array( 784.144, -30.9927, 773.826, 123.779 )
 width = 1.0
 default_color = Color( 0.4, 0.501961, 1, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Zone" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Zone"]
+position = Vector2( 245.75, 268.73 )
+script = ExtResource( 14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zone/Area2D"]
+shape = SubResource( 46 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -808,6 +839,7 @@ __meta__ = {
 [node name="Noise" parent="Obstacle/Room1/Interactible2" instance=ExtResource( 4 )]
 collision_layer = 8
 collision_mask = 8
+time_distraction = 5.0
 
 [node name="InteractionLabel" parent="Obstacle/Room1/Interactible2" instance=ExtResource( 10 )]
 
@@ -1366,6 +1398,7 @@ anchor_right = 0.9
 anchor_bottom = 0.9
 mouse_filter = 2
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -1374,3 +1407,9 @@ margin_right = 1024.0
 margin_bottom = 576.0
 mouse_filter = 2
 alignment = 2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TimerPissZ1" type="Timer" parent="."]
+wait_time = 2.0

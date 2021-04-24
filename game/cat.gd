@@ -4,8 +4,17 @@ extends KinematicBody2D
 
 signal interaction_entered()
 signal interaction_exited()
+signal piss(zone_id)
 
 const SPEED_FACTOR = 150
+const SPEED_AFTER_MEOW = 100
+const MEOW_CD = 2
+const PISS_CD = 20
+
+var time_meow = 0
+var time_piss = 0
+
+var zone = 0
 
 var _motion = {
 	Vector2.LEFT : false,
@@ -28,6 +37,13 @@ func _ready():
 	$Interact.connect("body_entered", self, "_on_area_entered")
 	$Interact.connect("area_entered", self, "_on_interaction_entered")
 	$Interact.connect("area_exited", self, "_on_interaction_exit")
+	$InteractZone.connect("area_entered", self, "_on_area_entered_zone")
+
+
+func _on_area_entered_zone(area):
+	if area is Zone:
+		zone = area.zone_id
+
 
 func _on_area_entered(area):
 	if area.name == "Area_Persone":
@@ -36,10 +52,13 @@ func _on_area_entered(area):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	time_meow -= delta
+	time_piss -= delta
 	var speed = Vector2.ZERO
+	var speed_factor = SPEED_FACTOR if time_meow <= 0 else SPEED_AFTER_MEOW
 	for directions in _motion.keys():
 		if  _motion[directions]:
-			speed += directions * SPEED_FACTOR * delta
+			speed += directions * speed_factor * delta
 	var vec_or = Vector2.UP.rotated(self.rotation)
 	if speed != Vector2.ZERO:
 		self.rotate(vec_or.angle_to(speed))
@@ -68,12 +87,25 @@ func _unhandled_input(event):
 			_motion[Vector2.LEFT] = false
 		if event.is_action_released("move_right"):
 			_motion[Vector2.RIGHT] = false
-		#if event.is_action_released("action_meow"):
-		# 	action_meow()
+		if event.is_action_pressed("action_meow"):
+			action_meow()
+		if event.is_action_pressed("piss"):
+			action_piss()
+
 
 func action_meow():
-	noise.action_noise()
-	
+	print("MEOW !!!")
+	if time_meow <= 0:
+		noise.action_noise()
+		time_meow = MEOW_CD
+
+
+func action_piss():
+	if time_piss <= 0:
+		print("p")
+		#$PissNoise.action_noise()
+		emit_signal("piss", zone)
+		time_piss = PISS_CD
 
 
 func _on_interaction_entered(_area):

@@ -7,13 +7,15 @@ const SPEED_FACTOR = 100
 const SPEED_SEE_CAT = 300
 const ANGLE_SPEED = 2
 const DIST_SOUND_INSPECTED = 60
+var inspect_time_next = 3
 
 var cat = null setget set_cat
 var cat_in_area = false
 var see_cat = false setget set_see_cat
 var inspect_sound = false
-var path_sound = null
-
+var path_sound = PoolVector2Array([])
+var inspected_time = 0
+var has_inspected = false
 
 var rng = RandomNumberGenerator.new()
 
@@ -28,7 +30,8 @@ onready var vision = $Vision
 onready var vision_out = $VisionOut
 onready var hearing = $Hearing
 onready var color_rect = $ColorRect
-# Called when the node enters the scene tree for the first time.
+
+
 func _ready():
 	vision.connect("body_entered", self, "_on_body_entered")
 	vision_out.connect("body_exited", self, "_on_body_exited")
@@ -47,12 +50,22 @@ func _process(delta):
 				move_and_collide(vec_cat.normalized() * delta * SPEED_SEE_CAT)
 				rotate_to_dir(delta, vec_cat)
 				return
-		if inspect_sound and path_sound != null:
+		if inspect_sound:
 			path_sound = move_along_path(path_sound, delta)
-			inspect_sound = (path_sound.size() != 0)
-			if path_sound.size() == 1 and path_sound[0].distance_to(self.position) < DIST_SOUND_INSPECTED:
-				inspect_sound = false
-				color_rect.color = Color(0, 255, 0)
+			#inspect_sound = (path_sound.size() != 0)
+			if path_sound.size() == 0 or \
+					(path_sound.size() == 1 \
+					and path_sound[0].distance_to(self.position) < DIST_SOUND_INSPECTED):
+				if not has_inspected:
+					has_inspected = true
+					inspected_time = inspect_time_next
+					print(inspected_time)
+				if inspected_time > 0:
+					inspected_time -= delta
+				else:
+					inspect_sound = false
+					has_inspected = false
+					color_rect.color = Color(0, 255, 0)
 			return
 		else:
 			_move(delta)
@@ -107,6 +120,7 @@ func set_cat(cat_var):
 	cat = cat_var
 	ray.cast_to = cat.position
 
+
 func _update_navigation_path(start_position, end_position):
 	# get_simple_path is part of the Navigation2D class.
 	# It returns a PoolVector2Array of points that lead you
@@ -122,17 +136,18 @@ func _update_navigation_path(start_position, end_position):
 func _on_area_entered(area):
 	if not see_cat:
 		color_rect.color = Color(255, 255, 0)
+		inspect_time_next = area.time_distraction if area.get("time_distraction") != null else 3
 		inspect_sound = true
+		has_inspected = false
 		path_p = PoolVector2Array([])
 		path_sound = _update_navigation_path(self.position, area.get_parent().position)
-
 
 
 func set_see_cat(new_bool):
 	if new_bool == see_cat:
 		return # we do nothing, we want to register state chnage
 	if new_bool:
-		path_sound = null
+		path_sound = PoolVector2Array([])
 		path_p = PoolVector2Array([])
 		inspect_sound = false
 		color_rect.color = Color(255, 0, 0)
@@ -140,7 +155,7 @@ func set_see_cat(new_bool):
 		color_rect.color = Color(0, 255, 0)
 	see_cat = new_bool
 
-func _on_touch(area):
 
+func _on_touch(area):
 	if area == cat:
 		emit_signal("touched")
