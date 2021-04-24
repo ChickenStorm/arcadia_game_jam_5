@@ -136,7 +136,7 @@ static func _load_windows_settings(config):
 		var full_screen = config.get_value(GRAPHICS_SECTION_NAME, FULLSCREEN_CONFIG_NAME)
 		OS.window_fullscreen = full_screen
 	else:
-		pass
+		OS.window_fullscreen = false
 	if not OS.window_fullscreen:
 		OS.center_window()
 
@@ -149,7 +149,8 @@ static func _get_window_resolution(config):
 
 
 static func _load_default_settings():
-	OS.window_fullscreen = true
+	OS.window_fullscreen = false
+	OS.center_window()
 	TranslationServer.set_locale(DEFAULT_LOCALE)
 
 

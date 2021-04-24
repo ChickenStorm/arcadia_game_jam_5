@@ -18,9 +18,9 @@ radius = 150.0
 extents = Vector2( 25, 5 )
 
 [sub_resource type="NavigationPolygon" id=5]
-vertices = PoolVector2Array( 151.115, 49.2016, 179.158, 1.20093, 175.367, 198.767, 151, 71.25, 0.5, -0.5, 40.4712, 50.0398, 1.25578, 214.746, 39, 171, 61, 171.75, 60.3904, 71.4455 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 1, 0, 5 ), PoolIntArray( 6, 4, 5, 7 ), PoolIntArray( 2, 6, 7, 8 ), PoolIntArray( 3, 2, 8, 9 ) ]
-outlines = [ PoolVector2Array( 179.158, 1.20093, 0.5, -0.5, 1.25578, 214.746, 175.367, 198.767 ), PoolVector2Array( 40.4712, 50.0398, 151.115, 49.2016, 151, 71.25, 60.3904, 71.4455, 61, 171.75, 39, 171 ) ]
+vertices = PoolVector2Array( 0.5, -0.5, 301.431, -1.52719, 151.115, 49.2016, 40.4712, 50.0398, 1.60262, 264.398, 39, 171, 265.409, 256.452, 151, 71.25, 61, 171.75, 60.3904, 71.4455 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 0, 3, 5 ), PoolIntArray( 2, 1, 6, 7 ), PoolIntArray( 7, 6, 4, 8 ), PoolIntArray( 8, 9, 7 ), PoolIntArray( 8, 4, 5 ) ]
+outlines = [ PoolVector2Array( 301.431, -1.52719, 0.5, -0.5, 1.60262, 264.398, 265.409, 256.452 ), PoolVector2Array( 40.4712, 50.0398, 151.115, 49.2016, 151, 71.25, 60.3904, 71.4455, 61, 171.75, 39, 171 ) ]
 
 [node name="Game" type="Navigation2D"]
 script = ExtResource( 1 )

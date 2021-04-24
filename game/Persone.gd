@@ -5,7 +5,8 @@ const ANGLE_SPEED = 2
 const ANGLE_LIMITOR = ANGLE_SPEED * 2.0 / 30.0
 
 var cat = null setget set_cat
-var see_cat = false
+var cat_in_area = false
+var see_cat = false setget set_see_cat
 var inspect_sound = false
 var path = null
 
@@ -25,13 +26,14 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if ray != null and cat != null:
-		if see_cat:
+		if cat_in_area:
 			var vec_cat = cat.position - self.position
 			ray.cast_to = vec_cat.rotated(-self.rotation)
-			if not ray.is_colliding():
+			self.see_cat = not ray.is_colliding()
+			if see_cat:
 				move_and_collide(vec_cat.normalized() * delta * SPEED_FACTOR)
 				rotate_to_dir(delta, vec_cat)
-		elif inspect_sound and path != null:
+		if inspect_sound and path != null:
 			var last_pt = self.position
 			var remaining_dist = delta * SPEED_FACTOR
 			while path.size() > 0:
@@ -55,17 +57,17 @@ func rotate_to_dir(delta, dir: Vector2):
 
 
 func _on_body_exited(area):
-	color_rect.color = Color(0, 255, 0)
-	see_cat = false
+	cat_in_area = false
+	self.see_cat = false
 
 
 func _on_body_entered(area):
+	cat_in_area = true
 	var vec_cat = cat.position - self.position
 	ray.cast_to = vec_cat.rotated(-self.rotation)
-	if not ray.is_colliding():
-		color_rect.color = Color(255, 0, 0)
-		see_cat = true
-		inspect_sound = false
+	#if not ray.is_colliding():
+	#	self.see_cat = true
+
 
 func set_cat(cat_var):
 	cat = cat_var
@@ -83,7 +85,20 @@ func _update_navigation_path(start_position, end_position):
 
 
 func _on_area_entered(area):
-	color_rect.color = Color(255, 255, 0)
-	inspect_sound = true
-	_update_navigation_path(self.position, area.get_parent().position)
-	print(path)
+	if not see_cat:
+		color_rect.color = Color(255, 255, 0)
+		inspect_sound = true
+		_update_navigation_path(self.position, area.get_parent().position)
+
+
+
+func set_see_cat(new_bool):
+	if new_bool == see_cat:
+		return # we do nothing, we want to register state chnage
+	if new_bool:
+		path = null
+		inspect_sound = false
+		color_rect.color = Color(255, 0, 0)
+	else:
+		color_rect.color = Color(0, 255, 0)
+	see_cat = new_bool

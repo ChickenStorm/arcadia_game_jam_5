@@ -3,7 +3,7 @@ godot-path =
 godot-name-executable-main = Godot_v3.3-stable
 
 project-name = Felix
-itch-project = #todo
+itch-project = chickenstorm/felix
 
 
 ifeq ($(OS),Windows_NT)
