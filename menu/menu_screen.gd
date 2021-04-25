@@ -12,6 +12,10 @@ func _ready():
 	$GUI/Node2D2/Quit.connect("pressed", self, "_quit_game")
 
 
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_down"):
+		Audio.play_click()
+
 func _quit_game():
 	get_tree().quit()
 
