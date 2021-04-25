@@ -1580,6 +1580,7 @@ rotation = -1.5708
 scale = Vector2( 2, 2 )
 frames = SubResource( 134 )
 animation = "Anim"
+frame = 3
 speed_scale = 0.8
 playing = true
 centered = false
@@ -2160,6 +2161,7 @@ __meta__ = {
 }
 
 [node name="PanelContainer" parent="CanvasLayer/Hud/MarginContainer/VBoxContainer" instance=ExtResource( 31 )]
+visible = false
 margin_top = 611.0
 margin_right = 1235.0
 margin_bottom = 692.0
