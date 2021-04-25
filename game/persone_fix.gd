@@ -28,4 +28,4 @@ func _move(delta):
 						self.rotation = angle_target
 					
 	else:
-		path_p = move_along_path(path_p, delta)
+		path_p = move_along_path(path_p, delta, speed_factor)

@@ -33,12 +33,14 @@ func _on_main_music_finished():
 
 
 func _on_piss(zone_id):
+	print(zone_id)
 	if zone_id == 0:
 		for p in [persone, $PersoneStand]:
 			p.inspect_sound = true
 			p.has_inspected = false
 			p.path_p = PoolVector2Array([])
 			p.path_sound = p._update_navigation_path(p.position, $PersoneFix.position)
+			p.noise_type = "piss"
 	if zone_id == 1:
 		$TimerPissZ1.start()
 		$TimerPissZ1.connect("timeout", self, "_on_timer_piss_timeout", [cat.position])
@@ -47,15 +49,16 @@ func _on_piss(zone_id):
 		persone.has_inspected = false
 		persone.path_p = PoolVector2Array([])
 		persone.path_sound = persone._update_navigation_path(persone.position, cat.position)
+		persone.noise_type = "piss"
 
 
 func _on_timer_piss_timeout(pos):
-		$PersoneStand.inspect_sound = true
-		$PersoneStand.has_inspected = false
-		$PersoneStand.path_p = PoolVector2Array([])
-		$PersoneStand.path_sound = $PersoneStand._update_navigation_path($PersoneStand.position, pos)
-		$PersoneStand.inspect_time_next = 5
-	
+	$PersoneStand.inspect_sound = true
+	$PersoneStand.has_inspected = false
+	$PersoneStand.path_p = PoolVector2Array([])
+	$PersoneStand.path_sound = $PersoneStand._update_navigation_path($PersoneStand.position, pos)
+	$PersoneStand.inspect_time_next = 5
+	$PersoneStand.noise_type = "piss"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

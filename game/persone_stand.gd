@@ -33,6 +33,18 @@ func _move(delta):
 			waiting_time = WAIT_TIME
 		else:
 			waiting_time -= delta
-	path_p = move_along_path(path_p, delta)
+	path_p = move_along_path(path_p, delta, speed_factor)
 	
 
+func _on_noise(area):
+	if not see_cat:
+		var check_noise_type = area.noise_type if area.get("noise_type") != null else ""
+		# cannot heat the meow he is imeownue
+		if noise_type != "meow":
+			noise_type = check_noise_type
+			inspect_time_next = area.time_distraction if area.get("time_distraction") != null else 3
+			color_rect.color = Color(255, 255, 0)
+			inspect_sound = true
+			has_inspected = false
+			path_p = PoolVector2Array([])
+			path_sound = _update_navigation_path(self.position, area.get_parent().position)

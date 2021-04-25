@@ -7,6 +7,7 @@ extends Area2D
 # var b = "text"
 
 export(float) var time_distraction = 3
+export(String) var noise_type = ""
 
 onready var timer = $Timer
 

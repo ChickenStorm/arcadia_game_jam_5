@@ -3,11 +3,12 @@ extends KinematicBody2D
 
 signal touched()
 
-const SPEED_FACTOR = 100
+const TOUTCH_RADIUS = 10
 const SPEED_SEE_CAT = 300
 const ANGLE_SPEED = 2
 const DIST_SOUND_INSPECTED = 60
 var inspect_time_next = 3
+var noise_type = ""
 
 var cat = null setget set_cat
 var cat_in_area = false
@@ -19,7 +20,8 @@ var has_inspected = false
 
 var rng = RandomNumberGenerator.new()
 
-
+export(float) var speed_factor = 100
+export(float) var speed_factor_noise = 100
 export(NodePath) var path_node = null
 var path_p = PoolVector2Array([]);
 var path_node_int = 0
@@ -35,7 +37,7 @@ onready var color_rect = $ColorRect
 func _ready():
 	vision.connect("body_entered", self, "_on_body_entered")
 	vision_out.connect("body_exited", self, "_on_body_exited")
-	hearing.connect("area_entered", self, "_on_area_entered")
+	hearing.connect("area_entered", self, "_on_noise")
 	$Toutch.connect("body_entered", self, "_on_touch")
 
 
@@ -46,14 +48,20 @@ func _process(delta):
 		if cat_in_area:
 			var vec_cat = cat.position - self.position
 			ray.cast_to = vec_cat.rotated(-self.rotation)
-			self.see_cat = not ray.is_colliding()
+			if not see_cat:
+				# we can't "unsee"
+				self.see_cat = not ray.is_colliding()
 			if see_cat:
+#				if self.position.distance_to(cat.position) < TOUTCH_RADIUS * 8:
+#					move_and_collide(vec_cat.normalized() * delta * SPEED_SEE_CAT)
+#				else:
+#					self.position += vec_cat.normalized() * delta * SPEED_SEE_CAT
 				move_and_collide(vec_cat.normalized() * delta * SPEED_SEE_CAT)
 				rotate_to_dir(delta, vec_cat)
 				play_if_has_moved(old_position, delta)
 				return
 		if inspect_sound:
-			path_sound = move_along_path(path_sound, delta)
+			path_sound = move_along_path(path_sound, delta, speed_factor_noise)
 			#inspect_sound = (path_sound.size() != 0)
 			if path_sound.size() == 0 or \
 					(path_sound.size() == 1 \
@@ -76,7 +84,7 @@ func _process(delta):
 
 
 func play_if_has_moved(old_position, delta):
-	var has_moved = self.position.distance_to(old_position) > SPEED_FACTOR / 10 * delta
+	var has_moved = self.position.distance_to(old_position) > speed_factor / 10 * delta
 	if has_moved != $StepSound.playing:
 		# we chnage the playing mode only if needed
 		$StepSound.playing = has_moved
@@ -85,9 +93,9 @@ func _move(delta):
  pass
 
 
-func move_along_path(path, delta):
+func move_along_path(path, delta, speed_coef):
 	var last_pt = self.position
-	var remaining_dist = delta * SPEED_FACTOR
+	var remaining_dist = delta * speed_coef
 	while path.size() > 0:
 		var distance = last_pt.distance_to(path[0])
 		if remaining_dist < distance:
@@ -114,8 +122,10 @@ func rotate_to_dir(delta, dir: Vector2):
 
 
 func _on_body_exited(_area):
-	cat_in_area = false
-	self.see_cat = false
+	pass
+	# we can't "unsee"
+	#cat_in_area = false
+	#self.see_cat = false
 
 
 func _on_body_entered(_area):
@@ -143,10 +153,11 @@ func _update_navigation_path(start_position, end_position):
 	return path
 
 
-func _on_area_entered(area):
+func _on_noise(area):
 	if not see_cat:
 		color_rect.color = Color(255, 255, 0)
 		inspect_time_next = area.time_distraction if area.get("time_distraction") != null else 3
+		noise_type = area.noise_type if area.get("noise_type") != null else ""
 		inspect_sound = true
 		has_inspected = false
 		path_p = PoolVector2Array([])

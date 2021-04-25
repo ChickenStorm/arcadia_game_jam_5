@@ -27,7 +27,7 @@ alignment = 2
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 margin_right = 1024.0
 margin_bottom = 14.0
-text = "Vous avez perdu, l'enfant vous a vu"
+text = "Vous avez gagnez les croquettes sont à vous"
 align = 1
 
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]

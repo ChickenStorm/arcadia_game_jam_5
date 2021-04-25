@@ -10,6 +10,9 @@ const SPEED_FACTOR = 150
 const SPEED_AFTER_MEOW = 100
 const MEOW_CD = 2
 const PISS_CD = 20
+const ACCELERATION = 300
+
+var speed = 0
 
 var time_meow = 0
 var time_piss = 0
@@ -54,22 +57,23 @@ func _on_area_entered(area):
 func _process(delta):
 	time_meow -= delta
 	time_piss -= delta
-	var speed = Vector2.ZERO
-	var speed_factor = SPEED_FACTOR if time_meow <= 0 else SPEED_AFTER_MEOW
+	var speed_dir = Vector2.ZERO
+	speed = min(speed + delta * ACCELERATION, SPEED_FACTOR if time_meow <= 0 else SPEED_AFTER_MEOW)
 	for directions in _motion.keys():
 		if  _motion[directions]:
-			speed += directions * speed_factor * delta
+			speed_dir += directions * speed * delta
 	var vec_or = Vector2.UP.rotated(self.rotation)
-	if speed != Vector2.ZERO:
-		self.rotate(vec_or.angle_to(speed))
+	if speed_dir != Vector2.ZERO:
+		self.rotate(vec_or.angle_to(speed_dir))
 		$sprite.playing = true
 		if not $StepSound.playing:
 			$StepSound.playing = true
 	else:
+		speed = 0
 		if $StepSound.playing:
 			$StepSound.playing = false
 		$sprite.playing = false
-	move_and_collide(speed)
+	move_and_collide(speed_dir)
 
 
 

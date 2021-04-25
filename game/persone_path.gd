@@ -30,4 +30,4 @@ func _move(delta):
 			waiting_time = WAIT_TIME
 		else:
 			waiting_time -= delta
-	path_p = move_along_path(path_p, delta)
+	path_p = move_along_path(path_p, delta, speed_factor)
