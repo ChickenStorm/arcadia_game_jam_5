@@ -5,3 +5,4 @@ load_path = "res://.import/boite_dialogue_ninepatch.png-036a652752769b69cd89ba77
 
 [resource]
 texture = SubResource( 2 )
+region_rect = Rect2( 0, 0, 59, 13 )

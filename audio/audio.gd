@@ -55,3 +55,7 @@ func ship_queue_finished_audio(ship_group):
 
 func set_requested_music(string):
 	requested_music = string
+
+
+func play_click_accepte():
+	audio_scene.play_click_accepte()

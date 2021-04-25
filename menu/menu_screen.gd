@@ -13,8 +13,11 @@ func _ready():
 
 
 func _unhandled_input(event):
-	if event.is_action_pressed("ui_down"):
+	if event.is_action("ui_down") or event.is_action("ui_up"):
+		print("test 2")
 		Audio.play_click()
+	if event.is_action_pressed("ui_accept"):
+		Audio.play_click_accepte()
 
 func _quit_game():
 	get_tree().quit()

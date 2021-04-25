@@ -25,3 +25,11 @@ func _on_back_to_main_menu():
 
 func _on_replay():
 	emit_signal("scene_requested", "game")
+
+
+func _unhandled_input(event):
+	if event.is_action("ui_down") or event.is_action("ui_up"):
+		print("test 2")
+		Audio.play_click()
+	if event.is_action_pressed("ui_accept"):
+		Audio.play_click_accepte()
