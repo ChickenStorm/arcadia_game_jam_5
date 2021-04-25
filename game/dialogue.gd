@@ -18,7 +18,7 @@ func _ready():
 
 func set_text(t):
 	text = t
-	$Label.text = text
+	$MarginContainer/Label.text = text
 
 
 func _on_time_out():

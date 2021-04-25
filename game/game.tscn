@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=2]
+[gd_scene load_steps=120 format=2]
 
 [ext_resource path="res://game/game.gd" type="Script" id=1]
 [ext_resource path="res://game/cat.gd" type="Script" id=2]
@@ -30,6 +30,7 @@
 [ext_resource path="res://game/Desk.gd" type="Script" id=28]
 [ext_resource path="res://resources/people/anim_pere_canap-Sheet.png" type="Texture" id=29]
 [ext_resource path="res://game/canape.gd" type="Script" id=30]
+[ext_resource path="res://game/dialogue.tscn" type="PackedScene" id=31]
 [ext_resource path="res://.import/Aimants deplacee.wav-b229f93824a2be7f2b0590839485cd4c.sample" type="AudioStream" id=32]
 [ext_resource path="res://.import/Bruit tv.ogg-cdd2e738956f7ffec58371f2aa383ba7.oggstr" type="AudioStream" id=33]
 [ext_resource path="res://.import/Four.ogg-b0f635a6e6951440dbb654bd70ee03e4.oggstr" type="AudioStream" id=34]
@@ -629,6 +630,7 @@ __meta__ = {
 }
 
 [node name="TileMapNav" type="TileMap" parent="."]
+visible = false
 scale = Vector2( 2, 2 )
 tile_set = SubResource( 14 )
 cell_size = Vector2( 16, 16 )
@@ -1479,6 +1481,7 @@ rotation = -1.5708
 scale = Vector2( 2, 2 )
 frames = SubResource( 55 )
 animation = "Anim"
+frame = 1
 playing = true
 centered = false
 
@@ -2022,10 +2025,9 @@ __meta__ = {
 }
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Hud"]
-anchor_left = 0.1
-anchor_top = 0.1
-anchor_right = 0.9
-anchor_bottom = 0.9
+anchor_top = 0.02
+anchor_right = 0.98
+anchor_bottom = 0.98
 mouse_filter = 2
 __meta__ = {
 "_edit_lock_": true,
@@ -2033,13 +2035,19 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Hud/MarginContainer"]
-margin_right = 1024.0
-margin_bottom = 576.0
+margin_right = 1255.0
+margin_bottom = 692.0
 mouse_filter = 2
 alignment = 2
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="PanelContainer" parent="CanvasLayer/Hud/MarginContainer/VBoxContainer" instance=ExtResource( 31 )]
+visible = false
+margin_top = 611.0
+margin_right = 1255.0
+margin_bottom = 692.0
 
 [node name="TimerPissZ1" type="Timer" parent="."]
 wait_time = 2.0

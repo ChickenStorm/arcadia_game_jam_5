@@ -1,10 +1,12 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://game_over/game_over.gd" type="Script" id=1]
+[ext_resource path="res://themes/main_theme.tres" type="Theme" id=2]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 2 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -26,18 +28,18 @@ alignment = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 margin_right = 1024.0
-margin_bottom = 14.0
+margin_bottom = 21.0
 text = "Vous avez perdu, la mère vous a vu"
 align = 1
 
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
-margin_top = 18.0
+margin_top = 25.0
 margin_right = 1024.0
-margin_bottom = 552.0
+margin_bottom = 551.0
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
-margin_top = 556.0
+margin_top = 555.0
 margin_right = 1024.0
 margin_bottom = 576.0
 text = "Revenir au menu principale"

@@ -9,6 +9,7 @@ signal scene_requested(scene)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$MarginContainer/VBoxContainer/Button.grab_focus()
 	$MarginContainer/VBoxContainer/Button.connect("pressed", self, "_on_back_to_main_menu")
 	Audio.set_requested_music("defaite")
 

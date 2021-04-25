@@ -118,8 +118,10 @@ func _on_interaction_dialogue(string):
 	if string is String:
 		$CanvasLayer/Hud.add_dialogue(string)
 	if string is Array:
+		var new_str = ""
 		for i in string:
-			$CanvasLayer/Hud.add_dialogue(i)
+			new_str += i + "\n"
+		$CanvasLayer/Hud.add_dialogue(new_str)
 
 func _on_win_game():
 	emit_signal("scene_requested", "win")
