@@ -3,7 +3,7 @@ godot-path =
 godot-name-executable-main = Godot_v3.3-stable
 
 project-name = hungry_kitty
-itch-project = chickenstorm/felix
+itch-project = chickenstorm/hungrykitty
 
 
 ifeq ($(OS),Windows_NT)
@@ -71,6 +71,7 @@ production: $(source-files) $(version-file) .FORCE
 	$(copy) $(copy-flag) "$(file-config-prod)" "$(file-config-used)"
 	$(godot) $(godot-flag) "Windows" compile/windows/$(project-name).exe
 	$(godot) $(godot-flag) "Linux" compile/linux/$(project-name).x86_64
+	$(godot) $(godot-flag) "Mac" compile/mac/$(project-name).zip
 	$(copy) $(copy-flag) "$(file-config-dev)" "$(file-config-used)"
 
 
@@ -126,6 +127,11 @@ itch-push-windows:
 .PHONY: itch-push-linux
 itch-push-linux:
 	$(butler) push compile/tmp/. $(itch-project):linux-universal --userversion $(version-short)
+	
+.PHONY: itch-push-mac
+itch-push-mac:
+	$(butler) push compile/tmp/. $(itch-project):osx-universal --userversion $(version-short)
+
 
 .PHONY: itch-push
 itch-push: .FORCE
@@ -139,6 +145,10 @@ itch-push: .FORCE
 	$(copy) $(copy-flag) "compile\linux\$(project-name).x86_64" "compile\tmp\$(project-name).x86_64"
 	$(copy) $(copy-flag) "compile\linux\$(project-name).pck" "compile\tmp\$(project-name).pck"
 	$(make) itch-push-linux
+	$(rm) $(rm-flag) "compile/tmp"
+	$(mkdir) "compile/tmp"
+	$(copy) $(copy-flag) "compile\mac\$(project-name).zip" "compile\tmp\$(project-name).zip"
+	$(make) itch-push-mac
 	$(rm) $(rm-flag) "compile/tmp"
 
 .PHONY: .FORCE
