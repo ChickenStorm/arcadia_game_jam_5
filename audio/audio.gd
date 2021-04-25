@@ -6,7 +6,8 @@ signal ship_queue_finished_audio(ship_queue)
 const AUDIO_SCENE_SINGLETON = preload("res://audio/audio_scene_singleton.tscn")
 
 var sounds = {
-	"main_menu":  preload("res://resources/sounds/Dialogue.ogg"),
+	"intro": preload("res://resources/sounds/Dialogue.ogg"),
+	"main_menu":  preload("res://resources/sounds/Hungry Kitty OST.wav"),
 	"game_1": preload("res://resources/sounds/enJeu.wav"),
 	"victory": preload("res://resources/sounds/Victoire.wav"),
 	"defaite": preload("res://resources/sounds/Defaite.ogg")
