@@ -60,11 +60,11 @@ func _on_piss(zone_id):
 			p.path_p = PoolVector2Array([])
 			p.path_sound = p._update_navigation_path(p.position, $PersoneFix.position)
 			p.noise_type = "piss"
-			_on_interaction_dialogue([
-				"Frank : Rah, fichue bête ! Et maintenant tu vas dire que c’est de ma faute peut-être ?",
-				"Céline : Marquer son territoire c’est typiquement masculin je te signale.",
-				"Henri : Maman ! Félix a encore fait pipi sur mon parquet !",
-			])
+		_on_interaction_dialogue([
+			"Frank : Rah, fichue bête ! Et maintenant tu vas dire que c’est de ma faute peut-être ?",
+			"Céline : Marquer son territoire c’est typiquement masculin je te signale.",
+			"Henri : Maman ! Félix a encore fait pipi sur mon parquet !",
+		])
 	else:
 		_on_interaction_dialogue([
 				"Frank : Rah, fichue bête ! Et maintenant tu vas dire que c’est de ma faute peut-être ?",
@@ -110,7 +110,7 @@ func _on_interaction_exited():
 
 func _on_touched(string):
 	pass
-	#emit_signal("scene_requested", "game_over_" + string )
+	emit_signal("scene_requested", "game_over_" + string )
 	Audio.play_ctached_kitty()
 
 

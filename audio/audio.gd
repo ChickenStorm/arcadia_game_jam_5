@@ -28,7 +28,7 @@ func _init():
 	if node_audio.stream is AudioStreamOGGVorbis:
 		node_audio.stream.loop = false
 		node_audio.stream.loop = false
-	node_audio.volume_db = -20
+	node_audio.volume_db = -15
 	node_audio.play()
 	node_audio.connect("finished", self, "_on_mus_finished")
 

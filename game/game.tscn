@@ -498,7 +498,7 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 37 ), SubResource( 38 ), SubResource( 39 ) ],
+"frames": [ SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 38 ) ],
 "loop": true,
 "name": "Anim",
 "speed": 5.0
@@ -580,7 +580,7 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 53 ), SubResource( 54 ), SubResource( 55 ) ],
+"frames": [ SubResource( 53 ), SubResource( 53 ), SubResource( 53 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 54 ) ],
 "loop": true,
 "name": "Anim",
 "speed": 5.0
@@ -836,6 +836,7 @@ __meta__ = {
 }
 
 [node name="Area2D" type="StaticBody2D" parent="Obstacle/Room1/ObstacleRect"]
+visible = false
 collision_layer = 19
 collision_mask = 19
 __meta__ = {
@@ -1088,6 +1089,7 @@ texture = SubResource( 33 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Obstacle/Room1/InteractibleText"]
 stream = ExtResource( 9 )
+max_distance = 400.0
 
 [node name="SpriteInteract" type="Sprite" parent="Obstacle/Room1/InteractibleText"]
 visible = false
@@ -1107,11 +1109,8 @@ __meta__ = {
 }
 
 [node name="InteractibleConsole" type="Node2D" parent="Obstacle/Room1"]
-position = Vector2( 41.9278, 235.357 )
+position = Vector2( 46.0225, 233.152 )
 script = ExtResource( 17 )
-__meta__ = {
-"_edit_lock_": true
-}
 text = [ " Tssss, il s’énerve pour cette boîte en plastique et c’est moi qui dois consulter le toubib.", "Henri : Les esprits m’envahissent… Le fantôme d’Agdhul Bakar va venir prendre ma chair et… la console s’allume AAAAAAAAAAHHHH IL SE VENGE »", "Félix : Oh non, ce n’est pas ton spectre amateur. C’est pire." ]
 
 [node name="Sprite" type="Sprite" parent="Obstacle/Room1/InteractibleConsole"]
@@ -1131,6 +1130,9 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room1/InteractibleConsole/Body"]
 position = Vector2( -10.8668, 3.93726 )
 shape = SubResource( 31 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="ColorRect" type="ColorRect" parent="Obstacle/Room1/InteractibleConsole"]
 visible = false
@@ -1161,7 +1163,7 @@ __meta__ = {
 }
 
 [node name="Noise" parent="Obstacle/Room1/InteractibleConsole" instance=ExtResource( 4 )]
-position = Vector2( 18.7492, 114.625 )
+position = Vector2( 10.0501, 114.906 )
 collision_layer = 8
 collision_mask = 8
 time_distraction = 5.0
@@ -1170,14 +1172,18 @@ time_distraction = 5.0
 rect_scale = Vector2( 0.5, 0.5 )
 
 [node name="ConsoleNoise" type="AudioStreamPlayer2D" parent="Obstacle/Room1/InteractibleConsole"]
-position = Vector2( 18.7904, 114.463 )
+position = Vector2( 7.00455, 115.726 )
 stream = ExtResource( 6 )
+max_distance = 400.0
 bus = "Effect"
 
 [node name="SpriteLight" type="Sprite" parent="Obstacle/Room1/InteractibleConsole"]
-visible = false
-position = Vector2( 10.2525, 112.54 )
+position = Vector2( 17.3853, 117.313 )
+scale = Vector2( 2, 2 )
 texture = SubResource( 36 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="SpriteInteract" type="Sprite" parent="Obstacle/Room1/InteractibleConsole"]
 visible = false
@@ -1206,6 +1212,7 @@ script = ExtResource( 28 )
 position = Vector2( -71.2719, -32.0724 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 40 )
+speed_scale = 0.5
 playing = true
 centered = false
 __meta__ = {
@@ -1342,6 +1349,7 @@ rect_scale = Vector2( 0.5, 0.5 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Obstacle/Room2/InteractiblePlant"]
 stream = ExtResource( 36 )
+max_distance = 400.0
 
 [node name="SpriteInteract" type="Sprite" parent="Obstacle/Room2/InteractiblePlant"]
 visible = false
@@ -1361,7 +1369,7 @@ __meta__ = {
 }
 
 [node name="InteractiblePlant2" type="Node2D" parent="Obstacle/Room2"]
-position = Vector2( 903.444, 428.102 )
+position = Vector2( 881.741, 421.561 )
 script = ExtResource( 21 )
 text = [ "Je n’ai jamais aimé les plantes. Elles me volent la vedette. On leur donne à boire, on les flatte et s’occupe d’elles. Et pour quelles raisons ? Elles sont inintéressantes. Moi, au moins, je marche, je ronronne, et je les ruine en pâté pour chat.", "Céline : Je venais de passer un coup de balais, Frank ! C’est bien la peine d’essayer de vivre dignement avec un deuxième cochon comme chef de famille !", "Frank : Elle était moche, ta plante, de toute façon !" ]
 
@@ -1423,6 +1431,7 @@ rect_scale = Vector2( 0.5, 0.5 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Obstacle/Room2/InteractiblePlant2"]
 stream = ExtResource( 36 )
+max_distance = 400.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -1517,6 +1526,7 @@ rect_scale = Vector2( 0.5, 0.5 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Obstacle/Room2/ObstacleSquare3"]
 stream = ExtResource( 9 )
+max_distance = 400.0
 
 [node name="SpriteInteract" type="Sprite" parent="Obstacle/Room2/ObstacleSquare3"]
 visible = false
@@ -1555,7 +1565,8 @@ rotation = -1.5708
 scale = Vector2( 2, 2 )
 frames = SubResource( 56 )
 animation = "Anim"
-frame = 2
+frame = 1
+speed_scale = 0.8
 playing = true
 centered = false
 
@@ -1629,6 +1640,7 @@ __meta__ = {
 stream = ExtResource( 33 )
 volume_db = -30.0
 autoplay = true
+max_distance = 400.0
 
 [node name="Decore" type="Node2D" parent="Obstacle/Room2"]
 __meta__ = {
@@ -1762,12 +1774,14 @@ rect_scale = Vector2( 0.5, 0.5 )
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Obstacle/Room 3/ObstacleRect9"]
 position = Vector2( -992.456, 281.887 )
 stream = ExtResource( 32 )
+max_distance = 400.0
 
 [node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Obstacle/Room 3/ObstacleRect9"]
 position = Vector2( -992.456, 281.887 )
 stream = ExtResource( 37 )
 volume_db = -20.0
 autoplay = true
+max_distance = 400.0
 
 [node name="SpriteInteract" type="Sprite" parent="Obstacle/Room 3/ObstacleRect9"]
 visible = false
@@ -2068,6 +2082,7 @@ collision_mask = 64
 [node name="StepSound" type="AudioStreamPlayer2D" parent="Cat"]
 position = Vector2( 0.131209, -0.25507 )
 stream = ExtResource( 38 )
+max_distance = 400.0
 bus = "Effect"
 
 [node name="Persone" parent="." instance=ExtResource( 3 )]

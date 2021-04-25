@@ -9,7 +9,6 @@ const DIALOG = preload("res://game/dialogue.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	add_dialogue("test")
 	pass # Replace with function body.
 
 
