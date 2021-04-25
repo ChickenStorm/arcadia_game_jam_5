@@ -5,6 +5,7 @@ extends KinematicBody2D
 signal interaction_entered()
 signal interaction_exited()
 signal piss(zone_id)
+signal entered_zone(zone_id)
 
 const SPEED_FACTOR = 150
 const SPEED_AFTER_MEOW = 100
@@ -46,6 +47,7 @@ func _ready():
 func _on_area_entered_zone(area):
 	if area is Zone:
 		zone = area.zone_id
+		emit_signal("entered_zone", zone)
 
 
 func _on_area_entered(area):

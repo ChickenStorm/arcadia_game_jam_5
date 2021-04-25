@@ -1,11 +1,11 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=111 format=2]
 
 [ext_resource path="res://game/game.gd" type="Script" id=1]
 [ext_resource path="res://game/cat.gd" type="Script" id=2]
 [ext_resource path="res://game/persone.tscn" type="PackedScene" id=3]
 [ext_resource path="res://game/noise.tscn" type="PackedScene" id=4]
 [ext_resource path="res://resources/cat/walk.png" type="Texture" id=5]
-[ext_resource path="res://game/interact.gd" type="Script" id=6]
+[ext_resource path="res://.import/Console.wav-b51c53eea58cad478d3dbe793f87b2cc.sample" type="AudioStream" id=6]
 [ext_resource path="res://game/persone_stand.tscn" type="PackedScene" id=7]
 [ext_resource path="res://game/Hud.gd" type="Script" id=8]
 [ext_resource path="res://game/interactible_text.gd" type="Script" id=9]
@@ -17,6 +17,20 @@
 [ext_resource path="res://resources/chambre_henri/tileset_sol.png" type="Texture" id=15]
 [ext_resource path="res://resources/salon/tileset_sol.png" type="Texture" id=16]
 [ext_resource path="res://game/consol.gd" type="Script" id=17]
+[ext_resource path="res://resources/salon/pot_cassé1.png" type="Texture" id=18]
+[ext_resource path="res://resources/salon/plante.png" type="Texture" id=19]
+[ext_resource path="res://resources/salon/pot_cassé2.png" type="Texture" id=20]
+[ext_resource path="res://game/Plant.gd" type="Script" id=21]
+[ext_resource path="res://resources/people/anim_pere_bureau-Sheet.png" type="Texture" id=22]
+[ext_resource path="res://resources/salon/bureau.png" type="Texture" id=23]
+[ext_resource path="res://game/fridge.gd" type="Script" id=24]
+[ext_resource path="res://game/table.gd" type="Script" id=25]
+[ext_resource path="res://game/oven.gd" type="Script" id=26]
+[ext_resource path="res://game/food.gd" type="Script" id=27]
+[ext_resource path="res://game/Desk.gd" type="Script" id=28]
+[ext_resource path="res://resources/people/anim_pere_canap-Sheet.png" type="Texture" id=29]
+[ext_resource path="res://game/canape.gd" type="Script" id=30]
+[ext_resource path="res://.import/Hungry Kitty OST.wav-52ba349a8128e9dd000f96efaaad4ff2.sample" type="AudioStream" id=31]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 16, 10, 0, 10, 0, 6, 16, 6 )
@@ -318,84 +332,256 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 1/shapes = [  ]
 1/z_index = 0
 
-[sub_resource type="AtlasTexture" id=15]
-atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 36, 36 )
+[sub_resource type="StreamTexture" id=15]
+load_path = "res://.import/panier_chat.png-b3ec32f61260ca66a94e07a216e036b6.stex"
 
-[sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 5 )
-region = Rect2( 36, 0, 36, 36 )
+[sub_resource type="StreamTexture" id=16]
+load_path = "res://.import/tapis.png-dea6d9e502557ca62326bc8c01d25817.stex"
 
 [sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 5 )
-region = Rect2( 72, 0, 36, 36 )
+region = Rect2( 0, 0, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 5 )
-region = Rect2( 108, 0, 36, 36 )
+region = Rect2( 36, 0, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=19]
 atlas = ExtResource( 5 )
+region = Rect2( 72, 0, 36, 36 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 5 )
+region = Rect2( 108, 0, 36, 36 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 5 )
 region = Rect2( 144, 0, 36, 36 )
 
-[sub_resource type="SpriteFrames" id=20]
+[sub_resource type="SpriteFrames" id=22]
 animations = [ {
-"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 18 ), SubResource( 17 ), SubResource( 16 ) ],
+"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 20 ), SubResource( 19 ), SubResource( 18 ) ],
 "loop": true,
 "name": "walk",
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=21]
+[sub_resource type="RectangleShape2D" id=23]
 extents = Vector2( 7, 15 )
 
-[sub_resource type="RectangleShape2D" id=22]
+[sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 311.538, 242.924 )
 
-[sub_resource type="RectangleShape2D" id=23]
-extents = Vector2( 85.9005, 22.5239 )
-
-[sub_resource type="CircleShape2D" id=24]
-radius = 20.0
-
 [sub_resource type="RectangleShape2D" id=25]
-extents = Vector2( 102.427, 60.2589 )
+extents = Vector2( 194.998, 324.761 )
 
 [sub_resource type="RectangleShape2D" id=26]
-extents = Vector2( 95.2628, 72.6445 )
+extents = Vector2( 281.366, 189.739 )
 
-[sub_resource type="RectangleShape2D" id=27]
-extents = Vector2( 15, 15 )
+[sub_resource type="StreamTexture" id=27]
+load_path = "res://.import/télé.png-2fda7469b5d0aab922b9bfe612eb5579.stex"
 
 [sub_resource type="RectangleShape2D" id=28]
+extents = Vector2( 44.2138, 14.9712 )
 
 [sub_resource type="CircleShape2D" id=29]
-radius = 80.0
+radius = 20.0
 
-[sub_resource type="RectangleShape2D" id=30]
-extents = Vector2( 60, 15 )
+[sub_resource type="StreamTexture" id=30]
+load_path = "res://.import/bureau.png-5307dbd90ab79b64ab5e0a3798e10865.stex"
 
 [sub_resource type="RectangleShape2D" id=31]
-custom_solver_bias = 1.0
-extents = Vector2( 26.9438, 20.5813 )
+extents = Vector2( 67.2338, 33.4239 )
 
-[sub_resource type="RectangleShape2D" id=32]
-extents = Vector2( 100, 15 )
+[sub_resource type="StreamTexture" id=32]
+load_path = "res://.import/meuble.png-78a3aa59f2369681b8a76aff7d03571e.stex"
 
 [sub_resource type="RectangleShape2D" id=33]
-extents = Vector2( 75, 60 )
+extents = Vector2( 83.208, 28.0031 )
 
 [sub_resource type="RectangleShape2D" id=34]
-extents = Vector2( 54.6084, 54.7039 )
+extents = Vector2( 83.286, 55.7755 )
 
-[sub_resource type="RectangleShape2D" id=35]
-extents = Vector2( 74.8424, 38.0465 )
+[sub_resource type="StreamTexture" id=35]
+load_path = "res://.import/lit.png-b66945c8eb380e5effa700c12ed38c6f.stex"
 
 [sub_resource type="RectangleShape2D" id=36]
-extents = Vector2( 80.2563, 37.6532 )
+extents = Vector2( 16.8026, 17.9718 )
 
-[sub_resource type="RectangleShape2D" id=37]
-extents = Vector2( 81.8015, 41.348 )
+[sub_resource type="StreamTexture" id=37]
+load_path = "res://.import/chaise.png-eeac04dd38eb69eac1f869bc295ab601.stex"
+
+[sub_resource type="RectangleShape2D" id=38]
+extents = Vector2( 10.7572, 12.0482 )
+
+[sub_resource type="CircleShape2D" id=39]
+radius = 80.0
+
+[sub_resource type="StreamTexture" id=40]
+
+[sub_resource type="StreamTexture" id=41]
+load_path = "res://.import/console.png-321f33067874ae26c6dc67052584b10e.stex"
+
+[sub_resource type="StreamTexture" id=42]
+load_path = "res://.import/chaise.png-a7bc2a907945d61f9d9934009dd2315d.stex"
+
+[sub_resource type="RectangleShape2D" id=43]
+extents = Vector2( 33.097, 22.0874 )
+
+[sub_resource type="AtlasTexture" id=44]
+atlas = ExtResource( 22 )
+region = Rect2( 0, 0, 71, 60 )
+
+[sub_resource type="AtlasTexture" id=45]
+atlas = ExtResource( 22 )
+region = Rect2( 71, 0, 71, 60 )
+
+[sub_resource type="AtlasTexture" id=46]
+atlas = ExtResource( 22 )
+region = Rect2( 142, 0, 71, 60 )
+
+[sub_resource type="SpriteFrames" id=47]
+animations = [ {
+"frames": [ ExtResource( 23 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 44 ), SubResource( 45 ), SubResource( 46 ) ],
+"loop": true,
+"name": "Anim",
+"speed": 5.0
+} ]
+
+[sub_resource type="StreamTexture" id=48]
+load_path = "res://.import/bureau.png-30db25f938ded5bfbf6a7718a739ca2e.stex"
+
+[sub_resource type="RectangleShape2D" id=49]
+extents = Vector2( 69.2394, 26.7988 )
+
+[sub_resource type="SpriteFrames" id=50]
+animations = [ {
+"frames": [ ExtResource( 19 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "brocken",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=51]
+radius = 28.3653
+
+[sub_resource type="SpriteFrames" id=52]
+animations = [ {
+"frames": [ ExtResource( 19 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "brocken",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=53]
+radius = 28.8276
+
+[sub_resource type="StreamTexture" id=54]
+load_path = "res://.import/table_journaux.png-f8410740c0015632361dabb6f3e646ed.stex"
+
+[sub_resource type="StreamTexture" id=55]
+load_path = "res://.import/table_journaux2.png-21420c745fae37bf8d6d1f4a42db073d.stex"
+
+[sub_resource type="RectangleShape2D" id=56]
+custom_solver_bias = 1.0
+extents = Vector2( 42.7404, 19.9176 )
+
+[sub_resource type="StreamTexture" id=57]
+load_path = "res://.import/canap.png-dfafe59bc04a891c58ecc89b6005441b.stex"
+
+[sub_resource type="AtlasTexture" id=58]
+atlas = ExtResource( 29 )
+region = Rect2( 0, 0, 37, 58 )
+
+[sub_resource type="AtlasTexture" id=59]
+atlas = ExtResource( 29 )
+region = Rect2( 37, 0, 37, 58 )
+
+[sub_resource type="AtlasTexture" id=60]
+atlas = ExtResource( 29 )
+region = Rect2( 74, 0, 37, 58 )
+
+[sub_resource type="SpriteFrames" id=61]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 58 ), SubResource( 59 ), SubResource( 60 ) ],
+"loop": true,
+"name": "Anim",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=62]
+extents = Vector2( 94.028, 30.0793 )
+
+[sub_resource type="StreamTexture" id=63]
+load_path = "res://.import/télé.png-adb749641a0f310933503cb0d896aa16.stex"
+
+[sub_resource type="RectangleShape2D" id=64]
+extents = Vector2( 77.5439, 19.5788 )
+
+[sub_resource type="StreamTexture" id=65]
+load_path = "res://.import/lum_fenetre.png-d828d45d6330d27c2a9ea74ac13388f9.stex"
+
+[sub_resource type="StreamTexture" id=66]
+load_path = "res://.import/lum_feunetre.png-8e3d5c25c5c3a99b37884810ad141ef8.stex"
+
+[sub_resource type="StreamTexture" id=67]
+load_path = "res://.import/lum_télé.png-24750bfa7d080d04ec77f75128a1f92b.stex"
+
+[sub_resource type="StreamTexture" id=68]
+load_path = "res://.import/table.png-5ee79dd76c7606b9970ccff519b620c7.stex"
+
+[sub_resource type="RectangleShape2D" id=69]
+extents = Vector2( 62.3196, 51.3973 )
+
+[sub_resource type="StreamTexture" id=70]
+load_path = "res://.import/frigo.png-5703ecd3900bcf98bdddacb5f6ddcad9.stex"
+
+[sub_resource type="StreamTexture" id=71]
+load_path = "res://.import/frigo2.png-fbb1616b2347da460e7c24a1db714a62.stex"
+
+[sub_resource type="RectangleShape2D" id=72]
+extents = Vector2( 40.4913, 46.3505 )
+
+[sub_resource type="StreamTexture" id=73]
+load_path = "res://.import/meuble.png-20a5ec14a4f4cae967aa01b5956587cf.stex"
+
+[sub_resource type="RectangleShape2D" id=74]
+extents = Vector2( 126.908, 36.7897 )
+
+[sub_resource type="RectangleShape2D" id=75]
+extents = Vector2( 37.4379, 64.5822 )
+
+[sub_resource type="StreamTexture" id=76]
+load_path = "res://.import/poubelle.png-57341dbf3b5c1464e1addf1fdb7fc893.stex"
+
+[sub_resource type="CircleShape2D" id=77]
+radius = 21.2959
+
+[sub_resource type="StreamTexture" id=78]
+load_path = "res://.import/lum_four.png-1712c7591b30890aa6f9e294c841ef85.stex"
+
+[sub_resource type="StreamTexture" id=79]
+load_path = "res://.import/lum_feunetre.png-fa905e4f73983024ae9a7c48fdbb8334.stex"
 
 [node name="Game" type="Navigation2D"]
 script = ExtResource( 1 )
@@ -435,7 +621,21 @@ scale = Vector2( 2, 2 )
 tile_set = SubResource( 14 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( -720863, 0, 0, -720860, 0, 0, -655330, 0, 0, -655327, 0, 0, -655326, 1, 0, -655325, 1, 0, -655324, 0, 0, -589792, 0, 0, -589791, 0, 0, -589790, 1, 0, -589789, 1, 0, -589788, 0, 0, -524256, 0, 0, -524255, 0, 0, -524254, 1, 0, -524253, 1, 0, -524252, 0, 0, -524251, 0, 0, -524250, 0, 0, -524249, 0, 0, -524248, 0, 0, -524247, 0, 0, -524246, 0, 0, -524245, 0, 0, -458723, 0, 0, -458722, 0, 0, -458721, 0, 0, -458720, 0, 0, -458719, 0, 0, -458718, 1, 0, -458717, 1, 0, -458716, 1, 0, -458715, 1, 0, -458714, 1, 0, -458713, 1, 0, -458712, 1, 0, -458711, 1, 0, -458710, 1, 0, -458709, 0, 0, -393195, 0, 0, -393190, 0, 0, -393188, 0, 0, -393186, 1, 0, -393185, 1, 0, -393184, 1, 0, -393183, 1, 0, -393182, 1, 0, -393181, 1, 0, -393180, 1, 0, -393179, 1, 0, -393178, 1, 0, -393177, 1, 0, -393176, 1, 0, -393175, 1, 0, -393174, 1, 0, -393173, 0, 0, -327662, 0, 0, -327661, 0, 0, -327660, 1, 0, -327659, 0, 0, -327654, 0, 0, -327653, 1, 0, -327652, 0, 0, -327650, 1, 0, -327649, 1, 0, -327648, 1, 0, -327647, 1, 0, -327646, 1, 0, -327645, 0, 0, -327644, 0, 0, -327643, 0, 0, -327642, 0, 0, -327641, 0, 0, -327640, 0, 0, -327639, 1, 0, -327638, 1, 0, -327637, 0, 0, -262126, 0, 0, -262125, 1, 0, -262124, 1, 0, -262123, 0, 0, -262122, 0, 0, -262121, 0, 0, -262119, 0, 0, -262118, 0, 0, -262117, 1, 0, -262116, 0, 0, -262114, 1, 0, -262113, 1, 0, -262112, 1, 0, -262111, 1, 0, -262110, 1, 0, -262109, 0, 0, -262104, 0, 0, -262103, 1, 0, -262102, 1, 0, -262101, 0, 0, -196590, 1, 0, -196589, 1, 0, -196588, 1, 0, -196587, 1, 0, -196586, 1, 0, -196585, 0, 0, -196584, 0, 0, -196583, 0, 0, -196582, 1, 0, -196581, 1, 0, -196580, 1, 0, -196579, 0, 0, -196578, 1, 0, -196577, 1, 0, -196576, 1, 0, -196575, 1, 0, -196574, 1, 0, -196573, 0, 0, -196568, 0, 0, -196567, 1, 0, -196566, 1, 0, -196565, 0, 0, -196564, 0, 0, -196563, 0, 0, -196562, 0, 0, -131054, 1, 0, -131053, 1, 0, -131052, 1, 0, -131051, 1, 0, -131050, 1, 0, -131049, 1, 0, -131048, 1, 0, -131047, 1, 0, -131046, 1, 0, -131045, 1, 0, -131044, 1, 0, -131043, 1, 0, -131042, 1, 0, -131041, 1, 0, -131040, 1, 0, -131039, 1, 0, -131038, 1, 0, -131037, 0, 0, -131032, 0, 0, -131031, 1, 0, -131030, 1, 0, -131029, 1, 0, -131028, 1, 0, -131027, 1, 0, -65518, 1, 0, -65517, 1, 0, -65516, 1, 0, -65515, 1, 0, -65514, 1, 0, -65513, 1, 0, -65512, 1, 0, -65511, 1, 0, -65510, 1, 0, -65509, 1, 0, -65508, 1, 0, -65507, 0, 0, -65506, 1, 0, -65505, 1, 0, -65504, 1, 0, -65503, 1, 0, -65502, 1, 0, -65501, 0, 0, -65500, 0, 0, -65499, 0, 0, -65498, 0, 0, -65497, 0, 0, -65496, 0, 0, -65495, 1, 0, -65494, 1, 0, -65493, 1, 0, -65492, 1, 0, -65491, 1, 0, 5, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 18, 1, 0, 19, 1, 0, 20, 1, 0, 21, 1, 0, 22, 1, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 26, 1, 0, 27, 1, 0, 28, 1, 0, 29, 0, 0, 30, 1, 0, 31, 1, 0, 32, 1, 0, 33, 1, 0, 34, 1, 0, 35, 1, 0, 36, 1, 0, 37, 1, 0, 38, 1, 0, 39, 1, 0, 40, 1, 0, 41, 1, 0, 42, 1, 0, 43, 1, 0, 44, 1, 0, 45, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 65541, 0, 0, 65542, 0, 0, 65546, 0, 0, 65547, 1, 0, 65548, 0, 0, 65554, 1, 0, 65555, 1, 0, 65556, 1, 0, 65557, 0, 0, 65558, 0, 0, 65559, 0, 0, 65561, 0, 0, 65562, 1, 0, 65563, 1, 0, 65564, 0, 0, 65565, 0, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 1, 0, 131084, 0, 0, 131085, 0, 0, 131090, 1, 0, 131091, 1, 0, 131092, 1, 0, 131093, 0, 0, 131094, 0, 0, 131096, 0, 0, 131097, 0, 0, 131098, 1, 0, 131099, 1, 0, 131100, 0, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 1, 0, 196614, 1, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 1, 0, 196619, 1, 0, 196620, 0, 0, 196626, 1, 0, 196627, 1, 0, 196628, 1, 0, 196629, 0, 0, 196632, 0, 0, 196633, 0, 0, 196634, 1, 0, 196635, 1, 0, 196636, 0, 0, 262145, 1, 0, 262146, 1, 0, 262147, 1, 0, 262148, 1, 0, 262149, 1, 0, 262150, 1, 0, 262151, 1, 0, 262152, 0, 0, 262153, 0, 0, 262154, 1, 0, 262155, 1, 0, 262156, 0, 0, 262162, 1, 0, 262163, 1, 0, 262164, 1, 0, 262165, 0, 0, 262168, 0, 0, 262169, 0, 0, 262170, 1, 0, 262171, 1, 0, 262172, 0, 0, 327681, 1, 0, 327682, 1, 0, 327683, 1, 0, 327684, 1, 0, 327685, 1, 0, 327686, 1, 0, 327687, 1, 0, 327688, 1, 0, 327689, 1, 0, 327690, 1, 0, 327691, 1, 0, 327692, 0, 0, 327698, 1, 0, 327699, 1, 0, 327700, 1, 0, 327701, 0, 0, 327704, 0, 0, 327705, 0, 0, 327706, 1, 0, 327707, 1, 0, 327708, 0, 0, 393217, 1, 0, 393218, 1, 0, 393219, 1, 0, 393220, 1, 0, 393221, 1, 0, 393222, 1, 0, 393223, 1, 0, 393224, 1, 0, 393225, 1, 0, 393226, 1, 0, 393227, 1, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 393234, 1, 0, 393235, 1, 0, 393236, 1, 0, 393237, 0, 0, 393240, 0, 0, 393241, 0, 0, 393242, 1, 0, 393243, 1, 0, 393244, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 458760, 1, 0, 458761, 1, 0, 458762, 1, 0, 458763, 1, 0, 458764, 1, 0, 458765, 1, 0, 458766, 1, 0, 458767, 1, 0, 458768, 1, 0, 458770, 1, 0, 458771, 1, 0, 458772, 1, 0, 458773, 0, 0, 458774, 0, 0, 458775, 0, 0, 458776, 0, 0, 458777, 1, 0, 458778, 1, 0, 458779, 1, 0, 458780, 0, 0, 524290, 0, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0, 524309, 1, 0, 524310, 1, 0, 524311, 1, 0, 524312, 1, 0, 524313, 1, 0, 524314, 1, 0, 524315, 1, 0, 524316, 1, 0, 589826, 0, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589842, 1, 0, 589843, 1, 0, 589844, 1, 0, 589845, 1, 0, 589846, 1, 0, 589847, 1, 0, 589848, 1, 0, 589849, 1, 0, 589850, 1, 0, 589851, 1, 0, 589852, 1, 0, 655362, 0, 0, 655363, 1, 0, 655364, 1, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 1, 0, 655374, 1, 0, 655375, 1, 0, 655376, 1, 0, 655377, 0, 0, 655378, 1, 0, 655379, 1, 0, 655380, 1, 0, 655381, 1, 0, 655382, 1, 0, 655383, 1, 0, 655384, 1, 0, 655385, 1, 0, 655386, 1, 0, 655387, 1, 0, 655388, 1, 0, 720898, 0, 0, 720899, 1, 0, 720900, 1, 0, 720901, 0, 0, 720908, 0, 0, 720909, 1, 0, 720910, 1, 0, 720911, 1, 0, 720912, 1, 0, 720913, 0, 0, 720914, 1, 0, 720915, 1, 0, 720916, 1, 0, 720917, 1, 0, 720918, 1, 0, 720919, 1, 0, 720920, 1, 0, 720921, 1, 0, 720922, 1, 0, 720923, 1, 0, 720924, 1, 0, 786434, 0, 0, 786435, 1, 0, 786436, 1, 0, 786437, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 1, 0, 786446, 1, 0, 786447, 1, 0, 786448, 1, 0, 786449, 1, 0, 786450, 1, 0, 786451, 1, 0, 786452, 1, 0, 786453, 1, 0, 786454, 1, 0, 786455, 1, 0, 786456, 1, 0, 786457, 1, 0, 786458, 1, 0, 786459, 1, 0, 786460, 0, 0, 851968, 0, 0, 851969, 0, 0, 851970, 0, 0, 851971, 1, 0, 851972, 1, 0, 851973, 0, 0, 851980, 0, 0, 851981, 1, 0, 851982, 1, 0, 851983, 1, 0, 851984, 1, 0, 851985, 0, 0, 851986, 1, 0, 851987, 1, 0, 851988, 1, 0, 851989, 1, 0, 851990, 1, 0, 851991, 1, 0, 851992, 1, 0, 851993, 1, 0, 851994, 1, 0, 851995, 0, 0, 851996, 0, 0, 917509, 0, 0, 917516, 0, 0, 917521, 0, 0 )
+tile_data = PoolIntArray( -720863, 0, 0, -720860, 0, 0, -655330, 0, 0, -655327, 0, 0, -655326, 1, 0, -655325, 1, 0, -655324, 0, 0, -589792, 0, 0, -589791, 0, 0, -589790, 1, 0, -589789, 1, 0, -589788, 0, 0, -524256, 0, 0, -524255, 0, 0, -524254, 1, 0, -524253, 1, 0, -524252, 0, 0, -524251, 0, 0, -524250, 0, 0, -524249, 0, 0, -524248, 0, 0, -524247, 0, 0, -524246, 0, 0, -524245, 0, 0, -458723, 0, 0, -458722, 0, 0, -458721, 0, 0, -458720, 0, 0, -458719, 0, 0, -458718, 1, 0, -458717, 1, 0, -458716, 1, 0, -458715, 1, 0, -458714, 1, 0, -458713, 1, 0, -458712, 1, 0, -458711, 1, 0, -458710, 1, 0, -458709, 0, 0, -393195, 0, 0, -393190, 0, 0, -393188, 0, 0, -393186, 1, 0, -393185, 1, 0, -393184, 1, 0, -393183, 1, 0, -393182, 1, 0, -393181, 1, 0, -393180, 1, 0, -393179, 1, 0, -393178, 1, 0, -393177, 1, 0, -393176, 1, 0, -393175, 1, 0, -393174, 1, 0, -393173, 0, 0, -327662, 0, 0, -327661, 0, 0, -327660, 0, 0, -327659, 0, 0, -327654, 0, 0, -327653, 0, 0, -327652, 0, 0, -327650, 1, 0, -327649, 1, 0, -327648, 1, 0, -327647, 1, 0, -327646, 1, 0, -327645, 0, 0, -327644, 0, 0, -327643, 0, 0, -327642, 0, 0, -327641, 0, 0, -327640, 0, 0, -327639, 1, 0, -327638, 1, 0, -327637, 0, 0, -262126, 0, 0, -262125, 0, 0, -262124, 1, 0, -262123, 0, 0, -262122, 0, 0, -262121, 0, 0, -262119, 0, 0, -262118, 0, 0, -262117, 1, 0, -262116, 0, 0, -262114, 1, 0, -262113, 1, 0, -262112, 1, 0, -262111, 1, 0, -262110, 1, 0, -262109, 0, 0, -262104, 0, 0, -262103, 1, 0, -262102, 1, 0, -262101, 0, 0, -196590, 0, 0, -196589, 1, 0, -196588, 1, 0, -196587, 1, 0, -196586, 1, 0, -196585, 0, 0, -196584, 0, 0, -196583, 0, 0, -196582, 0, 0, -196581, 1, 0, -196580, 1, 0, -196579, 0, 0, -196578, 1, 0, -196577, 1, 0, -196576, 1, 0, -196575, 1, 0, -196574, 1, 0, -196573, 0, 0, -196568, 0, 0, -196567, 1, 0, -196566, 1, 0, -196565, 0, 0, -196564, 0, 0, -196563, 0, 0, -196562, 0, 0, -131054, 0, 0, -131053, 1, 0, -131052, 1, 0, -131051, 1, 0, -131050, 1, 0, -131049, 0, 0, -131048, 0, 0, -131047, 0, 0, -131046, 0, 0, -131045, 1, 0, -131044, 1, 0, -131043, 1, 0, -131042, 1, 0, -131041, 1, 0, -131040, 1, 0, -131039, 1, 0, -131038, 1, 0, -131037, 0, 0, -131032, 0, 0, -131031, 1, 0, -131030, 1, 0, -131029, 1, 0, -131028, 1, 0, -131027, 1, 0, -65518, 0, 0, -65517, 1, 0, -65516, 1, 0, -65515, 1, 0, -65514, 1, 0, -65513, 1, 0, -65512, 1, 0, -65511, 1, 0, -65510, 1, 0, -65509, 1, 0, -65508, 1, 0, -65507, 0, 0, -65506, 1, 0, -65505, 1, 0, -65504, 1, 0, -65503, 1, 0, -65502, 1, 0, -65501, 0, 0, -65500, 0, 0, -65499, 0, 0, -65498, 0, 0, -65497, 0, 0, -65496, 0, 0, -65495, 1, 0, -65494, 1, 0, -65493, 1, 0, -65492, 1, 0, -65491, 1, 0, 5, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 18, 0, 0, 19, 1, 0, 20, 1, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 26, 1, 0, 27, 1, 0, 28, 1, 0, 29, 0, 0, 30, 1, 0, 31, 1, 0, 32, 1, 0, 33, 1, 0, 34, 1, 0, 35, 1, 0, 36, 1, 0, 37, 1, 0, 38, 1, 0, 39, 1, 0, 40, 1, 0, 41, 1, 0, 42, 1, 0, 43, 1, 0, 44, 1, 0, 45, 1, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65554, 0, 0, 65555, 1, 0, 65556, 1, 0, 65557, 0, 0, 65558, 0, 0, 65559, 0, 0, 65561, 0, 0, 65562, 1, 0, 65563, 0, 0, 65564, 0, 0, 65565, 0, 0, 131073, 0, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 1, 0, 131084, 0, 0, 131085, 0, 0, 131090, 0, 0, 131091, 1, 0, 131092, 1, 0, 131093, 0, 0, 131094, 0, 0, 131096, 0, 0, 131097, 0, 0, 131098, 1, 0, 131099, 0, 0, 131100, 0, 0, 196609, 0, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 1, 0, 196614, 1, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 1, 0, 196620, 0, 0, 196626, 0, 0, 196627, 1, 0, 196628, 1, 0, 196629, 0, 0, 196632, 0, 0, 196633, 0, 0, 196634, 1, 0, 196635, 0, 0, 196636, 0, 0, 262145, 0, 0, 262146, 1, 0, 262147, 1, 0, 262148, 1, 0, 262149, 1, 0, 262150, 1, 0, 262151, 1, 0, 262152, 0, 0, 262153, 0, 0, 262154, 1, 0, 262155, 1, 0, 262156, 0, 0, 262162, 0, 0, 262163, 1, 0, 262164, 1, 0, 262165, 0, 0, 262168, 0, 0, 262169, 0, 0, 262170, 1, 0, 262171, 0, 0, 262172, 0, 0, 327681, 0, 0, 327682, 1, 0, 327683, 1, 0, 327684, 1, 0, 327685, 1, 0, 327686, 1, 0, 327687, 1, 0, 327688, 1, 0, 327689, 1, 0, 327690, 1, 0, 327691, 1, 0, 327692, 0, 0, 327698, 0, 0, 327699, 1, 0, 327700, 1, 0, 327701, 0, 0, 327704, 0, 0, 327705, 0, 0, 327706, 1, 0, 327707, 0, 0, 327708, 0, 0, 393217, 0, 0, 393218, 1, 0, 393219, 1, 0, 393220, 1, 0, 393221, 1, 0, 393222, 1, 0, 393223, 1, 0, 393224, 1, 0, 393225, 1, 0, 393226, 1, 0, 393227, 1, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 393234, 0, 0, 393235, 1, 0, 393236, 1, 0, 393237, 0, 0, 393240, 0, 0, 393241, 0, 0, 393242, 1, 0, 393243, 0, 0, 393244, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 458760, 1, 0, 458761, 1, 0, 458762, 1, 0, 458763, 1, 0, 458764, 1, 0, 458765, 1, 0, 458766, 1, 0, 458767, 1, 0, 458768, 0, 0, 458770, 0, 0, 458771, 1, 0, 458772, 1, 0, 458773, 0, 0, 458774, 0, 0, 458775, 0, 0, 458776, 0, 0, 458777, 0, 0, 458778, 1, 0, 458779, 0, 0, 458780, 0, 0, 524290, 0, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 0, 0, 524306, 0, 0, 524307, 1, 0, 524308, 1, 0, 524309, 0, 0, 524310, 0, 0, 524311, 0, 0, 524312, 0, 0, 524313, 0, 0, 524314, 1, 0, 524315, 1, 0, 524316, 1, 0, 589826, 0, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 0, 0, 589842, 0, 0, 589843, 1, 0, 589844, 1, 0, 589845, 1, 0, 589846, 1, 0, 589847, 1, 0, 589848, 1, 0, 589849, 1, 0, 589850, 1, 0, 589851, 1, 0, 589852, 1, 0, 655362, 0, 0, 655363, 1, 0, 655364, 1, 0, 655365, 1, 0, 655366, 1, 0, 655367, 1, 0, 655368, 1, 0, 655369, 1, 0, 655370, 1, 0, 655371, 1, 0, 655372, 1, 0, 655373, 1, 0, 655374, 1, 0, 655375, 1, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 1, 0, 655380, 1, 0, 655381, 1, 0, 655382, 1, 0, 655383, 1, 0, 655384, 1, 0, 655385, 1, 0, 655386, 1, 0, 655387, 1, 0, 655388, 1, 0, 720898, 0, 0, 720899, 1, 0, 720900, 1, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 1, 0, 720910, 1, 0, 720911, 1, 0, 720912, 1, 0, 720913, 0, 0, 720914, 1, 0, 720915, 1, 0, 720916, 1, 0, 720917, 1, 0, 720918, 1, 0, 720919, 1, 0, 720920, 1, 0, 720921, 1, 0, 720922, 1, 0, 720923, 1, 0, 720924, 1, 0, 786434, 0, 0, 786435, 1, 0, 786436, 1, 0, 786437, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 1, 0, 786446, 1, 0, 786447, 1, 0, 786448, 1, 0, 786449, 1, 0, 786450, 1, 0, 786451, 1, 0, 786452, 1, 0, 786453, 1, 0, 786454, 1, 0, 786455, 1, 0, 786456, 1, 0, 786457, 1, 0, 786458, 1, 0, 786459, 0, 0, 786460, 0, 0, 851968, 0, 0, 851969, 0, 0, 851970, 0, 0, 851971, 1, 0, 851972, 1, 0, 851973, 0, 0, 851980, 0, 0, 851981, 0, 0, 851982, 0, 0, 851983, 0, 0, 851984, 0, 0, 851985, 0, 0, 851986, 0, 0, 851987, 0, 0, 851988, 0, 0, 851989, 0, 0, 851990, 0, 0, 851991, 0, 0, 851992, 0, 0, 851993, 0, 0, 851994, 0, 0, 851995, 0, 0, 851996, 0, 0, 917509, 0, 0, 917516, 0, 0, 917517, 0, 0, 917518, 0, 0, 917519, 0, 0, 917520, 0, 0, 917521, 0, 0, 917522, 0, 0, 917523, 0, 0, 917524, 0, 0, 917525, 0, 0 )
+
+[node name="Decore" type="Node2D" parent="."]
+
+[node name="Room1" type="Node2D" parent="Decore"]
+
+[node name="Sprite" type="Sprite" parent="Decore/Room1"]
+position = Vector2( 55.6218, 47.1461 )
+scale = Vector2( 2, 2 )
+texture = SubResource( 15 )
+
+[node name="Sprite2" type="Sprite" parent="Decore/Room1"]
+position = Vector2( 218.27, 227.179 )
+scale = Vector2( 2, 2 )
+texture = SubResource( 16 )
 
 [node name="Cat" type="KinematicBody2D" parent="."]
 position = Vector2( 57.0031, 46.991 )
@@ -444,16 +644,19 @@ scale = Vector2( 2, 2 )
 collision_layer = 53
 collision_mask = 53
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="sprite" type="AnimatedSprite" parent="Cat"]
-frames = SubResource( 20 )
+frames = SubResource( 22 )
 animation = "walk"
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cat"]
-shape = SubResource( 21 )
+shape = SubResource( 23 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -473,7 +676,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cat/Interact"]
 position = Vector2( 0.0187263, 0.216853 )
-shape = SubResource( 21 )
+shape = SubResource( 23 )
 
 [node name="InteractZone" type="Area2D" parent="Cat"]
 position = Vector2( 0.0321255, 0.386013 )
@@ -485,7 +688,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cat/InteractZone"]
 position = Vector2( -0.0456696, -0.332608 )
-shape = SubResource( 21 )
+shape = SubResource( 23 )
 
 [node name="Camera2D" type="Camera2D" parent="Cat"]
 scale = Vector2( 0.5, 0.5 )
@@ -507,13 +710,12 @@ bus = "Effect"
 
 [node name="Persone" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1327.61, -191.619 )
-scale = Vector2( 2, 2 )
 path_node = NodePath("../Line2D")
 
 [node name="PersoneStand" parent="." instance=ExtResource( 7 )]
-position = Vector2( 810.595, 126.126 )
-scale = Vector2( 2, 2 )
+position = Vector2( 810.595, 126.756 )
 path_node = NodePath("../LineStand")
+path_node_ref = NodePath("../LineStandRef")
 
 [node name="PersoneFix" parent="." instance=ExtResource( 13 )]
 position = Vector2( 240.865, 219.632 )
@@ -539,7 +741,16 @@ __meta__ = {
 
 [node name="LineStand" type="Line2D" parent="."]
 visible = false
-points = PoolVector2Array( 784.144, -30.9927, 773.826, 123.779 )
+points = PoolVector2Array( 843, -91.249, 813.782, 134.995 )
+width = 1.0
+default_color = Color( 0.4, 0.501961, 1, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LineStandRef" type="Line2D" parent="."]
+visible = false
+points = PoolVector2Array( 796.683, -80.9694, 754.59, 163.727 )
 width = 1.0
 default_color = Color( 0.4, 0.501961, 1, 1 )
 __meta__ = {
@@ -547,14 +758,45 @@ __meta__ = {
 }
 
 [node name="Zone" type="Node2D" parent="."]
+visible = false
 
 [node name="Area2D" type="Area2D" parent="Zone"]
-visible = false
 position = Vector2( 251.636, 242.662 )
+monitoring = false
+collision_layer = 128
+collision_mask = 128
 script = ExtResource( 14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Zone/Area2D"]
-shape = SubResource( 22 )
+shape = SubResource( 24 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D2" type="Area2D" parent="Zone"]
+position = Vector2( 751.707, 144.165 )
+monitoring = false
+collision_layer = 128
+collision_mask = 128
+script = ExtResource( 14 )
+zone_id = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zone/Area2D2"]
+shape = SubResource( 25 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D3" type="Area2D" parent="Zone"]
+position = Vector2( 1229.07, -144.537 )
+monitoring = false
+collision_layer = 128
+collision_mask = 128
+script = ExtResource( 14 )
+zone_id = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zone/Area2D3"]
+shape = SubResource( 26 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -564,10 +806,19 @@ __meta__ = {
 [node name="Room1" type="Node2D" parent="Obstacle"]
 
 [node name="ObstacleRect" type="Node2D" parent="Obstacle/Room1"]
-position = Vector2( 45.0924, 344.07 )
+position = Vector2( 38.2545, 343.475 )
 rotation = 1.5708
 
+[node name="Sprite" type="Sprite" parent="Obstacle/Room1/ObstacleRect"]
+rotation = -1.5708
+scale = Vector2( 2, 2 )
+texture = SubResource( 27 )
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="ColorRect" type="ColorRect" parent="Obstacle/Room1/ObstacleRect"]
+visible = false
 show_behind_parent = true
 margin_left = -87.0
 margin_top = -22.0
@@ -588,12 +839,13 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room1/ObstacleRect/Area2D"]
-shape = SubResource( 23 )
+shape = SubResource( 28 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="ObstacleCircle" type="Node2D" parent="Obstacle/Room1"]
+visible = false
 position = Vector2( 90.2132, -30.3293 )
 rotation = 1.5708
 
@@ -619,12 +871,20 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room1/ObstacleCircle/Area2D"]
-shape = SubResource( 24 )
+shape = SubResource( 29 )
 
 [node name="ObstacleRect2" type="Node2D" parent="Obstacle/Room1"]
-position = Vector2( 291.863, 39.6208 )
+position = Vector2( 266.35, 48.1253 )
+
+[node name="Sprite" type="Sprite" parent="Obstacle/Room1/ObstacleRect2"]
+scale = Vector2( 2, 2 )
+texture = SubResource( 30 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="ColorRect" type="ColorRect" parent="Obstacle/Room1/ObstacleRect2"]
+visible = false
 show_behind_parent = true
 margin_left = -96.0
 margin_top = -18.0
@@ -638,7 +898,6 @@ __meta__ = {
 }
 
 [node name="Area2D" type="StaticBody2D" parent="Obstacle/Room1/ObstacleRect2"]
-visible = false
 collision_layer = 19
 collision_mask = 19
 __meta__ = {
@@ -646,15 +905,27 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room1/ObstacleRect2/Area2D"]
-shape = SubResource( 23 )
+shape = SubResource( 31 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="ObstacleRect3" type="Node2D" parent="Obstacle/Room1"]
-position = Vector2( 289.292, 398.833 )
+position = Vector2( 289.292, 427.003 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Obstacle/Room1/ObstacleRect3"]
+position = Vector2( -0.840912, -2.10223 )
+scale = Vector2( 2, 2 )
+texture = SubResource( 32 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="ColorRect" type="ColorRect" parent="Obstacle/Room1/ObstacleRect3"]
+visible = false
 show_behind_parent = true
 margin_left = -103.0
 margin_top = -61.0
@@ -675,16 +946,20 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room1/ObstacleRect3/Area2D"]
-shape = SubResource( 25 )
+shape = SubResource( 33 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="ObstacleRect4" type="Node2D" parent="Obstacle/Room1"]
-position = Vector2( 482.364, 117.382 )
-rotation = 1.5708
+position = Vector2( 492.455, 107.291 )
+rotation = 4.71239
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="ColorRect" type="ColorRect" parent="Obstacle/Room1/ObstacleRect4"]
+visible = false
 show_behind_parent = true
 margin_left = -96.0
 margin_top = -73.0
@@ -705,7 +980,15 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room1/ObstacleRect4/Area2D"]
-shape = SubResource( 26 )
+shape = SubResource( 34 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Obstacle/Room1/ObstacleRect4"]
+rotation = 1.5708
+scale = Vector2( 2, 2 )
+texture = SubResource( 35 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -713,8 +996,12 @@ __meta__ = {
 [node name="ObstacleSquare" type="Node2D" parent="Obstacle/Room1"]
 position = Vector2( 290.802, 106.907 )
 rotation = -0.279253
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="ColorRect" type="ColorRect" parent="Obstacle/Room1/ObstacleSquare"]
+visible = false
 show_behind_parent = true
 margin_left = -15.0
 margin_top = -15.0
@@ -728,7 +1015,6 @@ __meta__ = {
 }
 
 [node name="Area2D" type="StaticBody2D" parent="Obstacle/Room1/ObstacleSquare"]
-visible = false
 collision_layer = 19
 collision_mask = 19
 __meta__ = {
@@ -736,14 +1022,19 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room1/ObstacleSquare/Area2D"]
-shape = SubResource( 27 )
+shape = SubResource( 36 )
 __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Sprite" type="Sprite" parent="Obstacle/Room1/ObstacleSquare"]
+scale = Vector2( 2, 2 )
+texture = SubResource( 37 )
+
 [node name="InteractibleText" type="Node2D" parent="Obstacle/Room1"]
 position = Vector2( 211.461, 57.1386 )
 script = ExtResource( 9 )
+text = [ "Nom : Félix, blablameow, nom du propriétaire blabla… Poids : 12 kg. Dangereux surpoids. Je t’en foutrais moi, du surpoids. Nécessite un régime à base de légumineuses et croquettes allégées durant 3 mois. Trois mois. Attendez. Trois mois ?!" ]
 
 [node name="Body" type="StaticBody2D" parent="Obstacle/Room1/InteractibleText"]
 collision_layer = 17
@@ -753,12 +1044,13 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room1/InteractibleText/Body"]
-shape = SubResource( 28 )
+shape = SubResource( 38 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="ColorRect" type="ColorRect" parent="Obstacle/Room1/InteractibleText"]
+visible = false
 margin_left = -10.0
 margin_top = -10.0
 margin_right = 10.0
@@ -778,16 +1070,31 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room1/InteractibleText/Interact"]
-shape = SubResource( 29 )
+shape = SubResource( 39 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="InteractionLabel" parent="Obstacle/Room1/InteractibleText" instance=ExtResource( 10 )]
 
+[node name="Sprite" type="Sprite" parent="Obstacle/Room1/InteractibleText"]
+visible = false
+texture = SubResource( 40 )
+
 [node name="InteractibleConsole" type="Node2D" parent="Obstacle/Room1"]
 position = Vector2( 41.9278, 235.357 )
 script = ExtResource( 17 )
+__meta__ = {
+"_edit_lock_": true
+}
+text = [ " Tssss, il s’énerve pour cette boîte en plastique et c’est moi qui dois consulter le toubib.", "Henri : Les esprits m’envahissent… Le fantôme d’Agdhul Bakar va venir prendre ma chair et… la console s’allume AAAAAAAAAAHHHH IL SE VENGE »", "Félix : Oh non, ce n’est pas ton spectre amateur. C’est pire." ]
+
+[node name="Sprite" type="Sprite" parent="Obstacle/Room1/InteractibleConsole"]
+scale = Vector2( 2, 2 )
+texture = SubResource( 41 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Body" type="StaticBody2D" parent="Obstacle/Room1/InteractibleConsole"]
 collision_layer = 17
@@ -797,12 +1104,11 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room1/InteractibleConsole/Body"]
-shape = SubResource( 28 )
-__meta__ = {
-"_edit_lock_": true
-}
+position = Vector2( -10.8668, 3.93726 )
+shape = SubResource( 38 )
 
 [node name="ColorRect" type="ColorRect" parent="Obstacle/Room1/InteractibleConsole"]
+visible = false
 margin_left = -10.0
 margin_top = -10.0
 margin_right = 10.0
@@ -814,6 +1120,7 @@ __meta__ = {
 }
 
 [node name="Interact" type="Area2D" parent="Obstacle/Room1/InteractibleConsole"]
+visible = false
 monitorable = false
 collision_layer = 32
 collision_mask = 32
@@ -823,7 +1130,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room1/InteractibleConsole/Interact"]
 position = Vector2( 0, 1.05948 )
-shape = SubResource( 29 )
+shape = SubResource( 39 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -838,143 +1145,23 @@ time_distraction = 5.0
 
 [node name="ConsoleNoise" type="AudioStreamPlayer2D" parent="Obstacle/Room1/InteractibleConsole"]
 position = Vector2( 0.374573, 0.749146 )
+stream = ExtResource( 6 )
 bus = "Effect"
 
 [node name="Room2" type="Node2D" parent="Obstacle"]
 
-[node name="ObstacleRect5" type="Node2D" parent="Obstacle/Room2"]
-position = Vector2( 770.017, -143.577 )
+[node name="Chair" type="Node2D" parent="Obstacle/Room2"]
+position = Vector2( 796.167, -80.066 )
 
-[node name="ColorRect" type="ColorRect" parent="Obstacle/Room2/ObstacleRect5"]
-show_behind_parent = true
-margin_left = -77.0
-margin_top = -27.0
-margin_right = 65.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 10, 10 )
-color = Color( 0, 0, 0, 1 )
+[node name="Sprite" type="Sprite" parent="Obstacle/Room2/Chair"]
+scale = Vector2( 2, 2 )
+texture = SubResource( 42 )
 __meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
+"_edit_lock_": true
 }
 
-[node name="Area2D" type="StaticBody2D" parent="Obstacle/Room2/ObstacleRect5"]
+[node name="ColorRect" type="ColorRect" parent="Obstacle/Room2/Chair"]
 visible = false
-collision_layer = 19
-collision_mask = 19
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room2/ObstacleRect5/Area2D"]
-shape = SubResource( 30 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Interactible" type="Node2D" parent="Obstacle/Room2"]
-position = Vector2( 584.861, -153.343 )
-script = ExtResource( 6 )
-
-[node name="Body" type="StaticBody2D" parent="Obstacle/Room2/Interactible"]
-collision_layer = 17
-collision_mask = 17
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room2/Interactible/Body"]
-shape = SubResource( 28 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="ColorRect" type="ColorRect" parent="Obstacle/Room2/Interactible"]
-margin_left = -10.0
-margin_top = -10.0
-margin_right = 10.0
-margin_bottom = 10.0
-color = Color( 0.054902, 0, 1, 1 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Interact" type="Area2D" parent="Obstacle/Room2/Interactible"]
-monitorable = false
-collision_layer = 32
-collision_mask = 32
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room2/Interactible/Interact"]
-position = Vector2( 0, 1.05948 )
-shape = SubResource( 29 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Noise" parent="Obstacle/Room2/Interactible" instance=ExtResource( 4 )]
-collision_layer = 8
-collision_mask = 8
-
-[node name="InteractionLabel" parent="Obstacle/Room2/Interactible" instance=ExtResource( 10 )]
-
-[node name="Interactible2" type="Node2D" parent="Obstacle/Room2"]
-position = Vector2( 909.063, 433.346 )
-script = ExtResource( 6 )
-
-[node name="Body" type="StaticBody2D" parent="Obstacle/Room2/Interactible2"]
-collision_layer = 17
-collision_mask = 17
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room2/Interactible2/Body"]
-shape = SubResource( 28 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="ColorRect" type="ColorRect" parent="Obstacle/Room2/Interactible2"]
-margin_left = -10.0
-margin_top = -10.0
-margin_right = 10.0
-margin_bottom = 10.0
-color = Color( 0.054902, 0, 1, 1 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Interact" type="Area2D" parent="Obstacle/Room2/Interactible2"]
-monitorable = false
-collision_layer = 32
-collision_mask = 32
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room2/Interactible2/Interact"]
-position = Vector2( 0, 1.05948 )
-shape = SubResource( 29 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Noise" parent="Obstacle/Room2/Interactible2" instance=ExtResource( 4 )]
-position = Vector2( -0.445435, 0.445465 )
-collision_layer = 8
-collision_mask = 8
-
-[node name="InteractionLabel" parent="Obstacle/Room2/Interactible2" instance=ExtResource( 10 )]
-
-[node name="ObstacleSquare2" type="Node2D" parent="Obstacle/Room2"]
-position = Vector2( 787.59, -91.912 )
-
-[node name="ColorRect" type="ColorRect" parent="Obstacle/Room2/ObstacleSquare2"]
 show_behind_parent = true
 margin_left = -15.0
 margin_top = -15.0
@@ -987,25 +1174,206 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Area2D" type="StaticBody2D" parent="Obstacle/Room2/ObstacleSquare2"]
-visible = false
+[node name="Area2D" type="StaticBody2D" parent="Obstacle/Room2/Chair"]
 collision_layer = 19
 collision_mask = 19
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room2/ObstacleSquare2/Area2D"]
-shape = SubResource( 27 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room2/Chair/Area2D"]
+shape = SubResource( 43 )
 __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Desk" type="Node2D" parent="Obstacle/Room2"]
+position = Vector2( 770.017, -143.577 )
+script = ExtResource( 28 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Obstacle/Room2/Desk"]
+position = Vector2( -71.2719, -32.0724 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 47 )
+playing = true
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Obstacle/Room2/Desk"]
+visible = false
+scale = Vector2( 2, 2 )
+texture = SubResource( 48 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="Obstacle/Room2/Desk"]
+visible = false
+show_behind_parent = true
+margin_left = -77.0
+margin_top = -27.0
+margin_right = 65.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 10, 10 )
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D" type="StaticBody2D" parent="Obstacle/Room2/Desk"]
+collision_layer = 19
+collision_mask = 19
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room2/Desk/Area2D"]
+shape = SubResource( 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="InteractiblePlant" type="Node2D" parent="Obstacle/Room2"]
+position = Vector2( 598.315, -141.57 )
+script = ExtResource( 21 )
+text = [ "Je n’ai jamais aimé les plantes. Elles me volent la vedette. On leur donne à boire, on les flatte et s’occupe d’elles. Et pour quelles raisons ? Elles sont inintéressantes. Moi, au moins, je marche, je ronronne, et je les ruine en pâté pour chat.", "Céline : Je venais de passer un coup de balais, Frank ! C’est bien la peine d’essayer de vivre dignement avec un deuxième cochon comme chef de famille !", "Frank : Elle était moche, ta plante, de toute façon !" ]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Obstacle/Room2/InteractiblePlant"]
+scale = Vector2( 2, 2 )
+frames = SubResource( 50 )
+
+[node name="Body" type="StaticBody2D" parent="Obstacle/Room2/InteractiblePlant"]
+collision_layer = 17
+collision_mask = 17
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room2/InteractiblePlant/Body"]
+shape = SubResource( 51 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="Obstacle/Room2/InteractiblePlant"]
+visible = false
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+color = Color( 0.054902, 0, 1, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Interact" type="Area2D" parent="Obstacle/Room2/InteractiblePlant"]
+monitorable = false
+collision_layer = 32
+collision_mask = 32
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room2/InteractiblePlant/Interact"]
+position = Vector2( 0, 1.05948 )
+shape = SubResource( 39 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Noise" parent="Obstacle/Room2/InteractiblePlant" instance=ExtResource( 4 )]
+collision_layer = 8
+collision_mask = 8
+
+[node name="InteractionLabel" parent="Obstacle/Room2/InteractiblePlant" instance=ExtResource( 10 )]
+
+[node name="InteractiblePlant2" type="Node2D" parent="Obstacle/Room2"]
+position = Vector2( 909.063, 433.346 )
+script = ExtResource( 21 )
+text = [ "Je n’ai jamais aimé les plantes. Elles me volent la vedette. On leur donne à boire, on les flatte et s’occupe d’elles. Et pour quelles raisons ? Elles sont inintéressantes. Moi, au moins, je marche, je ronronne, et je les ruine en pâté pour chat.", "Céline : Je venais de passer un coup de balais, Frank ! C’est bien la peine d’essayer de vivre dignement avec un deuxième cochon comme chef de famille !", "Frank : Elle était moche, ta plante, de toute façon !" ]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Obstacle/Room2/InteractiblePlant2"]
+scale = Vector2( 2, 2 )
+frames = SubResource( 52 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Body" type="StaticBody2D" parent="Obstacle/Room2/InteractiblePlant2"]
+collision_layer = 17
+collision_mask = 17
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room2/InteractiblePlant2/Body"]
+shape = SubResource( 53 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="Obstacle/Room2/InteractiblePlant2"]
+visible = false
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+color = Color( 0.054902, 0, 1, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Interact" type="Area2D" parent="Obstacle/Room2/InteractiblePlant2"]
+monitorable = false
+collision_layer = 32
+collision_mask = 32
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room2/InteractiblePlant2/Interact"]
+position = Vector2( 0, 1.05948 )
+shape = SubResource( 39 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Noise" parent="Obstacle/Room2/InteractiblePlant2" instance=ExtResource( 4 )]
+position = Vector2( -0.445435, 0.445465 )
+collision_layer = 8
+collision_mask = 8
+noise_type = "plant"
+
+[node name="InteractionLabel" parent="Obstacle/Room2/InteractiblePlant2" instance=ExtResource( 10 )]
+
 [node name="ObstacleSquare3" type="Node2D" parent="Obstacle/Room2"]
-position = Vector2( 772.085, 47.6005 )
+position = Vector2( 770.51, 38.7811 )
 rotation = 3.14159
+script = ExtResource( 25 )
+text = [ "Foot, politique, foot, cuisine, politique, foot… « 3 régimes pour votre futur summer body » ???", "Frank : C’était bien la peine d’acheter tous ces magazines de diététique si tu fais cramer le dîner.", "Céline : C’était bien la peine d’acheter tous ces magazines de politique si tu ne sais pas lire." ]
+
+[node name="SpriteFirst" type="Sprite" parent="Obstacle/Room2/ObstacleSquare3"]
+scale = Vector2( 2, 2 )
+texture = SubResource( 54 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="SpriteThen" type="Sprite" parent="Obstacle/Room2/ObstacleSquare3"]
+visible = false
+position = Vector2( -1.25, -10 )
+scale = Vector2( 2, 2 )
+texture = SubResource( 55 )
 
 [node name="ColorRect" type="ColorRect" parent="Obstacle/Room2/ObstacleSquare3"]
+visible = false
 show_behind_parent = true
 margin_left = -28.0
 margin_top = -15.0
@@ -1026,38 +1394,15 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room2/ObstacleSquare3/Area2D"]
-position = Vector2( -0.594604, 5.35143 )
-shape = SubResource( 31 )
-
-[node name="InteractibleText2" type="Node2D" parent="Obstacle/Room2"]
-position = Vector2( 760.515, 37.234 )
-script = ExtResource( 9 )
-
-[node name="Body" type="StaticBody2D" parent="Obstacle/Room2/InteractibleText2"]
-collision_layer = 17
-collision_mask = 17
+position = Vector2( -0.594543, -0.210757 )
+shape = SubResource( 56 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room2/InteractibleText2/Body"]
-shape = SubResource( 28 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="ColorRect" type="ColorRect" parent="Obstacle/Room2/InteractibleText2"]
-margin_left = -10.0
-margin_top = -10.0
-margin_right = 10.0
-margin_bottom = 10.0
-color = Color( 0.054902, 0, 1, 1 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Interact" type="Area2D" parent="Obstacle/Room2/InteractibleText2"]
+[node name="Interact" type="Area2D" parent="Obstacle/Room2/ObstacleSquare3"]
+position = Vector2( 20.389, 2.49205 )
+rotation = -3.14159
 monitorable = false
 collision_layer = 32
 collision_mask = 32
@@ -1065,19 +1410,43 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room2/InteractibleText2/Interact"]
-shape = SubResource( 29 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room2/ObstacleSquare3/Interact"]
+shape = SubResource( 39 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="InteractionLabel" parent="Obstacle/Room2/InteractibleText2" instance=ExtResource( 10 )]
+[node name="InteractionLabel" parent="Obstacle/Room2/ObstacleSquare3" instance=ExtResource( 10 )]
+margin_left = 119.889
+margin_top = 42.4923
+margin_right = 318.889
+margin_bottom = 70.4923
+rect_rotation = 180.0
 
-[node name="ObstacleRect6" type="Node2D" parent="Obstacle/Room2"]
-position = Vector2( 758.965, 132.436 )
+[node name="Canape" type="Node2D" parent="Obstacle/Room2"]
+position = Vector2( 755.181, 163.129 )
 rotation = 1.5708
+script = ExtResource( 30 )
 
-[node name="ColorRect" type="ColorRect" parent="Obstacle/Room2/ObstacleRect6"]
+[node name="Sprite" type="Sprite" parent="Obstacle/Room2/Canape"]
+rotation = -1.5708
+scale = Vector2( 2, 2 )
+texture = SubResource( 57 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Obstacle/Room2/Canape"]
+position = Vector2( -94.707, 30.879 )
+rotation = -1.5708
+scale = Vector2( 2, 2 )
+frames = SubResource( 61 )
+animation = "Anim"
+playing = true
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="Obstacle/Room2/Canape"]
+visible = false
 show_behind_parent = true
 margin_left = -66.0
 margin_top = -34.0
@@ -1090,25 +1459,33 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Area2D" type="StaticBody2D" parent="Obstacle/Room2/ObstacleRect6"]
-visible = false
+[node name="Area2D" type="StaticBody2D" parent="Obstacle/Room2/Canape"]
 collision_layer = 19
 collision_mask = 19
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room2/ObstacleRect6/Area2D"]
-shape = SubResource( 25 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room2/Canape/Area2D"]
+shape = SubResource( 62 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="ObstacleRect7" type="Node2D" parent="Obstacle/Room2"]
-position = Vector2( 922.595, 135.15 )
+position = Vector2( 908.705, 138.325 )
 rotation = 1.5708
 
+[node name="Sprite" type="Sprite" parent="Obstacle/Room2/ObstacleRect7"]
+rotation = -1.5708
+scale = Vector2( 2, 2 )
+texture = SubResource( 63 )
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="ColorRect" type="ColorRect" parent="Obstacle/Room2/ObstacleRect7"]
+visible = false
 show_behind_parent = true
 margin_left = -72.0
 margin_top = -15.0
@@ -1122,7 +1499,6 @@ __meta__ = {
 }
 
 [node name="Area2D" type="StaticBody2D" parent="Obstacle/Room2/ObstacleRect7"]
-visible = false
 collision_layer = 19
 collision_mask = 19
 __meta__ = {
@@ -1130,17 +1506,45 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room2/ObstacleRect7/Area2D"]
-shape = SubResource( 32 )
+shape = SubResource( 64 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Decore" type="Node2D" parent="Obstacle/Room2"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Obstacle/Room2/Decore"]
+position = Vector2( 45.7845, 130.218 )
+scale = Vector2( 2, 2 )
+texture = SubResource( 65 )
+
+[node name="Sprite2" type="Sprite" parent="Obstacle/Room2/Decore"]
+position = Vector2( 781.864, -150.551 )
+scale = Vector2( 2, 2 )
+texture = SubResource( 66 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite3" type="Sprite" parent="Obstacle/Room2/Decore"]
+position = Vector2( 872.512, 141.615 )
+scale = Vector2( 2, 2 )
+texture = SubResource( 67 )
 
 [node name="Room 3" type="Node2D" parent="Obstacle"]
 
 [node name="ObstacleRect5" type="Node2D" parent="Obstacle/Room 3"]
 position = Vector2( 1214.5, -82.4552 )
 
+[node name="Sprite" type="Sprite" parent="Obstacle/Room 3/ObstacleRect5"]
+scale = Vector2( 2, 2 )
+texture = SubResource( 68 )
+
 [node name="ColorRect" type="ColorRect" parent="Obstacle/Room 3/ObstacleRect5"]
+visible = false
 show_behind_parent = true
 margin_left = -75.0
 margin_top = -60.0
@@ -1161,16 +1565,31 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room 3/ObstacleRect5/Area2D"]
-shape = SubResource( 33 )
+shape = SubResource( 69 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="ObstacleRect9" type="Node2D" parent="Obstacle/Room 3"]
-position = Vector2( 1004.64, -275.53 )
-rotation = 1.5708
+position = Vector2( 992.456, -281.887 )
+script = ExtResource( 24 )
+text = [ " Rah, ils sont beaux, tiens, ces trois imbéciles. Ce serait vraiment dommage que leurs magnifiques portraits puissent tomber sous mes griffes.", "Céline : Ah !! Non !! Nos photos de vacances au Costa Rica !", "Frank : Quand tu rentrais encore dans ton maillot de bain, en plus. Quel dommage.", "Céline : Tais-toi !" ]
+
+[node name="SpriteFirst" type="Sprite" parent="Obstacle/Room 3/ObstacleRect9"]
+scale = Vector2( 2, 2 )
+texture = SubResource( 70 )
+
+[node name="SpriteThen" type="Sprite" parent="Obstacle/Room 3/ObstacleRect9"]
+visible = false
+position = Vector2( 12.681, -0.667419 )
+scale = Vector2( 2, 2 )
+texture = SubResource( 71 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="ColorRect" type="ColorRect" parent="Obstacle/Room 3/ObstacleRect9"]
+visible = false
 show_behind_parent = true
 margin_left = -55.0
 margin_top = -54.0
@@ -1191,15 +1610,37 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room 3/ObstacleRect9/Area2D"]
-shape = SubResource( 34 )
+shape = SubResource( 72 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="ObstacleRect6" type="Node2D" parent="Obstacle/Room 3"]
-position = Vector2( 1407.51, -292.08 )
+[node name="Interact" type="Area2D" parent="Obstacle/Room 3/ObstacleRect9"]
+visible = false
+monitorable = false
+collision_layer = 32
+collision_mask = 32
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="ColorRect" type="ColorRect" parent="Obstacle/Room 3/ObstacleRect6"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room 3/ObstacleRect9/Interact"]
+visible = false
+shape = SubResource( 39 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="InteractionLabel" parent="Obstacle/Room 3/ObstacleRect9" instance=ExtResource( 10 )]
+
+[node name="ObstacleKitchenCorner" type="Node2D" parent="Obstacle/Room 3"]
+position = Vector2( 1407.51, -292.08 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="Obstacle/Room 3/ObstacleKitchenCorner"]
+visible = false
 show_behind_parent = true
 margin_left = -75.0
 margin_top = -38.0
@@ -1212,96 +1653,55 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Area2D" type="StaticBody2D" parent="Obstacle/Room 3/ObstacleRect6"]
+[node name="Sprite" type="Sprite" parent="Obstacle/Room 3/ObstacleKitchenCorner"]
+position = Vector2( -52.3851, 66.5431 )
+scale = Vector2( 2, 2 )
+texture = SubResource( 73 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="StaticBody2D" parent="Obstacle/Room 3/ObstacleKitchenCorner"]
 collision_layer = 19
 collision_mask = 19
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room 3/ObstacleRect6/Area2D"]
-shape = SubResource( 35 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room 3/ObstacleKitchenCorner/Area2D"]
+position = Vector2( -51.9132, 0.471924 )
+shape = SubResource( 74 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Obstacle/Room 3/ObstacleKitchenCorner/Area2D"]
+position = Vector2( 37.1768, 101.589 )
+shape = SubResource( 75 )
+
+[node name="InteractibleFood" type="Node2D" parent="Obstacle/Room 3"]
+position = Vector2( 1444.68, -97.5315 )
+script = ExtResource( 27 )
+
+[node name="Sprite" type="Sprite" parent="Obstacle/Room 3/InteractibleFood"]
+scale = Vector2( 2, 2 )
+texture = SubResource( 76 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="ObstacleRect7" type="Node2D" parent="Obstacle/Room 3"]
-position = Vector2( 1252.41, -292.147 )
-
-[node name="ColorRect" type="ColorRect" parent="Obstacle/Room 3/ObstacleRect7"]
-show_behind_parent = true
-margin_left = -81.0
-margin_top = -38.0
-margin_right = 81.0
-margin_bottom = 38.0
-rect_min_size = Vector2( 10, 10 )
-color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Area2D" type="StaticBody2D" parent="Obstacle/Room 3/ObstacleRect7"]
-collision_layer = 19
-collision_mask = 19
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room 3/ObstacleRect7/Area2D"]
-shape = SubResource( 36 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="ObstacleRect8" type="Node2D" parent="Obstacle/Room 3"]
-position = Vector2( 1440.61, -171.395 )
-rotation = 1.5708
-
-[node name="ColorRect" type="ColorRect" parent="Obstacle/Room 3/ObstacleRect8"]
-show_behind_parent = true
-margin_left = -82.0
-margin_top = -42.0
-margin_right = 82.0
-margin_bottom = 42.0
-rect_min_size = Vector2( 10, 10 )
-color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Area2D" type="StaticBody2D" parent="Obstacle/Room 3/ObstacleRect8"]
-collision_layer = 19
-collision_mask = 19
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room 3/ObstacleRect8/Area2D"]
-shape = SubResource( 37 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="InteractibleText3" type="Node2D" parent="Obstacle/Room 3"]
-position = Vector2( 1196.97, -281.86 )
-script = ExtResource( 9 )
-
-[node name="Body" type="StaticBody2D" parent="Obstacle/Room 3/InteractibleText3"]
+[node name="Body" type="StaticBody2D" parent="Obstacle/Room 3/InteractibleFood"]
 collision_layer = 17
 collision_mask = 17
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room 3/InteractibleText3/Body"]
-shape = SubResource( 28 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room 3/InteractibleFood/Body"]
+shape = SubResource( 77 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="ColorRect" type="ColorRect" parent="Obstacle/Room 3/InteractibleText3"]
+[node name="ColorRect" type="ColorRect" parent="Obstacle/Room 3/InteractibleFood"]
+visible = false
 margin_left = -10.0
 margin_top = -10.0
 margin_right = 10.0
@@ -1312,7 +1712,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Interact" type="Area2D" parent="Obstacle/Room 3/InteractibleText3"]
+[node name="Interact" type="Area2D" parent="Obstacle/Room 3/InteractibleFood"]
 monitorable = false
 collision_layer = 32
 collision_mask = 32
@@ -1320,32 +1720,37 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room 3/InteractibleText3/Interact"]
-shape = SubResource( 29 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room 3/InteractibleFood/Interact"]
+shape = SubResource( 39 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="InteractionLabel" parent="Obstacle/Room 3/InteractibleText3" instance=ExtResource( 10 )]
+[node name="InteractionLabel" parent="Obstacle/Room 3/InteractibleFood" instance=ExtResource( 10 )]
 
-[node name="InteractibleText4" type="Node2D" parent="Obstacle/Room 3"]
-position = Vector2( 1418.29, -110.826 )
-script = ExtResource( 9 )
+[node name="Timer" type="Timer" parent="Obstacle/Room 3/InteractibleFood"]
+wait_time = 4.0
 
-[node name="Body" type="StaticBody2D" parent="Obstacle/Room 3/InteractibleText4"]
+[node name="InteractibleOven" type="Node2D" parent="Obstacle/Room 3"]
+position = Vector2( 1264.38, -274.901 )
+script = ExtResource( 26 )
+text = [ "Généralement, j’aime dormir ici. Ça réchauffe mon royal postérieur. Mais pour une fois, on va réchauffer les leur.", "Céline : Misère ! C’est trop cuit ! " ]
+
+[node name="Body" type="StaticBody2D" parent="Obstacle/Room 3/InteractibleOven"]
 collision_layer = 17
 collision_mask = 17
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room 3/InteractibleText4/Body"]
-shape = SubResource( 28 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room 3/InteractibleOven/Body"]
+shape = SubResource( 51 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="ColorRect" type="ColorRect" parent="Obstacle/Room 3/InteractibleText4"]
+[node name="ColorRect" type="ColorRect" parent="Obstacle/Room 3/InteractibleOven"]
+visible = false
 margin_left = -10.0
 margin_top = -10.0
 margin_right = 10.0
@@ -1356,7 +1761,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Interact" type="Area2D" parent="Obstacle/Room 3/InteractibleText4"]
+[node name="Interact" type="Area2D" parent="Obstacle/Room 3/InteractibleOven"]
 monitorable = false
 collision_layer = 32
 collision_mask = 32
@@ -1364,13 +1769,36 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room 3/InteractibleText4/Interact"]
-shape = SubResource( 29 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room 3/InteractibleOven/Interact"]
+position = Vector2( 0, 1.05948 )
+shape = SubResource( 39 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="InteractionLabel" parent="Obstacle/Room 3/InteractibleText4" instance=ExtResource( 10 )]
+[node name="Noise" parent="Obstacle/Room 3/InteractibleOven" instance=ExtResource( 4 )]
+collision_layer = 8
+collision_mask = 8
+
+[node name="InteractionLabel" parent="Obstacle/Room 3/InteractibleOven" instance=ExtResource( 10 )]
+
+[node name="Sprite" type="Sprite" parent="Obstacle/Room 3/InteractibleOven"]
+visible = false
+position = Vector2( -0.561279, 37.6025 )
+scale = Vector2( 2, 2 )
+texture = SubResource( 78 )
+
+[node name="Decore" type="Node2D" parent="Obstacle/Room 3"]
+
+[node name="Sprite" type="Sprite" parent="Obstacle/Room 3/Decore"]
+position = Vector2( 1153.29, 19.2271 )
+scale = Vector2( 2, 2 )
+texture = SubResource( 79 )
+
+[node name="Sprite2" type="Sprite" parent="Obstacle/Room 3/Decore"]
+position = Vector2( 1356.23, 18.52 )
+scale = Vector2( 2, 2 )
+texture = SubResource( 79 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -1411,5 +1839,6 @@ __meta__ = {
 wait_time = 2.0
 
 [node name="MainMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 31 )
 autoplay = true
 bus = "Music"

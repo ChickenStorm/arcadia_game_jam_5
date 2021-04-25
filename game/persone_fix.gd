@@ -15,6 +15,7 @@ func _move(delta):
 			var pts = node.points
 			if self.position.distance_to(pts[0]) > 20:
 				path_p = _update_navigation_path(self.position, pts[0])
+				$AnimatedSprite.animation = "play"
 			else:
 				if rot_time < 0:
 					rot_time = rng.randf_range(ROT_TIME_MIN, ROT_TIME_MAX)
@@ -29,3 +30,17 @@ func _move(delta):
 					
 	else:
 		path_p = move_along_path(path_p, delta, speed_factor)
+
+
+func set_inspect_sound(new_bool):
+	.set_inspect_sound(new_bool)
+	if inspect_sound:
+		$AnimatedSprite.animation = "Default"
+
+
+func set_see_cat(new_bool):
+	if new_bool == see_cat:
+		return # we do nothing, we want to register state chnage
+	.set_see_cat(new_bool)
+	$AnimatedSprite.animation = "Default"
+

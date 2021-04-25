@@ -1,8 +1,10 @@
 class_name Interact
 extends Node2D
 
-var can_interact = false
+signal interaction_dialogue(string)
 
+var can_interact = false
+export(Array, String) var text = []
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -26,6 +28,7 @@ func _unhandled_input(event):
 
 
 func action():
+	emit_signal("interaction_dialogue", text)
 	$Noise.action_noise()
 
 

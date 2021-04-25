@@ -24,8 +24,24 @@ func _ready():
 	$PersoneStand.connect("touched", self, "_on_touched", ["father"])
 	for node in $Obstacle.get_children():
 		for obs in node.get_children():
-			if obs is IteractionText:
+			if obs is Interact:
 				obs.connect("interaction_dialogue", self, "_on_interaction_dialogue")
+	cat.connect("entered_zone", self, "_on_cat_entered_zone")
+	$"Obstacle/Room 3/InteractibleFood".connect("win_game", self, "_on_win_game")
+
+
+func _on_cat_entered_zone(zone):
+	match zone:
+		0:
+			_on_interaction_dialogue("Félix : Des cubes et des boules et des cubes et des pyramides. Et ensuite c’est moi qu’on emmène chez le médecin.")
+		1:
+			_on_interaction_dialogue("Félix : Une pelote de laine. Ils me prennent vraiment pour un crétin s’ils pensent que je vais courir après.")
+		2:
+			_on_interaction_dialogue([
+				"Mère : Oh oui, il est énorme. Tu n’imagines pas. Son double menton et ses poignets d’amour battent largement celui de ton Pierre. Attends, on parle encore des chats, hein ?",
+				"Félix : Mais qu’est-ce qu’elle baragouine celle-là ?",
+			])
+
 
 
 func _on_main_music_finished():
@@ -33,7 +49,7 @@ func _on_main_music_finished():
 
 
 func _on_piss(zone_id):
-	print(zone_id)
+
 	if zone_id == 0:
 		for p in [persone, $PersoneStand]:
 			p.inspect_sound = true
@@ -41,6 +57,16 @@ func _on_piss(zone_id):
 			p.path_p = PoolVector2Array([])
 			p.path_sound = p._update_navigation_path(p.position, $PersoneFix.position)
 			p.noise_type = "piss"
+			_on_interaction_dialogue([
+				"Frank : Rah, fichue bête ! Et maintenant tu vas dire que c’est de ma faute peut-être ?",
+				"Céline : Marquer son territoire c’est typiquement masculin je te signale.",
+				"Henri : Maman ! Félix a encore fait pipi sur mon parquet !",
+			])
+	else:
+		_on_interaction_dialogue([
+				"Frank : Rah, fichue bête ! Et maintenant tu vas dire que c’est de ma faute peut-être ?",
+				"Céline : Marquer son territoire c’est typiquement masculin je te signale.",
+			])
 	if zone_id == 1:
 		$TimerPissZ1.start()
 		$TimerPissZ1.connect("timeout", self, "_on_timer_piss_timeout", [cat.position])
@@ -85,4 +111,11 @@ func _on_touched(string):
 
 
 func _on_interaction_dialogue(string):
-	$CanvasLayer/Hud.add_dialogue(string)
+	if string is String:
+		$CanvasLayer/Hud.add_dialogue(string)
+	if string is Array:
+		for i in string:
+			$CanvasLayer/Hud.add_dialogue(i)
+
+func _on_win_game():
+	emit_signal("scene_requested", "win")

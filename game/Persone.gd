@@ -13,7 +13,7 @@ var noise_type = ""
 var cat = null setget set_cat
 var cat_in_area = false
 var see_cat = false setget set_see_cat
-var inspect_sound = false
+var inspect_sound = false setget set_inspect_sound
 var path_sound = PoolVector2Array([])
 var inspected_time = 0
 var has_inspected = false
@@ -181,3 +181,6 @@ func set_see_cat(new_bool):
 func _on_touch(area):
 	if area == cat:
 		emit_signal("touched")
+
+func set_inspect_sound(new_bool):
+	inspect_sound = new_bool
