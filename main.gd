@@ -1,5 +1,6 @@
 extends Node
 
+# warning-ignore-all:return_value_discarded
 
 var scenes = {
 	"loading" : {
@@ -17,7 +18,31 @@ var scenes = {
 	"credits_menu" : {
 		"path" : "res://menu/menu_credits.tscn",
 		"scene" : null,
-	}
+	},
+	"game" : {
+		"path" : "res://game/game.tscn",
+		"scene" : null,
+	},
+	"game_over_children" : {
+		"path" : "res://game_over/game_over_children.tscn",
+		"scene" : null,
+	},
+	"game_over_father" : {
+		"path" : "res://game_over/game_over_father.tscn",
+		"scene" : null,
+	},
+	"game_over_mother" : {
+		"path" : "res://game_over/game_over_mother.tscn",
+		"scene" : null,
+	},
+	"win" : {
+		"path" : "res://game_over/win_game.tscn",
+		"scene" : null,
+	},
+	"intro" : {
+		"path" : "res://game/Intro.tscn",
+		"scene" : null,
+	},
 }
 
 var _is_in_game = false setget _set_is_in_game

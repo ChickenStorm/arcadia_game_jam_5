@@ -9,17 +9,13 @@ const PATH_CONFIG_USER = CONFIG_DIR + "config.cfg"
 
 # set of key bindings that can be modified in the menu 
 const ENABLE_KEY_BINDING_CHANGE = [
-	"ui_zoom_out_map",
-	"ui_zoom_in_map",
-	"ui_drag_map",
-	"ui_move_map_up",
-	"ui_move_map_down",
-	"ui_move_map_left",
-	"ui_move_map_right",
-	"ui_add_fleet",
-	"ui_map_center_system",
-	"ui_hud_scores",
-	"ui_minimize",
+	"move_up",
+	"move_down",
+	"move_left",
+	"move_right",
+	"action_meow",
+	"interact",
+	"piss",
 ]
 const KEY_BINDING_SECTION_NAME = "Key binding"
 const SOUND_SECTION_NAME = "Audio"
@@ -135,10 +131,10 @@ static func _load_windows_settings(config):
 	if config.has_section_key(GRAPHICS_SECTION_NAME, FULLSCREEN_CONFIG_NAME):
 		var full_screen = config.get_value(GRAPHICS_SECTION_NAME, FULLSCREEN_CONFIG_NAME)
 		OS.window_fullscreen = full_screen
-		if not full_screen:
-			OS.center_window()
 	else:
-		OS.window_fullscreen = true
+		OS.window_fullscreen = false
+	if not OS.window_fullscreen:
+		OS.center_window()
 
 
 static func _get_window_resolution(config):
@@ -149,7 +145,8 @@ static func _get_window_resolution(config):
 
 
 static func _load_default_settings():
-	OS.window_fullscreen = true
+	OS.window_fullscreen = false
+	OS.center_window()
 	TranslationServer.set_locale(DEFAULT_LOCALE)
 
 

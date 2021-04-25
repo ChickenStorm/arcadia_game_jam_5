@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Chat chiant qui miaule.wav-9f8dcb7d9b7a8b7618c1ebdd546f505b.sample"
+
+[deps]
+
+source_file="res://resources/sounds/Chat chiant qui miaule.wav"
+dest_files=[ "res://.import/Chat chiant qui miaule.wav-9f8dcb7d9b7a8b7618c1ebdd546f505b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

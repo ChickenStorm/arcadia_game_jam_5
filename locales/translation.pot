@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-04-22 09:38+0200\n"
+"POT-Creation-Date: 2021-04-25 14:00+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,19 +17,48 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.0\n"
 
-#: main.gd:71
+#: main.gd:92
 #, python-format
 msgid "Unknown requested scene : %s"
 msgstr ""
 
-#: config/config.gd:53
+#: config/config.gd:43
 #, python-format
 msgid "error while parsing configuration file %s : %s "
 msgstr ""
 
-#: config/config.gd:75
+#: config/config.gd:65
 #, python-format
 msgid "Error while saving configuration file %s : %s "
+msgstr ""
+
+#: game/dialogue.tscn:35
+msgid "no_tr"
+msgstr ""
+
+#: game/interaction_label.tscn:27
+msgid "Appuiez sur E pour intéragire"
+msgstr ""
+
+#: game_over/game_over_children.tscn:30
+msgid "Vous avez perdu, l'enfant vous a vu"
+msgstr ""
+
+#: game_over/game_over_children.tscn:43 game_over/game_over_father.tscn:43
+#: game_over/game_over_mother.tscn:43 game_over/win_game.tscn:43
+msgid "Revenir au menu principale"
+msgstr ""
+
+#: game_over/game_over_father.tscn:30
+msgid "Vous avez perdu, le père vous a vu"
+msgstr ""
+
+#: game_over/game_over_mother.tscn:30
+msgid "Vous avez perdu, la mère vous a vu"
+msgstr ""
+
+#: game_over/win_game.tscn:30
+msgid "Vous avez gagnez les croquettes sont à vous"
 msgstr ""
 
 #: global/error.gd:6 global/error.gd:19 global/error.gd:20
@@ -56,42 +85,42 @@ msgstr ""
 msgid "error.network_error_content"
 msgstr ""
 
-#: global/loading_screen.gd:39 global/loading_screen.tscn:166
+#: global/loading_screen.gd:41 global/loading_screen.tscn:166
 #, python-format
 msgid "global.loading.version %s"
 msgstr ""
 
-#: global/loading_screen.gd:59
+#: global/loading_screen.gd:61
 msgid "global.loading.ok"
 msgstr ""
 
-#: global/loading_screen.gd:62
+#: global/loading_screen.gd:64
 msgid "global.loading.waiting"
 msgstr ""
 
-#: global/loading_screen.gd:65
+#: global/loading_screen.gd:67
 msgid "global.loading.error"
 msgstr ""
 
-#: global/loading_screen.gd:121
+#: global/loading_screen.gd:123
 #, python-format
 msgid "global.loading.ressource.error %s %d"
 msgstr ""
 
-#: global/loading_screen.gd:121 global/loading_screen.gd:139
+#: global/loading_screen.gd:123 global/loading_screen.gd:141
 msgid "global.loading.ressource."
 msgstr ""
 
-#: global/loading_screen.gd:132 global/loading_screen.gd:135
+#: global/loading_screen.gd:134 global/loading_screen.gd:137
 #, python-format
 msgid "global.loading.progressbar_ressource %d %d"
 msgstr ""
 
-#: global/loading_screen.gd:139
+#: global/loading_screen.gd:141
 msgid "global.loading.none_loading"
 msgstr ""
 
-#: global/loading_screen.gd:142
+#: global/loading_screen.gd:144
 #, python-format
 msgid "global.loading.progressbar_global %d %d"
 msgstr ""
@@ -108,32 +137,8 @@ msgstr ""
 msgid "global.loading.quit"
 msgstr ""
 
-#: global/network.gd:104
-msgid "network.unable_connect"
-msgstr ""
-
-#: global/network.gd:111
-msgid "network.close_clean_ws"
-msgstr ""
-
-#: global/network.gd:118
-msgid "Connected with protocol: "
-msgstr ""
-
-#: global/network.gd:127
-msgid "WS event : "
-msgstr ""
-
 #: global/utils.gd:73
 msgid "action.key.mouse_key_"
-msgstr ""
-
-#: global/debug/debug_panel.tscn:91
-msgid "debug.title"
-msgstr ""
-
-#: global/debug/debug_panel.tscn:127
-msgid "debug.dump_game_data"
 msgstr ""
 
 #: gui/key_binding_label/key_binding_label.tscn:27
@@ -152,6 +157,46 @@ msgstr ""
 msgid "gui.menu.close"
 msgstr ""
 
+#: locales/strings.txt:1
+msgid "action.interact"
+msgstr ""
+
+#: locales/strings.txt:2
+msgid "action.move_up"
+msgstr ""
+
+#: locales/strings.txt:3
+msgid "action.move_down"
+msgstr ""
+
+#: locales/strings.txt:4
+msgid "action.move_left"
+msgstr ""
+
+#: locales/strings.txt:5
+msgid "action.move_right"
+msgstr ""
+
+#: locales/strings.txt:6
+msgid "action.action_meow"
+msgstr ""
+
+#: locales/strings.txt:7
+msgid "action.piss"
+msgstr ""
+
+#: locales/strings.txt:8
+msgid "audio.bus.Master"
+msgstr ""
+
+#: locales/strings.txt:9
+msgid "audio.bus.Music"
+msgstr ""
+
+#: locales/strings.txt:10
+msgid "audio.bus.Effect"
+msgstr ""
+
 #: menu/credits_scroll_container.gd:10 menu/menu_credits.tscn:110
 msgid "menu.credits.main"
 msgstr ""
@@ -168,7 +213,7 @@ msgstr ""
 msgid "menu.credits.back_main_menu"
 msgstr ""
 
-#: menu/menu_option.tscn:42
+#: menu/menu_option.tscn:43
 msgid "menu.option.back_main_menu"
 msgstr ""
 
@@ -208,20 +253,8 @@ msgstr ""
 msgid "menu.option.tab.lang"
 msgstr ""
 
-#: menu/option.tscn:81
-msgid "menu.option.shortcut.fleet_and_ships"
-msgstr ""
-
-#: menu/option.tscn:115
-msgid "menu.option.shortcut.map"
-msgstr ""
-
-#: menu/option.tscn:197
-msgid "menu.option.shortcut.hud"
-msgstr ""
-
-#: menu/option.tscn:223
-msgid "menu.option.shortcut.general"
+#: menu/option.tscn:82
+msgid "Générale"
 msgstr ""
 
 #: menu/options/audio_volume_control.gd:21

@@ -1,5 +1,7 @@
 extends MarginContainer
 
+# warning-ignore-all:return_value_discarded
+
 const NOTIFICATION_SCENE = preload("res://hud/notification.tscn")
 
 

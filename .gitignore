@@ -19,3 +19,4 @@ compile/*/config/config.cfg
 compile/*/*.pck.tmp
 compile/*/config.cfg
 config.cfg
+compile/mac/hungry_kitty.zip

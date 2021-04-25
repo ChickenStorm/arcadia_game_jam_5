@@ -1,0 +1,109 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 25, 5 )
+
+[sub_resource type="NavigationPolygon" id=2]
+vertices = PoolVector2Array( 324.792, 181.806, 275.18, 183.067, 120.034, 176.761, 80.9325, 174.658, 37.7467, 42.2654, 541.104, 31.5746, 544.668, 224.9, 323.531, 221.328, 34.1831, 446.733, 75.0462, 220.487, 798.574, 446.733, 118.352, 220.067, 273.498, 227.635, 581.195, 222.227, 573.177, 33.3564, 797.683, 32.4655 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5 ), PoolIntArray( 0, 5, 6, 7 ), PoolIntArray( 8, 4, 3, 9 ), PoolIntArray( 10, 8, 9, 11, 12 ), PoolIntArray( 13, 14, 15, 10 ), PoolIntArray( 11, 2, 1, 12 ), PoolIntArray( 10, 12, 7, 6 ), PoolIntArray( 10, 6, 13 ) ]
+outlines = [ PoolVector2Array( 541.104, 31.5746, 37.7467, 42.2654, 34.1831, 446.733, 798.574, 446.733, 797.683, 32.4655, 573.177, 33.3564, 581.195, 222.227, 544.668, 224.9 ), PoolVector2Array( 80.9325, 174.658, 120.034, 176.761, 118.352, 220.067, 75.0462, 220.487 ), PoolVector2Array( 275.18, 183.067, 324.792, 181.806, 323.531, 221.328, 273.498, 227.635 ) ]
+
+[node name="old" type="Node2D"]
+
+[node name="Obstacle" type="Node2D" parent="."]
+visible = false
+position = Vector2( 70, 60 )
+
+[node name="ColorRect" type="ColorRect" parent="Obstacle"]
+margin_left = -25.0
+margin_top = -5.0
+margin_right = 25.0
+margin_bottom = 5.0
+rect_min_size = Vector2( 10, 10 )
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D" type="StaticBody2D" parent="Obstacle"]
+collision_layer = 19
+collision_mask = 19
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Area2D"]
+shape = SubResource( 1 )
+
+[node name="Obstacle2" type="Node2D" parent="."]
+visible = false
+position = Vector2( 49.7023, 89.4322 )
+rotation = 1.5708
+
+[node name="ColorRect" type="ColorRect" parent="Obstacle2"]
+show_behind_parent = true
+margin_left = -25.0
+margin_top = -5.0
+margin_right = 25.0
+margin_bottom = 5.0
+rect_min_size = Vector2( 10, 10 )
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D" type="StaticBody2D" parent="Obstacle2"]
+collision_layer = 19
+collision_mask = 19
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle2/Area2D"]
+shape = SubResource( 1 )
+
+[node name="Obstacle3" type="Node2D" parent="."]
+visible = false
+position = Vector2( 49.7023, 139.432 )
+rotation = 1.5708
+
+[node name="ColorRect" type="ColorRect" parent="Obstacle3"]
+show_behind_parent = true
+margin_left = -25.0
+margin_top = -5.0
+margin_right = 25.0
+margin_bottom = 5.0
+rect_min_size = Vector2( 10, 10 )
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D" type="StaticBody2D" parent="Obstacle3"]
+collision_layer = 19
+collision_mask = 19
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle3/Area2D"]
+shape = SubResource( 1 )
+
+[node name="Obstacle4" type="Node2D" parent="."]
+visible = false
+position = Vector2( 120.702, 59.4322 )
+
+[node name="ColorRect" type="ColorRect" parent="Obstacle4"]
+show_behind_parent = true
+margin_left = -25.0
+margin_top = -5.0
+margin_right = 25.0
+margin_bottom = 5.0
+rect_min_size = Vector2( 10, 10 )
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D" type="StaticBody2D" parent="Obstacle4"]
+collision_layer = 19
+collision_mask = 19
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle4/Area2D"]
+shape = SubResource( 1 )
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
+position = Vector2( -100, -199.813 )
+scale = Vector2( 0.5, 0.5 )
+navpoly = SubResource( 2 )

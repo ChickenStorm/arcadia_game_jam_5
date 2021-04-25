@@ -1,13 +1,35 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://audio/audio_stacking.gd" type="Script" id=1]
+[ext_resource path="res://.import/Chat attrapé.wav-4ce88138b13e3392d76a070913d6e6c7.sample" type="AudioStream" id=2]
 [ext_resource path="res://audio/audio_scene_singleton.gd" type="Script" id=3]
+[ext_resource path="res://audio/audio_resource.gd" type="Script" id=4]
+[ext_resource path="res://.import/menu UI.wav-7c14c22b55d38a03dd1fbea2244eecc8.sample" type="AudioStream" id=5]
+[ext_resource path="res://.import/Validation UI.wav-7cf7709629184026fde670e85f498e59.sample" type="AudioStream" id=6]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 4 )
+audio_stream_array = [ ExtResource( 5 ) ]
+text = ""
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 4 )
+audio_stream_array = [ ExtResource( 6 ) ]
+text = ""
 
 [node name="AudioSceneSingleton" type="Node"]
 script = ExtResource( 3 )
 
 [node name="AudioStackingClick" type="Node" parent="."]
 script = ExtResource( 1 )
+sound_resource = SubResource( 1 )
+default_volume = -10.0
+
+[node name="AudioStackingClickA" type="Node" parent="."]
+script = ExtResource( 1 )
+sound_resource = SubResource( 2 )
 override_sound = true
-default_bus = "UI"
-default_volume = -27.0
+default_volume = -10.0
+
+[node name="Catched" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
