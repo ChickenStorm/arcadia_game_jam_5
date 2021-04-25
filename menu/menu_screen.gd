@@ -32,4 +32,4 @@ func _on_menu_credits_pressed():
 
 
 func _on_press_play():
-	emit_signal("scene_requested", "game")
+	emit_signal("scene_requested", "intro")
