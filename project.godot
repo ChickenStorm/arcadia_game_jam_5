@@ -265,7 +265,7 @@ piss={
 
 [locale]
 
-translations=PoolStringArray( "res://locales/fr.po", "res://locales/en.po" )
+translations=PoolStringArray( "res://locales/fr.po" )
 locale_filter=[ 0, [ "en", "fr" ] ]
 
 [rendering]

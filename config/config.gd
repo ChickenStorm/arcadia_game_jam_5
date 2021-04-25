@@ -14,6 +14,8 @@ const ENABLE_KEY_BINDING_CHANGE = [
 	"move_left",
 	"move_right",
 	"action_meow",
+	"interact",
+	"piss",
 ]
 const KEY_BINDING_SECTION_NAME = "Key binding"
 const SOUND_SECTION_NAME = "Audio"

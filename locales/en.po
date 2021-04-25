@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-04-22 09:38+0200\n"
+"POT-Creation-Date: 2021-04-25 14:00+0200\n"
 "PO-Revision-Date: 2021-04-22 14:22+0200\n"
 "Last-Translator: ChickenStorm\n"
 "Language-Team: \n"
@@ -19,19 +19,48 @@ msgstr ""
 "X-Generator: Poedit 2.4.2\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: main.gd:71
+#: main.gd:92
 #, python-format
 msgid "Unknown requested scene : %s"
 msgstr ""
 
-#: config/config.gd:53
+#: config/config.gd:43
 #, python-format
 msgid "error while parsing configuration file %s : %s "
 msgstr ""
 
-#: config/config.gd:75
+#: config/config.gd:65
 #, python-format
 msgid "Error while saving configuration file %s : %s "
+msgstr ""
+
+#: game/dialogue.tscn:35
+msgid "no_tr"
+msgstr ""
+
+#: game/interaction_label.tscn:27
+msgid "Appuiez sur E pour intéragire"
+msgstr ""
+
+#: game_over/game_over_children.tscn:30
+msgid "Vous avez perdu, l'enfant vous a vu"
+msgstr ""
+
+#: game_over/game_over_children.tscn:43 game_over/game_over_father.tscn:43
+#: game_over/game_over_mother.tscn:43 game_over/win_game.tscn:43
+msgid "Revenir au menu principale"
+msgstr ""
+
+#: game_over/game_over_father.tscn:30
+msgid "Vous avez perdu, le père vous a vu"
+msgstr ""
+
+#: game_over/game_over_mother.tscn:30
+msgid "Vous avez perdu, la mère vous a vu"
+msgstr ""
+
+#: game_over/win_game.tscn:30
+msgid "Vous avez gagnez les croquettes sont à vous"
 msgstr ""
 
 #: global/error.gd:6 global/error.gd:19 global/error.gd:20
@@ -58,42 +87,42 @@ msgstr "HTTP client is not connected"
 msgid "error.network_error_content"
 msgstr "A network error occurred."
 
-#: global/loading_screen.gd:39 global/loading_screen.tscn:166
+#: global/loading_screen.gd:41 global/loading_screen.tscn:166
 #, python-format
 msgid "global.loading.version %s"
 msgstr "Version : %s"
 
-#: global/loading_screen.gd:59
+#: global/loading_screen.gd:61
 msgid "global.loading.ok"
 msgstr "OK"
 
-#: global/loading_screen.gd:62
+#: global/loading_screen.gd:64
 msgid "global.loading.waiting"
 msgstr "Connecting"
 
-#: global/loading_screen.gd:65
+#: global/loading_screen.gd:67
 msgid "global.loading.error"
 msgstr "Error"
 
-#: global/loading_screen.gd:121
+#: global/loading_screen.gd:123
 #, python-format
 msgid "global.loading.ressource.error %s %d"
 msgstr "Error while loading %s : %d"
 
-#: global/loading_screen.gd:121 global/loading_screen.gd:139
+#: global/loading_screen.gd:123 global/loading_screen.gd:141
 msgid "global.loading.ressource."
 msgstr ""
 
-#: global/loading_screen.gd:132 global/loading_screen.gd:135
+#: global/loading_screen.gd:134 global/loading_screen.gd:137
 #, python-format
 msgid "global.loading.progressbar_ressource %d %d"
 msgstr "%d / %d"
 
-#: global/loading_screen.gd:139
+#: global/loading_screen.gd:141
 msgid "global.loading.none_loading"
 msgstr "Finished"
 
-#: global/loading_screen.gd:142
+#: global/loading_screen.gd:144
 #, python-format
 msgid "global.loading.progressbar_global %d %d"
 msgstr "%d / %d"
@@ -110,32 +139,8 @@ msgstr ""
 msgid "global.loading.quit"
 msgstr "Quit game"
 
-#: global/network.gd:104
-msgid "network.unable_connect"
-msgstr "The client can not connect."
-
-#: global/network.gd:111
-msgid "network.close_clean_ws"
-msgstr "Closed, clean :"
-
-#: global/network.gd:118
-msgid "Connected with protocol: "
-msgstr ""
-
-#: global/network.gd:127
-msgid "WS event : "
-msgstr ""
-
 #: global/utils.gd:73
 msgid "action.key.mouse_key_"
-msgstr ""
-
-#: global/debug/debug_panel.tscn:91
-msgid "debug.title"
-msgstr "Debug"
-
-#: global/debug/debug_panel.tscn:127
-msgid "debug.dump_game_data"
 msgstr ""
 
 #: gui/key_binding_label/key_binding_label.tscn:27
@@ -153,6 +158,55 @@ msgstr "Minimize"
 #: gui/menu/menu_header.tscn:116
 msgid "gui.menu.close"
 msgstr "close"
+
+#: locales/strings.txt:1
+#, fuzzy
+msgid "action.interact"
+msgstr "UI accpet"
+
+#: locales/strings.txt:2
+#, fuzzy
+msgid "action.move_up"
+msgstr "Move map up"
+
+#: locales/strings.txt:3
+#, fuzzy
+msgid "action.move_down"
+msgstr "Move map down"
+
+#: locales/strings.txt:4
+#, fuzzy
+msgid "action.move_left"
+msgstr "Move map left"
+
+#: locales/strings.txt:5
+#, fuzzy
+msgid "action.move_right"
+msgstr "Move map right"
+
+#: locales/strings.txt:6
+#, fuzzy
+msgid "action.action_meow"
+msgstr "UI down"
+
+#: locales/strings.txt:7
+#, fuzzy
+msgid "action.piss"
+msgstr "UI up"
+
+#: locales/strings.txt:8
+msgid "audio.bus.Master"
+msgstr "Global volume"
+
+#: locales/strings.txt:9
+#, fuzzy
+msgid "audio.bus.Music"
+msgstr "Global volume"
+
+#: locales/strings.txt:10
+#, fuzzy
+msgid "audio.bus.Effect"
+msgstr "Ambiant"
 
 #: menu/credits_scroll_container.gd:10 menu/menu_credits.tscn:110
 msgid "menu.credits.main"
@@ -216,7 +270,7 @@ msgstr ""
 msgid "menu.credits.back_main_menu"
 msgstr "Back to main menu"
 
-#: menu/menu_option.tscn:42
+#: menu/menu_option.tscn:43
 msgid "menu.option.back_main_menu"
 msgstr "Save and back to main menu"
 
@@ -256,21 +310,9 @@ msgstr "Graphics"
 msgid "menu.option.tab.lang"
 msgstr "Language"
 
-#: menu/option.tscn:81
-msgid "menu.option.shortcut.fleet_and_ships"
-msgstr "Fleets and Ships"
-
-#: menu/option.tscn:115
-msgid "menu.option.shortcut.map"
-msgstr "Map"
-
-#: menu/option.tscn:197
-msgid "menu.option.shortcut.hud"
-msgstr "HUD"
-
-#: menu/option.tscn:223
-msgid "menu.option.shortcut.general"
-msgstr "General"
+#: menu/option.tscn:82
+msgid "Générale"
+msgstr ""
 
 #: menu/options/audio_volume_control.gd:21
 msgid "audio.bus."
@@ -325,6 +367,27 @@ msgstr ""
 #: menu/options/option_lang.tscn:20
 msgid "menu.option.lang.language"
 msgstr "Language"
+
+#~ msgid "network.unable_connect"
+#~ msgstr "The client can not connect."
+
+#~ msgid "network.close_clean_ws"
+#~ msgstr "Closed, clean :"
+
+#~ msgid "debug.title"
+#~ msgstr "Debug"
+
+#~ msgid "menu.option.shortcut.fleet_and_ships"
+#~ msgstr "Fleets and Ships"
+
+#~ msgid "menu.option.shortcut.map"
+#~ msgstr "Map"
+
+#~ msgid "menu.option.shortcut.hud"
+#~ msgstr "HUD"
+
+#~ msgid "menu.option.shortcut.general"
+#~ msgstr "General"
 
 #~ msgid "menu.credits.website"
 #~ msgstr "Website"
@@ -572,17 +635,8 @@ msgstr "Language"
 #~ msgid "hud.details.fleet.number_of_ship_fleet %d"
 #~ msgstr "%d"
 
-#~ msgid "audio.bus.Master"
-#~ msgstr "Global volume"
-
 #~ msgid "audio.bus.UI"
 #~ msgstr "User interface"
-
-#~ msgid "audio.bus.Ambient"
-#~ msgstr "Ambiant"
-
-#~ msgid "action.ui_accept"
-#~ msgstr "UI accpet"
 
 #~ msgid "action.ui_select"
 #~ msgstr "UI select"
@@ -601,12 +655,6 @@ msgstr "Language"
 
 #~ msgid "action.ui_right"
 #~ msgstr "UI right"
-
-#~ msgid "action.ui_up"
-#~ msgstr "UI up"
-
-#~ msgid "action.ui_down"
-#~ msgstr "UI down"
 
 #~ msgid "action.ui_page_up"
 #~ msgstr "Page up"
@@ -637,18 +685,6 @@ msgstr "Language"
 
 #~ msgid "action.ui_drag_map"
 #~ msgstr "Drag the map"
-
-#~ msgid "action.ui_move_map_left"
-#~ msgstr "Move map left"
-
-#~ msgid "action.ui_move_map_right"
-#~ msgstr "Move map right"
-
-#~ msgid "action.ui_move_map_up"
-#~ msgstr "Move map up"
-
-#~ msgid "action.ui_move_map_down"
-#~ msgstr "Move map down"
 
 #~ msgid "action.ui_forbbiden_key_rebind"
 #~ msgstr "Key not assignable"

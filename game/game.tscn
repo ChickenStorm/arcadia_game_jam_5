@@ -1679,6 +1679,7 @@ shape = SubResource( 75 )
 [node name="InteractibleFood" type="Node2D" parent="Obstacle/Room 3"]
 position = Vector2( 1444.68, -97.5315 )
 script = ExtResource( 27 )
+text = [ " Rien dans le monde ne peut égaler telle perfection. J’ignore qui, quoi, ou comment tel être a pu être engendré, mais il mérite plus que d’être transporté dans un vilain paquet en plastique puant." ]
 
 [node name="Sprite" type="Sprite" parent="Obstacle/Room 3/InteractibleFood"]
 scale = Vector2( 2, 2 )
