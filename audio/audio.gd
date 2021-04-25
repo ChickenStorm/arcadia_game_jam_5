@@ -27,7 +27,6 @@ func _init():
 	node_audio.stream = sounds[requested_music]
 	if node_audio.stream is AudioStreamOGGVorbis:
 		node_audio.stream.loop = false
-		node_audio.stream.loop = false
 	node_audio.volume_db = -15
 	node_audio.play()
 	node_audio.connect("finished", self, "_on_mus_finished")
@@ -35,6 +34,8 @@ func _init():
 
 func _on_mus_finished():
 	node_audio.stream = sounds[requested_music]
+	if node_audio.stream is AudioStreamOGGVorbis:
+		node_audio.stream.loop = false
 	node_audio.play()
 
 func play_click():

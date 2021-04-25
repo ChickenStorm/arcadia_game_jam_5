@@ -2,7 +2,7 @@ class_name EnemyStand
 extends Enemy
 
 
-const WAIT_TIME = 2
+const WAIT_TIME = 6
 
 var waiting_time = 0
 var waiting = false
@@ -32,10 +32,15 @@ func _move(delta):
 			waiting = false
 			path_p = _update_navigation_path(self.position, pts[path_node_int])
 		elif not waiting:
-			if path_node_int == 0:
-				start_playing_anim_desk()
-			else:
-				start_playing_anim_canape()
+			var pts = node.points
+			var close = false
+			for pt in pts:
+				close = close or self.position.distance_to(pt) < 30
+			if close:
+				if path_node_int == 0:
+					start_playing_anim_desk()
+				else:
+					start_playing_anim_canape()
 			waiting = true
 			waiting_time = WAIT_TIME
 		else:

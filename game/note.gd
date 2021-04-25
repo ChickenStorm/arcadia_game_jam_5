@@ -6,4 +6,4 @@ func action():
 	if not has_interacted:
 		has_interacted = true
 		.action()
-		$AudioStreamPlayer2D.play()
+		$AudioStreamPlayer2D.play(55)

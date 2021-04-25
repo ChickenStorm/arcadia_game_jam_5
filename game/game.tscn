@@ -1,4 +1,4 @@
-[gd_scene load_steps=125 format=2]
+[gd_scene load_steps=127 format=2]
 
 [ext_resource path="res://game/game.gd" type="Script" id=1]
 [ext_resource path="res://game/cat.gd" type="Script" id=2]
@@ -36,13 +36,14 @@
 [ext_resource path="res://.import/Four.ogg-b0f635a6e6951440dbb654bd70ee03e4.oggstr" type="AudioStream" id=34]
 [ext_resource path="res://game/note.gd" type="Script" id=35]
 [ext_resource path="res://.import/pot cassé.wav-22106388b6f02dbb153823dd5a7dd30c.sample" type="AudioStream" id=36]
-[ext_resource path="res://.import/Ronronnement frigo.ogg-4af0ced1b9da14e03dbe525b08d438a3.oggstr" type="AudioStream" id=37]
+[ext_resource path="res://resources/sounds/Ronronnement frigo.ogg" type="AudioStream" id=37]
 [ext_resource path="res://.import/Pas_chat.ogg-ab907b1d4471c3f02781221068fa5469.oggstr" type="AudioStream" id=38]
 [ext_resource path="res://resources/tilesetExterieur/tileset01.png" type="Texture" id=39]
 [ext_resource path="res://resources/tilesetExterieur/tileset02.png" type="Texture" id=40]
 [ext_resource path="res://resources/tilesetExterieur/tileset03.png" type="Texture" id=41]
 [ext_resource path="res://resources/tilesetExterieur/tileset04.png" type="Texture" id=42]
 [ext_resource path="res://resources/tilesetExterieur/tileset05.png" type="Texture" id=43]
+[ext_resource path="res://.import/Chat chiant qui miaule.wav-9f8dcb7d9b7a8b7618c1ebdd546f505b.sample" type="AudioStream" id=44]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 16, 10, 0, 10, 0, 6, 16, 6 )
@@ -558,118 +559,121 @@ load_path = "res://.import/table_journaux2.png-21420c745fae37bf8d6d1f4a42db073d.
 custom_solver_bias = 1.0
 extents = Vector2( 42.7404, 19.9176 )
 
-[sub_resource type="StreamTexture" id=52]
-load_path = "res://.import/canap.png-dfafe59bc04a891c58ecc89b6005441b.stex"
+[sub_resource type="RectangleShape2D" id=52]
+extents = Vector2( 28.0648, 16.5032 )
 
-[sub_resource type="AtlasTexture" id=53]
-atlas = ExtResource( 29 )
-region = Rect2( 0, 0, 37, 58 )
+[sub_resource type="StreamTexture" id=53]
+load_path = "res://.import/canap.png-dfafe59bc04a891c58ecc89b6005441b.stex"
 
 [sub_resource type="AtlasTexture" id=54]
 atlas = ExtResource( 29 )
-region = Rect2( 37, 0, 37, 58 )
+region = Rect2( 0, 0, 37, 58 )
 
 [sub_resource type="AtlasTexture" id=55]
 atlas = ExtResource( 29 )
+region = Rect2( 37, 0, 37, 58 )
+
+[sub_resource type="AtlasTexture" id=56]
+atlas = ExtResource( 29 )
 region = Rect2( 74, 0, 37, 58 )
 
-[sub_resource type="SpriteFrames" id=56]
+[sub_resource type="SpriteFrames" id=57]
 animations = [ {
 "frames": [  ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 53 ), SubResource( 53 ), SubResource( 53 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 55 ), SubResource( 54 ) ],
+"frames": [ SubResource( 54 ), SubResource( 54 ), SubResource( 54 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 56 ), SubResource( 56 ), SubResource( 56 ), SubResource( 55 ) ],
 "loop": true,
 "name": "Anim",
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=57]
+[sub_resource type="RectangleShape2D" id=58]
 extents = Vector2( 94.028, 30.0793 )
 
-[sub_resource type="StreamTexture" id=58]
+[sub_resource type="StreamTexture" id=59]
 load_path = "res://.import/télé.png-adb749641a0f310933503cb0d896aa16.stex"
 
-[sub_resource type="RectangleShape2D" id=59]
+[sub_resource type="RectangleShape2D" id=60]
 extents = Vector2( 77.5439, 19.5788 )
 
-[sub_resource type="StreamTexture" id=60]
-load_path = "res://.import/lum_fenetre.png-d828d45d6330d27c2a9ea74ac13388f9.stex"
-
 [sub_resource type="StreamTexture" id=61]
-load_path = "res://.import/lum_feunetre.png-8e3d5c25c5c3a99b37884810ad141ef8.stex"
-
-[sub_resource type="StreamTexture" id=62]
-load_path = "res://.import/lum_télé.png-24750bfa7d080d04ec77f75128a1f92b.stex"
-
-[sub_resource type="StreamTexture" id=63]
 load_path = "res://.import/table.png-5ee79dd76c7606b9970ccff519b620c7.stex"
 
-[sub_resource type="RectangleShape2D" id=64]
+[sub_resource type="RectangleShape2D" id=62]
 extents = Vector2( 62.3196, 51.3973 )
 
-[sub_resource type="StreamTexture" id=65]
+[sub_resource type="StreamTexture" id=63]
 load_path = "res://.import/frigo.png-5703ecd3900bcf98bdddacb5f6ddcad9.stex"
 
-[sub_resource type="StreamTexture" id=66]
+[sub_resource type="StreamTexture" id=64]
 load_path = "res://.import/frigo2.png-fbb1616b2347da460e7c24a1db714a62.stex"
 
-[sub_resource type="RectangleShape2D" id=67]
+[sub_resource type="RectangleShape2D" id=65]
 extents = Vector2( 40.4913, 46.3505 )
 
-[sub_resource type="StreamTexture" id=68]
+[sub_resource type="StreamTexture" id=66]
 load_path = "res://.import/meuble.png-20a5ec14a4f4cae967aa01b5956587cf.stex"
 
-[sub_resource type="RectangleShape2D" id=69]
+[sub_resource type="RectangleShape2D" id=67]
 extents = Vector2( 126.908, 36.7897 )
 
-[sub_resource type="RectangleShape2D" id=70]
+[sub_resource type="RectangleShape2D" id=68]
 extents = Vector2( 37.4379, 64.5822 )
 
-[sub_resource type="StreamTexture" id=71]
+[sub_resource type="StreamTexture" id=69]
 load_path = "res://.import/poubelle.png-57341dbf3b5c1464e1addf1fdb7fc893.stex"
 
-[sub_resource type="CircleShape2D" id=72]
+[sub_resource type="CircleShape2D" id=70]
 radius = 21.2959
 
-[sub_resource type="StreamTexture" id=73]
+[sub_resource type="StreamTexture" id=71]
 load_path = "res://.import/lum_four.png-1712c7591b30890aa6f9e294c841ef85.stex"
 
-[sub_resource type="StreamTexture" id=74]
+[sub_resource type="StreamTexture" id=72]
 load_path = "res://.import/lum_feunetre.png-fa905e4f73983024ae9a7c48fdbb8334.stex"
 
-[sub_resource type="AtlasTexture" id=75]
+[sub_resource type="AtlasTexture" id=73]
 atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 36, 36 )
 
-[sub_resource type="AtlasTexture" id=76]
+[sub_resource type="AtlasTexture" id=74]
 atlas = ExtResource( 5 )
 region = Rect2( 36, 0, 36, 36 )
 
-[sub_resource type="AtlasTexture" id=77]
+[sub_resource type="AtlasTexture" id=75]
 atlas = ExtResource( 5 )
 region = Rect2( 72, 0, 36, 36 )
 
-[sub_resource type="AtlasTexture" id=78]
+[sub_resource type="AtlasTexture" id=76]
 atlas = ExtResource( 5 )
 region = Rect2( 108, 0, 36, 36 )
 
-[sub_resource type="AtlasTexture" id=79]
+[sub_resource type="AtlasTexture" id=77]
 atlas = ExtResource( 5 )
 region = Rect2( 144, 0, 36, 36 )
 
-[sub_resource type="SpriteFrames" id=80]
+[sub_resource type="SpriteFrames" id=78]
 animations = [ {
-"frames": [ SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 79 ), SubResource( 78 ), SubResource( 77 ), SubResource( 76 ) ],
+"frames": [ SubResource( 73 ), SubResource( 74 ), SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 76 ), SubResource( 75 ), SubResource( 74 ) ],
 "loop": true,
 "name": "walk",
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=81]
+[sub_resource type="RectangleShape2D" id=79]
 extents = Vector2( 7, 15 )
+
+[sub_resource type="StreamTexture" id=80]
+load_path = "res://.import/lum_fenetre.png-d828d45d6330d27c2a9ea74ac13388f9.stex"
+
+[sub_resource type="StreamTexture" id=81]
+load_path = "res://.import/lum_feunetre.png-8e3d5c25c5c3a99b37884810ad141ef8.stex"
+
+[sub_resource type="StreamTexture" id=82]
+load_path = "res://.import/lum_télé.png-24750bfa7d080d04ec77f75128a1f92b.stex"
 
 [node name="Game" type="Navigation2D"]
 script = ExtResource( 1 )
@@ -1088,6 +1092,7 @@ visible = false
 texture = SubResource( 33 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Obstacle/Room1/InteractibleText"]
+position = Vector2( 0, 0.420448 )
 stream = ExtResource( 9 )
 max_distance = 400.0
 
@@ -1178,8 +1183,10 @@ max_distance = 400.0
 bus = "Effect"
 
 [node name="SpriteLight" type="Sprite" parent="Obstacle/Room1/InteractibleConsole"]
+visible = false
 position = Vector2( 17.3853, 117.313 )
 scale = Vector2( 2, 2 )
+z_index = 2
 texture = SubResource( 36 )
 __meta__ = {
 "_edit_lock_": true
@@ -1500,6 +1507,10 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Obstacle/Room2/ObstacleSquare3/Area2D"]
+position = Vector2( 12.9783, -24.7767 )
+shape = SubResource( 52 )
+
 [node name="Interact" type="Area2D" parent="Obstacle/Room2/ObstacleSquare3"]
 position = Vector2( 20.389, 2.49205 )
 rotation = -3.14159
@@ -1527,6 +1538,9 @@ rect_scale = Vector2( 0.5, 0.5 )
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Obstacle/Room2/ObstacleSquare3"]
 stream = ExtResource( 9 )
 max_distance = 400.0
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="SpriteInteract" type="Sprite" parent="Obstacle/Room2/ObstacleSquare3"]
 visible = false
@@ -1554,18 +1568,19 @@ script = ExtResource( 30 )
 [node name="Sprite" type="Sprite" parent="Obstacle/Room2/Canape"]
 rotation = -1.5708
 scale = Vector2( 2, 2 )
-texture = SubResource( 52 )
+texture = SubResource( 53 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Obstacle/Room2/Canape"]
+visible = false
 position = Vector2( -94.707, 30.879 )
 rotation = -1.5708
 scale = Vector2( 2, 2 )
-frames = SubResource( 56 )
+frames = SubResource( 57 )
 animation = "Anim"
-frame = 8
+frame = 2
 speed_scale = 0.8
 playing = true
 centered = false
@@ -1592,7 +1607,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room2/Canape/Area2D"]
-shape = SubResource( 57 )
+shape = SubResource( 58 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -1604,7 +1619,7 @@ rotation = 1.5708
 [node name="Sprite" type="Sprite" parent="Obstacle/Room2/ObstacleRect7"]
 rotation = -1.5708
 scale = Vector2( 2, 2 )
-texture = SubResource( 58 )
+texture = SubResource( 59 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -1631,7 +1646,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room2/ObstacleRect7/Area2D"]
-shape = SubResource( 59 )
+shape = SubResource( 60 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -1642,29 +1657,6 @@ volume_db = -30.0
 autoplay = true
 max_distance = 400.0
 
-[node name="Decore" type="Node2D" parent="Obstacle/Room2"]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Obstacle/Room2/Decore"]
-position = Vector2( 45.7845, 130.218 )
-scale = Vector2( 2, 2 )
-texture = SubResource( 60 )
-
-[node name="Sprite2" type="Sprite" parent="Obstacle/Room2/Decore"]
-position = Vector2( 781.864, -150.551 )
-scale = Vector2( 2, 2 )
-texture = SubResource( 61 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Sprite3" type="Sprite" parent="Obstacle/Room2/Decore"]
-position = Vector2( 874.512, 141.615 )
-scale = Vector2( 2, 2 )
-texture = SubResource( 62 )
-
 [node name="Room 3" type="Node2D" parent="Obstacle"]
 
 [node name="ObstacleRect5" type="Node2D" parent="Obstacle/Room 3"]
@@ -1672,7 +1664,7 @@ position = Vector2( 1216.09, -113.18 )
 
 [node name="Sprite" type="Sprite" parent="Obstacle/Room 3/ObstacleRect5"]
 scale = Vector2( 2, 2 )
-texture = SubResource( 63 )
+texture = SubResource( 61 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -1699,7 +1691,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room 3/ObstacleRect5/Area2D"]
-shape = SubResource( 64 )
+shape = SubResource( 62 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -1711,7 +1703,7 @@ text = [ " Rah, ils sont beaux, tiens, ces trois imbéciles. Ce serait vraiment 
 
 [node name="SpriteFirst" type="Sprite" parent="Obstacle/Room 3/ObstacleRect9"]
 scale = Vector2( 2, 2 )
-texture = SubResource( 65 )
+texture = SubResource( 63 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -1720,7 +1712,7 @@ __meta__ = {
 visible = false
 position = Vector2( 12.681, -0.667419 )
 scale = Vector2( 2, 2 )
-texture = SubResource( 66 )
+texture = SubResource( 64 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -1747,7 +1739,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room 3/ObstacleRect9/Area2D"]
-shape = SubResource( 67 )
+shape = SubResource( 65 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -1772,14 +1764,12 @@ __meta__ = {
 rect_scale = Vector2( 0.5, 0.5 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Obstacle/Room 3/ObstacleRect9"]
-position = Vector2( -992.456, 281.887 )
 stream = ExtResource( 32 )
 max_distance = 400.0
 
 [node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Obstacle/Room 3/ObstacleRect9"]
-position = Vector2( -992.456, 281.887 )
 stream = ExtResource( 37 )
-volume_db = -20.0
+volume_db = -10.0
 autoplay = true
 max_distance = 400.0
 
@@ -1823,7 +1813,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="Obstacle/Room 3/ObstacleKitchenCorner"]
 position = Vector2( -52.3851, 66.5431 )
 scale = Vector2( 2, 2 )
-texture = SubResource( 68 )
+texture = SubResource( 66 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -1837,11 +1827,11 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room 3/ObstacleKitchenCorner/Area2D"]
 position = Vector2( -51.9132, 0.471924 )
-shape = SubResource( 69 )
+shape = SubResource( 67 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Obstacle/Room 3/ObstacleKitchenCorner/Area2D"]
 position = Vector2( 37.1768, 101.589 )
-shape = SubResource( 70 )
+shape = SubResource( 68 )
 
 [node name="InteractibleFood" type="Node2D" parent="Obstacle/Room 3"]
 position = Vector2( 1444.68, -97.5315 )
@@ -1850,7 +1840,7 @@ text = [ " Rien dans le monde ne peut égaler telle perfection. J’ignore qui, 
 
 [node name="Sprite" type="Sprite" parent="Obstacle/Room 3/InteractibleFood"]
 scale = Vector2( 2, 2 )
-texture = SubResource( 71 )
+texture = SubResource( 69 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -1863,7 +1853,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/Room 3/InteractibleFood/Body"]
-shape = SubResource( 72 )
+shape = SubResource( 70 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -1980,7 +1970,8 @@ rect_scale = Vector2( 0.5, 0.5 )
 visible = false
 position = Vector2( -0.561279, 37.6025 )
 scale = Vector2( 2, 2 )
-texture = SubResource( 73 )
+z_index = 2
+texture = SubResource( 71 )
 
 [node name="SpriteInteract" type="Sprite" parent="Obstacle/Room 3/InteractibleOven"]
 visible = false
@@ -1999,17 +1990,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Obstacle/Room 3/InteractibleOven"]
+stream = ExtResource( 34 )
+volume_db = -10.0
+max_distance = 400.0
+
 [node name="Decore" type="Node2D" parent="Obstacle/Room 3"]
 
 [node name="Sprite" type="Sprite" parent="Obstacle/Room 3/Decore"]
 position = Vector2( 1153.29, 19.2271 )
 scale = Vector2( 2, 2 )
-texture = SubResource( 74 )
+z_index = 2
+texture = SubResource( 72 )
 
 [node name="Sprite2" type="Sprite" parent="Obstacle/Room 3/Decore"]
 position = Vector2( 1356.23, 18.52 )
 scale = Vector2( 2, 2 )
-texture = SubResource( 74 )
+z_index = 2
+texture = SubResource( 72 )
 
 [node name="Cat" type="KinematicBody2D" parent="."]
 position = Vector2( 57.0031, 46.991 )
@@ -2023,14 +2021,14 @@ __meta__ = {
 }
 
 [node name="sprite" type="AnimatedSprite" parent="Cat"]
-frames = SubResource( 80 )
+frames = SubResource( 78 )
 animation = "walk"
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cat"]
-shape = SubResource( 81 )
+shape = SubResource( 79 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -2051,7 +2049,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cat/Interact"]
 position = Vector2( 0.0187263, 0.216853 )
-shape = SubResource( 81 )
+shape = SubResource( 79 )
 
 [node name="InteractZone" type="Area2D" parent="Cat"]
 position = Vector2( 0.0321255, 0.386013 )
@@ -2063,7 +2061,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cat/InteractZone"]
 position = Vector2( -0.0456696, -0.332608 )
-shape = SubResource( 81 )
+shape = SubResource( 79 )
 
 [node name="Camera2D" type="Camera2D" parent="Cat"]
 scale = Vector2( 0.5, 0.5 )
@@ -2085,6 +2083,10 @@ stream = ExtResource( 38 )
 max_distance = 400.0
 bus = "Effect"
 
+[node name="Meow" type="AudioStreamPlayer2D" parent="Cat"]
+stream = ExtResource( 44 )
+max_distance = 400.0
+
 [node name="Persone" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1327.61, -191.619 )
 path_node = NodePath("../Line2D")
@@ -2097,6 +2099,30 @@ path_node_ref = NodePath("../LineStandRef")
 [node name="PersoneFix" parent="." instance=ExtResource( 13 )]
 position = Vector2( 241.052, 219.945 )
 path_node = NodePath("../LineFix")
+
+[node name="Decore2" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Decore2"]
+position = Vector2( 45.7845, 130.218 )
+scale = Vector2( 2, 2 )
+texture = SubResource( 80 )
+
+[node name="Sprite2" type="Sprite" parent="Decore2"]
+position = Vector2( 781.864, -150.551 )
+scale = Vector2( 2, 2 )
+texture = SubResource( 81 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite3" type="Sprite" parent="Decore2"]
+position = Vector2( 874.512, 141.615 )
+scale = Vector2( 2, 2 )
+z_index = 2
+texture = SubResource( 82 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -2118,12 +2144,14 @@ anchor_top = 0.02
 anchor_right = 0.98
 anchor_bottom = 0.98
 mouse_filter = 2
+custom_constants/margin_left = 20
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Hud/MarginContainer"]
+margin_left = 20.0
 margin_right = 1255.0
 margin_bottom = 692.0
 mouse_filter = 2
@@ -2133,10 +2161,10 @@ __meta__ = {
 }
 
 [node name="PanelContainer" parent="CanvasLayer/Hud/MarginContainer/VBoxContainer" instance=ExtResource( 31 )]
-visible = false
 margin_top = 611.0
-margin_right = 1255.0
+margin_right = 1235.0
 margin_bottom = 692.0
 
 [node name="TimerPissZ1" type="Timer" parent="."]
 wait_time = 2.0
+one_shot = true

@@ -60,7 +60,7 @@ margin_top = 20.0
 margin_right = 374.0
 margin_bottom = 41.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Vous avez perdu, le père vous a vu"
+text = "Vous avez perdu, le père vous a vu."
 align = 1
 
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]

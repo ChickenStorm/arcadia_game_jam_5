@@ -15,8 +15,8 @@ func _move(delta):
 			var pts = node.points
 			if self.position.distance_to(pts[0]) > 20:
 				path_p = _update_navigation_path(self.position, pts[0])
-				$AnimatedSprite.animation = "play"
 			else:
+				$AnimatedSprite.animation = "play"
 				if rot_time < 0:
 					rot_time = rng.randf_range(ROT_TIME_MIN, ROT_TIME_MAX)
 					angle_target += rng.randf_range(-PI, PI)

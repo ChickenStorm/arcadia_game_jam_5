@@ -108,6 +108,7 @@ func action_meow():
 	if time_meow <= 0:
 		noise.action_noise()
 		time_meow = MEOW_CD
+		$Meow.play()
 
 
 func action_piss():

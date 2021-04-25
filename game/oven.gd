@@ -7,6 +7,7 @@ func action():
 		turned_on = true
 		.action()
 		$Sprite.visible = true
+		$AudioStreamPlayer2D.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

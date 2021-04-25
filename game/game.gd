@@ -8,6 +8,10 @@ onready var cat = $Cat
 onready var persone = $Persone
 const PISS = preload("res://game/piss.tscn")
 
+var has_shown_txt_1 = false
+var has_shown_txt_2 = false
+var has_shown_txt_3 = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#$MainMusic.connect("finished", self, "_on_main_music_finished")
@@ -26,6 +30,8 @@ func _ready():
 		for obs in node.get_children():
 			if obs is Interact:
 				obs.connect("interaction_dialogue", self, "_on_interaction_dialogue")
+			if obs is Plant:
+				obs.connect("noise_plant", self, "_on_noise_pant", [obs])
 	cat.connect("entered_zone", self, "_on_cat_entered_zone")
 	$"Obstacle/Room 3/InteractibleFood".connect("win_game", self, "_on_win_game")
 	Audio.set_requested_music("game_1")
@@ -34,15 +40,30 @@ func _ready():
 func _on_cat_entered_zone(zone):
 	match zone:
 		0:
-			_on_interaction_dialogue("Félix : Des cubes et des boules et des cubes et des pyramides. Et ensuite c’est moi qu’on emmène chez le médecin.")
+			if not has_shown_txt_1:
+				has_shown_txt_1 = true
+				_on_interaction_dialogue("Félix : Des cubes et des boules et des cubes et des pyramides. Et ensuite c’est moi qu’on emmène chez le médecin.")
 		1:
+			if not has_shown_txt_2:
+				has_shown_txt_2 = true
 			_on_interaction_dialogue("Félix : Une pelote de laine. Ils me prennent vraiment pour un crétin s’ils pensent que je vais courir après.")
 		2:
+			if not has_shown_txt_3:
+				has_shown_txt_3 = true
 			_on_interaction_dialogue([
 				"Mère : Oh oui, il est énorme. Tu n’imagines pas. Son double menton et ses poignets d’amour battent largement celui de ton Pierre. Attends, on parle encore des chats, hein ?",
 				"Félix : Mais qu’est-ce qu’elle baragouine celle-là ?",
 			])
 
+
+
+func _on_noise_pant(plant):
+	$PersoneStand.inspect_sound = true
+	$PersoneStand.has_inspected = false
+	$PersoneStand.path_p = PoolVector2Array([])
+	$PersoneStand.path_sound = $PersoneStand._update_navigation_path($PersoneStand.position, plant.position)
+	$PersoneStand.inspect_time_next = 3
+	$PersoneStand.noise_type = "plant"
 
 
 func _on_main_music_finished():
@@ -58,7 +79,7 @@ func _on_piss(zone_id):
 			p.inspect_sound = true
 			p.has_inspected = false
 			p.path_p = PoolVector2Array([])
-			p.path_sound = p._update_navigation_path(p.position, $PersoneFix.position)
+			p.path_sound = p._update_navigation_path(p.position, cat.position)
 			p.noise_type = "piss"
 		_on_interaction_dialogue([
 			"Frank : Rah, fichue bête ! Et maintenant tu vas dire que c’est de ma faute peut-être ?",

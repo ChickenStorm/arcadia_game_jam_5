@@ -123,10 +123,12 @@ shape = SubResource( 7 )
 
 [node name="AlertS" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
+max_distance = 400.0
 bus = "Effect"
 
 [node name="StepSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 2 )
+max_distance = 400.0
 bus = "Effect"
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -134,3 +136,6 @@ rotation = 1.5708
 scale = Vector2( 2, 2 )
 frames = SubResource( 8 )
 animation = "Default"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0

@@ -10,7 +10,7 @@ func _ready():
 func action():
 	if not has_activate:
 		has_activate = true
-		.action()
+		#.action()
 		$Timer.start()
 		$AudioStreamPlayer.play()
 

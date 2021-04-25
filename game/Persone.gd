@@ -39,7 +39,11 @@ func _ready():
 	vision_out.connect("body_exited", self, "_on_body_exited")
 	hearing.connect("area_entered", self, "_on_noise_main")
 	$Toutch.connect("body_entered", self, "_on_touch")
+	$Timer.connect("timeout", self, "_on_timeout")
 
+
+func _on_timeout():
+	emit_signal("touched")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -163,7 +167,7 @@ func _on_noise(area):
 		self.inspect_sound = true
 		has_inspected = false
 		path_p = PoolVector2Array([])
-		path_sound = _update_navigation_path(self.position, area.get_parent().position)
+		path_sound = _update_navigation_path(self.position, area.get_parent().position + area.position)
 
 
 func set_see_cat(new_bool):
@@ -174,6 +178,7 @@ func set_see_cat(new_bool):
 		path_p = PoolVector2Array([])
 		self.inspect_sound = false
 		color_rect.color = Color(255, 0, 0)
+		$Timer.start()
 	else:
 		color_rect.color = Color(0, 255, 0)
 	see_cat = new_bool

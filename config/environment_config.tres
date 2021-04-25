@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource( 1 )
-debug_activated = true
+debug_activated = false
