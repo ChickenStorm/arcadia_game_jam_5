@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Aimants deplacee.wav-b229f93824a2be7f2b0590839485cd4c.sample"
+
+[deps]
+
+source_file="res://resources/sounds/Aimants deplacee.wav"
+dest_files=[ "res://.import/Aimants deplacee.wav-b229f93824a2be7f2b0590839485cd4c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

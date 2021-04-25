@@ -32,8 +32,8 @@ func _move(delta):
 		path_p = move_along_path(path_p, delta, speed_factor)
 
 
-func set_inspect_sound(new_bool):
-	.set_inspect_sound(new_bool)
+func _set_inspect_sound(new_bool):
+	._set_inspect_sound(new_bool)
 	if inspect_sound:
 		$AnimatedSprite.animation = "Default"
 
@@ -42,5 +42,5 @@ func set_see_cat(new_bool):
 	if new_bool == see_cat:
 		return # we do nothing, we want to register state chnage
 	.set_see_cat(new_bool)
-	$AnimatedSprite.animation = "Default"
-
+	if see_cat:
+		$AnimatedSprite.animation = "Default"

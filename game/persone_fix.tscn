@@ -82,6 +82,7 @@ collide_with_areas = true
 shape = SubResource( 1 )
 
 [node name="Vision" type="Area2D" parent="."]
+visible = false
 collision_layer = 4
 collision_mask = 4
 
@@ -95,6 +96,7 @@ self_modulate = Color( 0, 0.72, 0.36, 1 )
 shape = SubResource( 2 )
 
 [node name="VisionOut" type="Area2D" parent="."]
+visible = false
 collision_layer = 4
 collision_mask = 4
 
@@ -107,6 +109,7 @@ self_modulate = Color( 0, 0.72, 0.36, 1 )
 shape = SubResource( 3 )
 
 [node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
 margin_left = 2.0
 margin_top = -2.0
 margin_right = 6.0
@@ -117,6 +120,7 @@ __meta__ = {
 }
 
 [node name="Hearing" type="Area2D" parent="."]
+visible = false
 monitorable = false
 collision_layer = 8
 collision_mask = 8

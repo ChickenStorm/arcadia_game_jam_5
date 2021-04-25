@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Ronronnement frigo.wav-ddecfcc547be56ed1edf07ca888523bf.sample"
+
+[deps]
+
+source_file="res://resources/sounds/Ronronnement frigo.wav"
+dest_files=[ "res://.import/Ronronnement frigo.wav-ddecfcc547be56ed1edf07ca888523bf.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

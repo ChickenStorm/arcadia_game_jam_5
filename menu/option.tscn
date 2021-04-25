@@ -40,7 +40,6 @@ size_flags_stretch_ratio = 15.0
 tab_align = 0
 
 [node name="Raccourcis" type="VBoxContainer" parent="TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -62,7 +61,7 @@ __meta__ = {
 
 [node name="keyBindingContainer" type="VBoxContainer" parent="TabContainer/Raccourcis/ScrollContainer"]
 margin_right = 1272.0
-margin_bottom = 167.0
+margin_bottom = 447.0
 size_flags_horizontal = 3
 
 [node name="HBoxContainer2" type="MarginContainer" parent="TabContainer/Raccourcis/ScrollContainer/keyBindingContainer"]
@@ -122,7 +121,7 @@ margin_right = 1272.0
 margin_bottom = 331.0
 action = "interact"
 
-[node name="action_meow2" parent="TabContainer/Raccourcis/ScrollContainer/keyBindingContainer" instance=ExtResource( 2 )]
+[node name="action_meow" parent="TabContainer/Raccourcis/ScrollContainer/keyBindingContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 335.0
@@ -139,6 +138,7 @@ margin_bottom = 447.0
 action = "piss"
 
 [node name="Audio" type="HBoxContainer" parent="TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0

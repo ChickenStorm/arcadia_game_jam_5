@@ -1,9 +1,7 @@
 extends IteractionText
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var has_interacted = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -16,6 +14,9 @@ func _ready():
 #	pass
 
 func action():
-	.action()
-	$SpriteFirst.visible = false
-	$SpriteThen.visible = true
+	if not has_interacted:
+		has_interacted = true
+		.action()
+		$SpriteFirst.visible = false
+		$SpriteThen.visible = true
+		$AudioStreamPlayer2D.play()

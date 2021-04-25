@@ -13,7 +13,7 @@ var noise_type = ""
 var cat = null setget set_cat
 var cat_in_area = false
 var see_cat = false setget set_see_cat
-var inspect_sound = false setget set_inspect_sound
+var inspect_sound = false setget _set_inspect_sound
 var path_sound = PoolVector2Array([])
 var inspected_time = 0
 var has_inspected = false
@@ -37,7 +37,7 @@ onready var color_rect = $ColorRect
 func _ready():
 	vision.connect("body_entered", self, "_on_body_entered")
 	vision_out.connect("body_exited", self, "_on_body_exited")
-	hearing.connect("area_entered", self, "_on_noise")
+	hearing.connect("area_entered", self, "_on_noise_main")
 	$Toutch.connect("body_entered", self, "_on_touch")
 
 
@@ -69,12 +69,11 @@ func _process(delta):
 				if not has_inspected:
 					has_inspected = true
 					inspected_time = inspect_time_next
-					print(inspected_time)
 				if inspected_time > 0:
 					inspected_time -= delta
 				else:
-					inspect_sound = false
-					has_inspected = false
+					self.inspect_sound = false
+					self.has_inspected = false
 					color_rect.color = Color(0, 255, 0)
 			play_if_has_moved(old_position, delta)
 			return
@@ -152,13 +151,16 @@ func _update_navigation_path(start_position, end_position):
 	set_process(true)
 	return path
 
+func _on_noise_main(area):
+	_on_noise(area)
+
 
 func _on_noise(area):
 	if not see_cat:
 		color_rect.color = Color(255, 255, 0)
 		inspect_time_next = area.time_distraction if area.get("time_distraction") != null else 3
 		noise_type = area.noise_type if area.get("noise_type") != null else ""
-		inspect_sound = true
+		self.inspect_sound = true
 		has_inspected = false
 		path_p = PoolVector2Array([])
 		path_sound = _update_navigation_path(self.position, area.get_parent().position)
@@ -168,10 +170,9 @@ func set_see_cat(new_bool):
 	if new_bool == see_cat:
 		return # we do nothing, we want to register state chnage
 	if new_bool:
-		$AlertS.play(0.25)
 		path_sound = PoolVector2Array([])
 		path_p = PoolVector2Array([])
-		inspect_sound = false
+		self.inspect_sound = false
 		color_rect.color = Color(255, 0, 0)
 	else:
 		color_rect.color = Color(0, 255, 0)
@@ -182,5 +183,9 @@ func _on_touch(area):
 	if area == cat:
 		emit_signal("touched")
 
-func set_inspect_sound(new_bool):
+func _set_inspect_sound(new_bool):
+	if inspect_sound == new_bool:
+		return
 	inspect_sound = new_bool
+	if inspect_sound:
+		$AlertS.play(0.25)

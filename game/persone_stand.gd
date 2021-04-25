@@ -14,7 +14,7 @@ export(NodePath) var path_node_ref = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,7 +25,6 @@ func _move(delta):
 	if path_p == null or path_p.size() == 0:
 		var node = get_node(path_node)
 		if node != null and waiting and waiting_time <= 0 :
-			
 			stop_playing_anim_desk()
 			stop_playing_anim_canape()
 			var pts = node.points
@@ -47,34 +46,35 @@ func _move(delta):
 
 func start_playing_anim_desk():
 	$"../Obstacle/Room2/Desk".play_anim()
-	self.visible = false
 	var node = get_node(path_node_ref)
 	self.position = node.points[0]
 	self.rotation = PI/2
+	$AnimatedSprite.visible = false
+
 
 func start_playing_anim_canape():
 	$"../Obstacle/Room2/Canape".play_anim()
-	self.visible = false
+	$AnimatedSprite.visible = false
 	var node = get_node(path_node_ref)
 	self.position = node.points[1]
 	self.rotation = 0
 
 
 func stop_playing_anim_desk():
-	visible = true
+	$AnimatedSprite.visible = true
 	if $"../Obstacle/Room2/Desk".is_playing:
 		self.position = get_node(path_node).points[0]
 	$"../Obstacle/Room2/Desk".static_sprite()
 
 func stop_playing_anim_canape():
-	visible = true
+	$AnimatedSprite.visible = true
 	if $"../Obstacle/Room2/Canape".is_playing:
 		self.position = get_node(path_node).points[1]
 	$"../Obstacle/Room2/Canape".static_sprite()
 
 
-func set_inspect_sound(new_bool):
-	.set_inspect_sound(new_bool)
+func _set_inspect_sound(new_bool):
+	._set_inspect_sound(new_bool)
 	if inspect_sound:
 		stop_playing_anim_desk()
 		stop_playing_anim_canape()
@@ -88,18 +88,15 @@ func set_see_cat(new_bool):
 	stop_playing_anim_canape()
 
 
-
-
 func _on_noise(area):
 	if not see_cat:
 		var check_noise_type = area.noise_type if area.get("noise_type") != null else ""
 		# cannot heat the meow he is imeownue
-		print(noise_type)
-		if noise_type != "meow":
+		if check_noise_type != "meow":
 			noise_type = check_noise_type
 			inspect_time_next = area.time_distraction if area.get("time_distraction") != null else 3
 			color_rect.color = Color(255, 255, 0)
-			inspect_sound = true
+			self.inspect_sound = true
 			has_inspected = false
 			path_p = PoolVector2Array([])
 			path_sound = _update_navigation_path(self.position, area.get_parent().position)

@@ -6,11 +6,11 @@ signal scene_requested(scene)
 
 onready var cat = $Cat
 onready var persone = $Persone
-
+const PISS = preload("res://game/piss.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$MainMusic.connect("finished", self, "_on_main_music_finished")
+	#$MainMusic.connect("finished", self, "_on_main_music_finished")
 	persone.cat = cat
 	$PersoneFix.cat = cat
 	$PersoneStand.cat = cat
@@ -28,6 +28,7 @@ func _ready():
 				obs.connect("interaction_dialogue", self, "_on_interaction_dialogue")
 	cat.connect("entered_zone", self, "_on_cat_entered_zone")
 	$"Obstacle/Room 3/InteractibleFood".connect("win_game", self, "_on_win_game")
+	Audio.set_requested_music("game_1")
 
 
 func _on_cat_entered_zone(zone):
@@ -49,7 +50,9 @@ func _on_main_music_finished():
 
 
 func _on_piss(zone_id):
-
+	var node = PISS.instance()
+	node.position = cat.position
+	$Decore.add_child(node)
 	if zone_id == 0:
 		for p in [persone, $PersoneStand]:
 			p.inspect_sound = true
@@ -108,6 +111,7 @@ func _on_interaction_exited():
 func _on_touched(string):
 	pass
 	#emit_signal("scene_requested", "game_over_" + string )
+	Audio.play_ctached_kitty()
 
 
 func _on_interaction_dialogue(string):

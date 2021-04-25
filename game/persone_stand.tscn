@@ -5,25 +5,25 @@
 [ext_resource path="res://resources/people/pere.png" type="Texture" id=3]
 [ext_resource path="res://.import/alerte.ogg-9058a4c8b0ea0486a8e48f3dcede61b2.oggstr" type="AudioStream" id=4]
 
-[sub_resource type="StreamTexture" id=6]
+[sub_resource type="StreamTexture" id=1]
 load_path = "res://.import/humain.png-96b104211c32b8ad277f3de49f83131f.stex"
 
-[sub_resource type="AtlasTexture" id=7]
-atlas = SubResource( 6 )
+[sub_resource type="AtlasTexture" id=2]
+atlas = SubResource( 1 )
 region = Rect2( 56, 3, 33, 15 )
 
-[sub_resource type="RectangleShape2D" id=1]
-
-[sub_resource type="CircleShape2D" id=2]
-radius = 56.0
-
-[sub_resource type="CircleShape2D" id=3]
-radius = 118.0
+[sub_resource type="RectangleShape2D" id=3]
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 342.0
+radius = 56.0
 
 [sub_resource type="CircleShape2D" id=5]
+radius = 118.0
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 342.0
+
+[sub_resource type="CircleShape2D" id=7]
 radius = 20.0
 
 [sub_resource type="SpriteFrames" id=8]
@@ -44,7 +44,7 @@ script = ExtResource( 1 )
 visible = false
 rotation = 1.5708
 scale = Vector2( 2, 2 )
-texture = SubResource( 7 )
+texture = SubResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -64,9 +64,10 @@ collision_mask = 2
 collide_with_areas = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="Vision" type="Area2D" parent="."]
+visible = false
 collision_layer = 4
 collision_mask = 4
 
@@ -77,9 +78,10 @@ one_way_collision_margin = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vision"]
 self_modulate = Color( 0, 0.72, 0.36, 1 )
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 
 [node name="VisionOut" type="Area2D" parent="."]
+visible = false
 collision_layer = 4
 collision_mask = 4
 
@@ -90,7 +92,7 @@ one_way_collision_margin = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VisionOut"]
 self_modulate = Color( 0, 0.72, 0.36, 1 )
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 visible = false
@@ -104,6 +106,7 @@ __meta__ = {
 }
 
 [node name="Hearing" type="Area2D" parent="."]
+visible = false
 monitorable = false
 collision_layer = 8
 collision_mask = 8
@@ -111,12 +114,12 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hearing"]
 modulate = Color( 1, 1, 1, 0.298039 )
 position = Vector2( 0.264877, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 
 [node name="Toutch" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Toutch"]
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 
 [node name="AlertS" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )

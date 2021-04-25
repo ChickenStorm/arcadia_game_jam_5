@@ -7,3 +7,7 @@ func play_click():
 	pass
 	#if click_sound != null:
 	#	click_sound.play_sound()
+
+
+func play_ctached_kitty():
+	$Catched.play()

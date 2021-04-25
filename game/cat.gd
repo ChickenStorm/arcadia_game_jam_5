@@ -10,7 +10,7 @@ signal entered_zone(zone_id)
 const SPEED_FACTOR = 150
 const SPEED_AFTER_MEOW = 100
 const MEOW_CD = 2
-const PISS_CD = 20
+const PISS_CD = 30
 const ACCELERATION = 300
 
 var speed = 0
@@ -52,7 +52,7 @@ func _on_area_entered_zone(area):
 
 func _on_area_entered(area):
 	if area.name == "Area_Persone":
-		print("test")
+		pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -112,7 +112,6 @@ func action_meow():
 
 func action_piss():
 	if time_piss <= 0:
-		print("p")
 		#$PissNoise.action_noise()
 		emit_signal("piss", zone)
 		time_piss = PISS_CD

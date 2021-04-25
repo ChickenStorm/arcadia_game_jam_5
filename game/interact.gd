@@ -34,8 +34,8 @@ func action():
 
 func _on_area_entered(_area):
 	can_interact = true
-	$InteractionLabel.visible = true
+	$SpriteInteract.visible = true
 
 func _on_area_exited(_area):
 	can_interact = false
-	$InteractionLabel.visible = false
+	$SpriteInteract.visible = false

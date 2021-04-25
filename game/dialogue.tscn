@@ -33,9 +33,10 @@ margin_top = 7.0
 margin_right = 1017.0
 margin_bottom = 21.0
 text = "no_tr"
+autowrap = true
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 10.0
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
