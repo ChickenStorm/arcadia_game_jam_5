@@ -1,16 +1,25 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://game_over/game_over.gd" type="Script" id=1]
 [ext_resource path="res://themes/main_theme.tres" type="Theme" id=2]
 
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/ecran_game_over_tatane.png-1d43757d7c38c313a5acc48c72cc42a0.stex"
+
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -490.99, 0 )
 theme = ExtResource( 2 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 10, 10 )
+texture = SubResource( 1 )
+centered = false
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_left = 0.1

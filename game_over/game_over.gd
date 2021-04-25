@@ -11,6 +11,7 @@ signal scene_requested(scene)
 func _ready():
 	$MarginContainer/VBoxContainer/Button.grab_focus()
 	$MarginContainer/VBoxContainer/Button.connect("pressed", self, "_on_back_to_main_menu")
+	$MarginContainer/VBoxContainer/Button2.connect("pressed", self, "_on_replay")
 	Audio.set_requested_music("defaite")
 
 
@@ -20,3 +21,7 @@ func _ready():
 
 func _on_back_to_main_menu():
 	emit_signal("scene_requested", "menu")
+
+
+func _on_replay():
+	emit_signal("scene_requested", "game")

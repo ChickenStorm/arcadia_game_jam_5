@@ -1,0 +1,7 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=2]
+
+[sub_resource type="StreamTexture" id=2]
+load_path = "res://.import/boite_dialogue_ninepatch.png-036a652752769b69cd89ba7714e185a8.stex"
+
+[resource]
+texture = SubResource( 2 )

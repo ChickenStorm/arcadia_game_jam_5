@@ -1,13 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://game/dialogue.gd" type="Script" id=1]
+[ext_resource path="res://themes/dialogue_box.tres" type="StyleBox" id=2]
 [ext_resource path="res://themes/main_theme.tres" type="Theme" id=3]
-
-[sub_resource type="StreamTexture" id=2]
-load_path = "res://.import/boite_dialogue_ninepatch.png-036a652752769b69cd89ba7714e185a8.stex"
-
-[sub_resource type="StyleBoxTexture" id=3]
-texture = SubResource( 2 )
 
 [sub_resource type="Animation" id=1]
 resource_name = "fade"
@@ -30,7 +25,7 @@ margin_right = 1024.0
 margin_bottom = 608.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 3 )
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = ExtResource( 2 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
