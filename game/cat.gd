@@ -63,7 +63,11 @@ func _process(delta):
 	if speed != Vector2.ZERO:
 		self.rotate(vec_or.angle_to(speed))
 		$sprite.playing = true
+		if not $StepSound.playing:
+			$StepSound.playing = true
 	else:
+		if $StepSound.playing:
+			$StepSound.playing = false
 		$sprite.playing = false
 	move_and_collide(speed)
 

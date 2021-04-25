@@ -1,3 +1,4 @@
+class_name Interact
 extends Node2D
 
 var can_interact = false
@@ -20,8 +21,13 @@ func _ready():
 func _unhandled_input(event):
 	if event is InputEventKey or event is InputEventMouseButton:
 		if can_interact and event.is_action_pressed("interact"):
-			$Noise.action_noise()
+			action()
 		
+
+
+func action():
+	$Noise.action_noise()
+
 
 func _on_area_entered(_area):
 	can_interact = true

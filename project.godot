@@ -19,7 +19,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://audio/audio_stacking.gd"
 }, {
-"base": "Reference",
+"base": "AudioStacking",
 "class": "AudioStacking2D",
 "language": "GDScript",
 "path": "res://audio/audio_stacking_2d.gd"
@@ -85,6 +85,11 @@ _global_script_classes=[ {
 "path": "res://global/error.gd"
 }, {
 "base": "Node2D",
+"class": "Interact",
+"language": "GDScript",
+"path": "res://game/interact.gd"
+}, {
+"base": "Interact",
 "class": "IteractionText",
 "language": "GDScript",
 "path": "res://game/interactible_text.gd"
@@ -152,7 +157,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "AudioResource": "",
 "AudioStacking": "res://resources/editor/audio_stacking.svg",
-"AudioStacking2D": "",
+"AudioStacking2D": "res://resources/editor/audio_stacking_2d.svg",
 "AudioStacking3D": "",
 "AudioStackingSingleSound": "",
 "ButtonPanelContainer": "",
@@ -165,6 +170,7 @@ _global_script_class_icons={
 "EnemyStand": "",
 "EnvironmentConfig": "",
 "ErrorHandler": "",
+"Interact": "",
 "IteractionText": "",
 "MenuBody": "res://resources/editor/menu_body.svg",
 "MenuContainer": "",
@@ -182,7 +188,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Felix"
+config/name="Hungy Kitty"
 run/main_scene="res://main.tscn"
 config/icon="res://icon.png"
 

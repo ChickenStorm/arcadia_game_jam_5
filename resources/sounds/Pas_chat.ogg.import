@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Pas_chat.ogg-ab907b1d4471c3f02781221068fa5469.oggstr"
+
+[deps]
+
+source_file="res://resources/sounds/Pas_chat.ogg"
+dest_files=[ "res://.import/Pas_chat.ogg-ab907b1d4471c3f02781221068fa5469.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

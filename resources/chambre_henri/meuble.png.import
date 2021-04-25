@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fleet_item.svg-94517fe31a037bfa72519f18189d457a.stex"
+path="res://.import/meuble.png-78a3aa59f2369681b8a76aff7d03571e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/editor/fleet_item.svg"
-dest_files=[ "res://.import/fleet_item.svg-94517fe31a037bfa72519f18189d457a.stex" ]
+source_file="res://resources/chambre_henri/meuble.png"
+dest_files=[ "res://.import/meuble.png-78a3aa59f2369681b8a76aff7d03571e.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -30,5 +30,5 @@ process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

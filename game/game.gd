@@ -10,6 +10,7 @@ onready var persone = $Persone
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$MainMusic.connect("finished", self, "_on_main_music_finished")
 	persone.cat = cat
 	$PersoneFix.cat = cat
 	$PersoneStand.cat = cat
@@ -25,6 +26,10 @@ func _ready():
 		for obs in node.get_children():
 			if obs is IteractionText:
 				obs.connect("interaction_dialogue", self, "_on_interaction_dialogue")
+
+
+func _on_main_music_finished():
+	$MainMusic.play()
 
 
 func _on_piss(zone_id):

@@ -2,7 +2,7 @@
 godot-path =
 godot-name-executable-main = Godot_v3.3-stable
 
-project-name = Felix
+project-name = hungry_kitty
 itch-project = chickenstorm/felix
 
 

@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://game/persone_fix.gd" type="Script" id=1]
+[ext_resource path="res://.import/pas_humain.ogg-feb7ba487cb62e5fbfcbf3343417f77c.oggstr" type="AudioStream" id=2]
+[ext_resource path="res://.import/alerte.ogg-9058a4c8b0ea0486a8e48f3dcede61b2.oggstr" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5, 5 )
@@ -89,3 +91,11 @@ shape = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Toutch"]
 shape = SubResource( 5 )
+
+[node name="AlertS" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+bus = "Effect"
+
+[node name="StepSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
+bus = "Effect"

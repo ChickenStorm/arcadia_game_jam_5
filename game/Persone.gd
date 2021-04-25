@@ -41,6 +41,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	var old_position = self.position
 	if ray != null and cat != null:
 		if cat_in_area:
 			var vec_cat = cat.position - self.position
@@ -49,6 +50,7 @@ func _process(delta):
 			if see_cat:
 				move_and_collide(vec_cat.normalized() * delta * SPEED_SEE_CAT)
 				rotate_to_dir(delta, vec_cat)
+				play_if_has_moved(old_position, delta)
 				return
 		if inspect_sound:
 			path_sound = move_along_path(path_sound, delta)
@@ -66,10 +68,18 @@ func _process(delta):
 					inspect_sound = false
 					has_inspected = false
 					color_rect.color = Color(0, 255, 0)
+			play_if_has_moved(old_position, delta)
 			return
 		else:
 			_move(delta)
+			play_if_has_moved(old_position, delta)
 
+
+func play_if_has_moved(old_position, delta):
+	var has_moved = self.position.distance_to(old_position) > SPEED_FACTOR / 10 * delta
+	if has_moved != $StepSound.playing:
+		# we chnage the playing mode only if needed
+		$StepSound.playing = has_moved
 
 func _move(delta):
  pass
@@ -147,6 +157,7 @@ func set_see_cat(new_bool):
 	if new_bool == see_cat:
 		return # we do nothing, we want to register state chnage
 	if new_bool:
+		$AlertS.play(0.25)
 		path_sound = PoolVector2Array([])
 		path_p = PoolVector2Array([])
 		inspect_sound = false
